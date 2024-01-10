@@ -41,7 +41,7 @@ public class Zombie extends Entity {
       //attack();
     } else {
       ZombieSetDirection.zombieSetDirection(this); //Make Zombie face Player
-      gp.cChecker.checkTile(this); //Check Tile Collision
+      gp.collisionChecker.checkTile(this); //Check Tile Collision
       if (!isCollisionOn()) {
         EntityMove.move(this); //Make Zombie move
       }

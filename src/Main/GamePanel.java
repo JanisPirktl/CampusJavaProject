@@ -33,14 +33,14 @@ public class GamePanel extends JPanel implements Runnable {
 
 
   //FPS
-  int FPS = 60;
+  int fps = 60;
 
   private TileManager tileM = new TileManager(this);
-  KeyHandler keyH = new KeyHandler();
+  KeyHandler keyHandler = new KeyHandler();
   Thread gameThread;
-  public CollisionChecker cChecker = new CollisionChecker(this);
+  public CollisionChecker collisionChecker = new CollisionChecker(this);
   public MonsterSpawn monsterSpawn = new MonsterSpawn(this);
-  public Player player = new Player(this, keyH);
+  public Player player = new Player(this, keyHandler);
   private ArrayList<Zombie> monsters = new ArrayList<>();
 
 
@@ -49,7 +49,7 @@ public class GamePanel extends JPanel implements Runnable {
     this.setPreferredSize(new Dimension(screenWidth, screenHeight));
     this.setBackground(Color.black);
     this.setDoubleBuffered(true);
-    this.addKeyListener(keyH);
+    this.addKeyListener(keyHandler);
     this.setFocusable(true);
   }
 
@@ -77,7 +77,7 @@ public class GamePanel extends JPanel implements Runnable {
 
   public void run() {
 
-    double drawInterval = 1000000000/FPS;
+    double drawInterval = 1000000000/fps;
     double delta = 0;
     long lastTime = System.nanoTime();
     long currentTime;
