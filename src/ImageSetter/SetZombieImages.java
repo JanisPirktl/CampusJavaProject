@@ -1,10 +1,11 @@
-package Entity;
+package ImageSetter;
 
+import Entity.Zombie;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class ZombieImages {
+public class SetZombieImages {
 
   public void setZombieImages(Zombie zombie) {
     try {
@@ -44,8 +45,7 @@ public class ZombieImages {
       zombie.setAttackUpRight2(ImageIO.read(new File("res/zombie_attacking/zombie_attack_up_right2.png")));
 
     } catch (IOException e) {
-      e.printStackTrace();
+      System.out.println(e.getMessage());
     }
   }
-
 }

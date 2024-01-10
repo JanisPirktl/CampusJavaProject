@@ -1,6 +1,7 @@
 package Entity;
 
 
+import ImageSetter.SetPlayerImages;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -19,6 +20,7 @@ public class Player extends Entity {
 
   private final int screenX;
   private final int screenY;
+  private SetPlayerImages imageSetter = new SetPlayerImages();
 
 
   public Player(GamePanel gp, KeyHandler keyH) {
@@ -38,7 +40,7 @@ public class Player extends Entity {
     solidArea.height = 32;
 
     setDefaultValues();
-    getPlayerImage();
+    imageSetter.setPlayerImages(this);
   }
 
   private void setDefaultValues() {
@@ -48,32 +50,7 @@ public class Player extends Entity {
     setDirection("down");
   }
 
-  private void getPlayerImage() {
 
-    try {
-
-      setUp1(ImageIO.read(new File("res/player/boy_up_1.png")));
-      setUp2(ImageIO.read(new File("res/player/boy_up_2.png")));
-      setDown1(ImageIO.read(new File("res/player/boy_down_1.png")));
-      setDown2(ImageIO.read(new File("res/player/boy_down_2.png")));
-      setLeft1(ImageIO.read(new File("res/player/boy_left_1.png")));
-      setLeft2(ImageIO.read(new File("res/player/boy_left_2.png")));
-      setRight1(ImageIO.read(new File("res/player/boy_right_1.png")));
-      setRight2(ImageIO.read(new File("res/player/boy_right_2.png")));
-      setLeftDown1(ImageIO.read(new File("res/player/boy_down_left1.png")));
-      setLeftDown2(ImageIO.read(new File("res/player/boy_down_left2.png")));
-      setLeftUp1(ImageIO.read(new File("res/player/boy_up_left1.png")));
-      setLeftUp2(ImageIO.read(new File("res/player/boy_up_left2.png")));
-      setRightDown1(ImageIO.read(new File("res/player/boy_down_right1.png")));
-      setRightDown2(ImageIO.read(new File("res/player/boy_down_right2.png")));
-      setRightUp1(ImageIO.read(new File("res/player/boy_up_right1.png")));
-      setRightUp2(ImageIO.read(new File("res/player/boy_up_right2.png")));
-
-
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
 
   public void update() {
 

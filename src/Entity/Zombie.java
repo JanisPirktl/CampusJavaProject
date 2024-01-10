@@ -1,19 +1,17 @@
 package Entity;
 
+import ImageSetter.SetZombieImages;
 import Main.GamePanel;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
 public class Zombie extends Entity {
 
   //TODO set private
   GamePanel gp;
   private BufferedImage image;
-  private ZombieImages imageSetter = new ZombieImages();
+  private SetZombieImages imageSetter = new SetZombieImages();
 
 
 
