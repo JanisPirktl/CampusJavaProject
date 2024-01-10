@@ -1,7 +1,5 @@
 package Main;
 
-import CollisionCheck.CollisionChecker;
-import Entity.Entity;
 import Entity.Zombie;
 import java.awt.Color;
 import java.awt.Dimension;

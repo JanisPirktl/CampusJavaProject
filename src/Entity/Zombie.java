@@ -15,7 +15,7 @@ public class Zombie extends Entity {
   private final Draw draw = new Draw();
   private final CheckFacedTile checkFacedTile = new CheckFacedTile();
   private final ZombieSetDirection zombieSetDirection = new ZombieSetDirection();
-
+  private final CheckDistanceToPlayer checkDistanceToPlayer = new CheckDistanceToPlayer();
 
   public Zombie(GamePanel gamePanel, int worldX, int worldY) {
     super(2);
@@ -35,7 +35,7 @@ public class Zombie extends Entity {
 
     zombieSetDirection.zombieSetDirection(this); //Make Zombie face Player
     checkFacedTile.checkFacedTile(this); //Check Tile Collision
-    ZombieCheckDistanceToPlayer.checkDistance(this); //Make Zombie stand still if close to player
+    checkDistanceToPlayer.checkDistance(this); //Make Zombie stand still if close to player
 
     if (isCollisionOn()) {
       //attack();

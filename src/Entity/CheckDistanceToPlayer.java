@@ -1,8 +1,8 @@
 package Entity;
 
-public class ZombieCheckDistanceToPlayer {
+public class CheckDistanceToPlayer {
 
-  public static void checkDistance(Zombie zombie) {
+  public void checkDistance(Zombie zombie) {
 
     double distanceX = Math.abs(zombie.getWorldX() - zombie.getGamePanel().player.getWorldX());
     double distanceY = Math.abs(zombie.getWorldY() - zombie.getGamePanel().player.getWorldY());

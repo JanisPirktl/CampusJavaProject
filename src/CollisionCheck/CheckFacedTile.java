@@ -5,9 +5,6 @@ import Main.GamePanel;
 
 public class CheckFacedTile {
 
-
-
-
   public void checkFacedTile(Entity entity) {
 
     int entityLeftWorldX = entity.getWorldX() + entity.getSolidArea().x;
@@ -15,11 +12,17 @@ public class CheckFacedTile {
     int entityTopWorldY = entity.getWorldY() + entity.getSolidArea().y;
     int entityBottomWorldY = entity.getWorldY() + entity.getSolidArea().y + entity.getSolidArea().height;
 
-    int entityLeftCol = entityLeftWorldX/ 48;
-    int entityRightCol = entityRightWorldX/ 48;
+    int tileSize = entity.getGamePanel().tileSize;
+
+    int entityLeftCol = entityLeftWorldX/ tileSize;
+    int entityRightCol = entityRightWorldX/ tileSize;
     
-    int entityTopRow = entityTopWorldY/48;
-    int entityBottomRow = entityBottomWorldY/48;
+    int entityTopRow = entityTopWorldY/ tileSize;
+    int entityBottomRow = entityBottomWorldY/ tileSize;
+
+    int speed = entity.getSPEED();
+    //speed for the diagonale axis
+    int speedNormed = (int) (speed*speed / Math.sqrt(speed*speed * 2.0));
 
     int tileNum1;
     int tileNum2;
@@ -28,7 +31,7 @@ public class CheckFacedTile {
 
     switch(entity.getDirection()) {
       case "up":
-        entityTopRow = (entityTopWorldY - entity.getSPEED())/48;
+        entityTopRow = (entityTopWorldY - speed)/ tileSize;
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityTopRow];
         tileNum2 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityTopRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision || entity.getGamePanel().getTileM().getTile()[tileNum2].collision) {
@@ -36,7 +39,7 @@ public class CheckFacedTile {
         }
         break;
       case "down":
-        entityBottomRow = (entityBottomWorldY + entity.getSPEED())/48;
+        entityBottomRow = (entityBottomWorldY + speed)/ tileSize;
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityBottomRow];
         tileNum2 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityBottomRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision || entity.getGamePanel().getTileM().getTile()[tileNum2].collision) {
@@ -44,7 +47,7 @@ public class CheckFacedTile {
         }
         break;
       case "left":
-        entityLeftCol = (entityLeftWorldX - entity.getSPEED())/48;
+        entityLeftCol = (entityLeftWorldX - speed)/ tileSize;
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityTopRow];
         tileNum2 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityBottomRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision || entity.getGamePanel().getTileM().getTile()[tileNum2].collision) {
@@ -52,7 +55,7 @@ public class CheckFacedTile {
         }
         break;
       case "right":
-        entityRightCol = (entityRightWorldX + entity.getSPEED())/48;
+        entityRightCol = (entityRightWorldX + speed)/ tileSize;
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityTopRow];
         tileNum2 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityBottomRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision || entity.getGamePanel().getTileM().getTile()[tileNum2].collision) {
@@ -61,32 +64,32 @@ public class CheckFacedTile {
         break;
 
       case "right_up":
-        entityRightCol = (int) ((entityRightWorldX + Math.sqrt(entity.getSPEED() * 2))/48);
-        entityTopRow = (int) ((entityTopWorldY - Math.sqrt(entity.getSPEED() * 2))/48);
+        entityRightCol = ((entityRightWorldX + speedNormed)/ tileSize);
+        entityTopRow = ((entityTopWorldY - speedNormed)/ tileSize);
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityTopRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision) {
           entity.setCollisionOn(true);
         }
         break;
       case "right_down":
-        entityRightCol = (int) ((entityRightWorldX + Math.sqrt(entity.getSPEED() * 2))/48);
-        entityBottomRow = (int) ((entityBottomWorldY + Math.sqrt(entity.getSPEED() * 2))/48);
+        entityRightCol = ((entityRightWorldX + speedNormed)/ tileSize);
+        entityBottomRow = ((entityBottomWorldY + speedNormed)/ tileSize);
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityBottomRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision) {
           entity.setCollisionOn(true);
         }
         break;
       case "left_up":
-        entityLeftCol = (int) ((entityLeftWorldX - Math.sqrt(entity.getSPEED() * 2))/entity.getGamePanel().tileSize);
-        entityTopRow = (int) ((entityTopWorldY - Math.sqrt(entity.getSPEED() * 2))/entity.getGamePanel().tileSize);
+        entityLeftCol = ((entityLeftWorldX - speedNormed)/ tileSize);
+        entityTopRow = ((entityTopWorldY - speedNormed)/ tileSize);
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityTopRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision) {
           entity.setCollisionOn(true);
         }
         break;
       case "left_down":
-        entityLeftCol = (int) ((entityLeftWorldX - Math.sqrt(entity.getSPEED() * 2))/entity.getGamePanel().tileSize);
-        entityBottomRow = (int) ((entityBottomWorldY + Math.sqrt(entity.getSPEED() * 2))/entity.getGamePanel().tileSize);
+        entityLeftCol = ((entityLeftWorldX - speedNormed)/ tileSize);
+        entityBottomRow = ((entityBottomWorldY + speedNormed)/ tileSize);
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityBottomRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision) {
           entity.setCollisionOn(true);
@@ -94,5 +97,4 @@ public class CheckFacedTile {
         break;
     }
   }
-
 }
