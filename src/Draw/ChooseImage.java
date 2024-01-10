@@ -4,7 +4,7 @@ import Entity.Entity;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-public class Draw {
+public class ChooseImage {
 
   public void draw(Entity entity, Graphics2D g2, int tileSize, int screenX, int screenY) {
 

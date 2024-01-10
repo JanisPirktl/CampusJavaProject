@@ -4,7 +4,7 @@ package Entity;
 import CollisionCheck.CheckFacedTile;
 import CollisionCheck.CheckMonsterIntersection;
 import ImageSetter.SetPlayerImages;
-import Draw.Draw;
+import Draw.ChooseImage;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
@@ -19,7 +19,7 @@ public class Player extends Entity {
 
   private final int screenX;
   private final int screenY;
-  private final Draw draw = new Draw();
+  private final ChooseImage ChooseImage = new ChooseImage();
   private final CheckMonsterIntersection checkMonsterIntersection = new CheckMonsterIntersection();
   private final CheckFacedTile checkFacedTile = new CheckFacedTile();
   private final Move move = new Move();
@@ -91,7 +91,7 @@ public class Player extends Entity {
   }
 
   public void paint(Graphics2D g2) {
-    draw.draw(this, g2, gamePanel.getTileSize(), screenX, screenY);
+    ChooseImage.draw(this, g2, gamePanel.getTileSize(), screenX, screenY);
   }
 
 
