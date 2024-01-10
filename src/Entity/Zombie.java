@@ -50,7 +50,10 @@ public class Zombie extends Entity {
 
   }
 
+
   public void paint (Graphics2D g2, GamePanel gp) {
+
+    //calculate zombie's position on the screen
     int screenX = getWorldX() - gp.player.getWorldX() + gp.player.getScreenX();
     int screenY = getWorldY() - gp.player.getWorldY() + gp.player.getScreenY();
 

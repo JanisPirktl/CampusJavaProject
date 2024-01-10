@@ -7,38 +7,38 @@ public class CheckMonsterIntersection {
 
   public static void checkMonsterIntersection(Entity entity) {
 
-    for (Zombie zombie : CollisionChecker.getGp().getMonsters()) {
+    for (Entity monster : CollisionChecker.getGp().getMonsters()) {
       entity.solidArea.x = entity.getWorldX() + entity.solidArea.x;
       entity.solidArea.y = entity.getWorldY() + entity.solidArea.y;
 
-      zombie.solidArea.x = zombie.getWorldX() + zombie.solidArea.x;
-      zombie.solidArea.y = zombie.getWorldY() + zombie.solidArea.y;
+      monster.solidArea.x = monster.getWorldX() + monster.solidArea.x;
+      monster.solidArea.y = monster.getWorldY() + monster.solidArea.y;
 
       switch(entity.getDirection()) {
         case "up":
           entity.solidArea.y -= entity.getSPEED();
-          if (entity.solidArea.intersects(zombie.solidArea) && (zombie.isCollisionOn())) {
+          if (entity.solidArea.intersects(monster.solidArea) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
           break;
         case "down":
           entity.solidArea.y += entity.getSPEED();
-          if (entity.solidArea.intersects(zombie.solidArea) && (zombie.isCollisionOn())) {
+          if (entity.solidArea.intersects(monster.solidArea) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
           break;
         case "left":
           entity.solidArea.x -= entity.getSPEED();
-          if (entity.solidArea.intersects(zombie.solidArea) && (zombie.isCollisionOn())) {
+          if (entity.solidArea.intersects(monster.solidArea) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
           break;
         case "right":
           entity.solidArea.x += entity.getSPEED();
-          if (entity.solidArea.intersects(zombie.solidArea) && (zombie.isCollisionOn())) {
+          if (entity.solidArea.intersects(monster.solidArea) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
@@ -46,7 +46,7 @@ public class CheckMonsterIntersection {
         case "left_up":
           entity.solidArea.x -= (int) Math.sqrt(entity.getSPEED() * (double)2);
           entity.solidArea.y -= (int) Math.sqrt(entity.getSPEED() * (double)2);
-          if (entity.solidArea.intersects(zombie.solidArea) && (zombie.isCollisionOn())) {
+          if (entity.solidArea.intersects(monster.solidArea) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
@@ -54,7 +54,7 @@ public class CheckMonsterIntersection {
         case "left_down":
           entity.solidArea.x -= (int) Math.sqrt(entity.getSPEED() * (double)2);
           entity.solidArea.y += (int) Math.sqrt(entity.getSPEED() * (double)2);
-          if (entity.solidArea.intersects(zombie.solidArea) && (zombie.isCollisionOn())) {
+          if (entity.solidArea.intersects(monster.solidArea) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
@@ -62,7 +62,7 @@ public class CheckMonsterIntersection {
         case "right_up":
           entity.solidArea.x += (int) Math.sqrt(entity.getSPEED() * (double)2);
           entity.solidArea.y -= (int) Math.sqrt(entity.getSPEED() * (double)2);
-          if (entity.solidArea.intersects(zombie.solidArea) && (zombie.isCollisionOn())) {
+          if (entity.solidArea.intersects(monster.solidArea) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
@@ -70,7 +70,7 @@ public class CheckMonsterIntersection {
         case "right_down":
           entity.solidArea.x += (int) Math.sqrt(entity.getSPEED() * (double)2);
           entity.solidArea.y += (int) Math.sqrt(entity.getSPEED() * (double)2);
-          if (entity.solidArea.intersects(zombie.solidArea) && (zombie.isCollisionOn())) {
+          if (entity.solidArea.intersects(monster.solidArea) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
@@ -78,8 +78,8 @@ public class CheckMonsterIntersection {
       }
       entity.solidArea.x = entity.getSolidAreaDefaultX();
       entity.solidArea.y = entity.getSolidAreaDefaultY();
-      zombie.solidArea.x = zombie.getSolidAreaDefaultX();
-      zombie.solidArea.y = zombie.getSolidAreaDefaultY();
+      monster.solidArea.x = monster.getSolidAreaDefaultX();
+      monster.solidArea.y = monster.getSolidAreaDefaultY();
     }
   }
 }

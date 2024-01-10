@@ -1,6 +1,7 @@
 package Main;
 
 import CollisionCheck.CollisionChecker;
+import Entity.Entity;
 import Entity.Zombie;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -111,8 +112,8 @@ public class GamePanel extends JPanel implements Runnable {
 
     player.update();
 
-    for (Zombie zombie : monsters) {
-      zombie.update();
+    for (Zombie entity : monsters) {
+      entity.update();
     }
 
   }

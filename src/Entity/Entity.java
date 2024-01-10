@@ -350,4 +350,8 @@ public abstract class Entity {
   public void setAttackUpRight2(BufferedImage attackUpRight2) {
     this.attackUpRight2 = attackUpRight2;
   }
+
+  public abstract void update();
+
+
 }
