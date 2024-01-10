@@ -5,9 +5,9 @@ import Entity.Zombie;
 
 public class CheckMonsterIntersection {
 
-  public static void checkMonsterIntersection(Entity entity) {
+  public void checkMonsterIntersection(Entity entity) {
 
-    for (Entity monster : CollisionChecker.getGp().getMonsters()) {
+    for (Entity monster : entity.getGamePanel().getMonsters()) {
       entity.solidArea.x = entity.getWorldX() + entity.solidArea.x;
       entity.solidArea.y = entity.getWorldY() + entity.solidArea.y;
 

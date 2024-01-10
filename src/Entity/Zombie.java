@@ -1,5 +1,6 @@
 package Entity;
 
+import CollisionCheck.CheckFacedTile;
 import ImageSetter.SetZombieImages;
 import Draw.Draw;
 import Main.GamePanel;
@@ -10,14 +11,15 @@ import java.awt.image.BufferedImage;
 public class Zombie extends Entity {
 
   //TODO set private
-  GamePanel gp;
+  private GamePanel gamePanel;
   private BufferedImage image;
   private Draw draw = new Draw();
+  private CheckFacedTile checkFacedTile = new CheckFacedTile();
 
 
-  public Zombie(GamePanel gp, int worldX, int worldY) {
+  public Zombie(GamePanel gamePanel, int worldX, int worldY) {
     super(2);
-    this.gp = gp;
+    this.gamePanel = gamePanel;
     this.setWorldX(worldX);
     this.setWorldY(worldY);
     solidArea = new Rectangle(0, 0, 48, 48);
@@ -41,7 +43,7 @@ public class Zombie extends Entity {
       //attack();
     } else {
       ZombieSetDirection.zombieSetDirection(this); //Make Zombie face Player
-      gp.collisionChecker.checkTile(this); //Check Tile Collision
+      checkFacedTile.checkFacedTile(this); //Check Tile Collision
       if (!isCollisionOn()) {
         EntityMove.move(this); //Make Zombie move
       }
@@ -51,18 +53,18 @@ public class Zombie extends Entity {
   }
 
 
-  public void paint (Graphics2D g2, GamePanel gp) {
+  public void paint (Graphics2D g2, GamePanel gamePanel) {
 
     //calculate zombie's position on the screen
-    int screenX = getWorldX() - gp.player.getWorldX() + gp.player.getScreenX();
-    int screenY = getWorldY() - gp.player.getWorldY() + gp.player.getScreenY();
+    int screenX = getWorldX() - gamePanel.player.getWorldX() + gamePanel.player.getScreenX();
+    int screenY = getWorldY() - gamePanel.player.getWorldY() + gamePanel.player.getScreenY();
 
     //only draws the zombie, if it's located inside screen area
-    if (getWorldX() + gp.tileSize > gp.player.getWorldX() - gp.player.getScreenX() &&
-        getWorldX() - gp.tileSize < gp.player.getWorldX() + gp.player.getScreenX() &&
-        getWorldY() + gp.tileSize > gp.player.getWorldY() - gp.player.getScreenY() &&
-        getWorldY() - gp.tileSize < gp.player.getWorldY() + gp.player.getScreenY()) {
-      draw.draw(this,g2, gp.tileSize, screenX, screenY);
+    if (getWorldX() + gamePanel.tileSize > gamePanel.player.getWorldX() - gamePanel.player.getScreenX() &&
+        getWorldX() - gamePanel.tileSize < gamePanel.player.getWorldX() + gamePanel.player.getScreenX() &&
+        getWorldY() + gamePanel.tileSize > gamePanel.player.getWorldY() - gamePanel.player.getScreenY() &&
+        getWorldY() - gamePanel.tileSize < gamePanel.player.getWorldY() + gamePanel.player.getScreenY()) {
+      draw.draw(this,g2, gamePanel.tileSize, screenX, screenY);
     }
   }
 
@@ -70,6 +72,9 @@ public class Zombie extends Entity {
 
   public void setImage(BufferedImage image) {
     this.image = image;
+  }
+  public GamePanel getGamePanel() {
+    return gamePanel;
   }
 }
 

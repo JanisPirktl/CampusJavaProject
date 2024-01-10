@@ -12,13 +12,6 @@ public class CollisionChecker {
   public CollisionChecker(GamePanel gp) {
     CollisionChecker.gp = gp;
   }
-  public void checkTile(Entity entity) {
-    tileChecker.checkFacedTile(entity);
-  }
-
-  public void checkMonsterCollision(Entity entity) {
-    CheckMonsterIntersection.checkMonsterIntersection(entity);
-  }
 
   public static GamePanel getGp() {
     return gp;

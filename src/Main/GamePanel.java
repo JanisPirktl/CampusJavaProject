@@ -38,7 +38,6 @@ public class GamePanel extends JPanel implements Runnable {
   private TileManager tileM = new TileManager(this);
   KeyHandler keyHandler = new KeyHandler();
   Thread gameThread;
-  public CollisionChecker collisionChecker = new CollisionChecker(this);
   public MonsterSpawn monsterSpawn = new MonsterSpawn(this);
   public Player player = new Player(this, keyHandler);
   private ArrayList<Zombie> monsters = new ArrayList<>();
@@ -93,7 +92,7 @@ public class GamePanel extends JPanel implements Runnable {
       lastTime = currentTime;
 
       if(delta >= 1) {
-        update();
+        update(this);
         repaint();
         delta--;
         drawCount++;
@@ -108,7 +107,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
   }
 
-  public void update() {
+  public void update(GamePanel gamePanel) {
 
     player.update();
 
@@ -138,7 +137,11 @@ public class GamePanel extends JPanel implements Runnable {
     g2.dispose();
   }
 
+  public int getTileSize() {
+    return tileSize;
+  }
   public TileManager getTileM() {
     return tileM;
   }
 }
+

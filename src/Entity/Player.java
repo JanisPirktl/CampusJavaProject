@@ -1,6 +1,8 @@
 package Entity;
 
 
+import CollisionCheck.CheckFacedTile;
+import CollisionCheck.CheckMonsterIntersection;
 import ImageSetter.SetPlayerImages;
 import Draw.Draw;
 import java.awt.Graphics2D;
@@ -12,12 +14,14 @@ import Main.KeyHandler;
 
 public class Player extends Entity {
 
-  GamePanel gamePanel;
+  private GamePanel gamePanel;
   KeyHandler keyHandler;
 
   private final int screenX;
   private final int screenY;
   private final Draw draw = new Draw();
+  private CheckMonsterIntersection checkMonsterIntersection = new CheckMonsterIntersection();
+  private CheckFacedTile checkFacedTile = new CheckFacedTile();
 
 
   public Player(GamePanel gamePanel, KeyHandler keyH) {
@@ -76,10 +80,10 @@ public class Player extends Entity {
 
       //CHeck TILE COLLISION
       setCollisionOn(false);
-      gamePanel.collisionChecker.checkTile(this);
+      checkFacedTile.checkFacedTile(this);
 
       //CHeck Monster COllision
-      gamePanel.collisionChecker.checkMonsterCollision(this);
+      checkMonsterIntersection.checkMonsterIntersection(this);
 
       //IF COLLISION IS FALSE, PLAYER CAN MOVE
       if (!isCollisionOn()) {
@@ -101,6 +105,9 @@ public class Player extends Entity {
 
   public int getScreenY() {
     return screenY;
+  }
+  public GamePanel getGamePanel() {
+    return gamePanel;
   }
 }
 

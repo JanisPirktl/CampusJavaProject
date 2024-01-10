@@ -1,5 +1,6 @@
 package Entity;
 
+import Main.GamePanel;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
@@ -353,5 +354,6 @@ public abstract class Entity {
 
   public abstract void update();
 
+  public abstract GamePanel getGamePanel();
 
 }
