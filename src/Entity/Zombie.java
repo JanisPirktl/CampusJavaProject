@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 
 public class Zombie extends Entity {
 
+  //TODO set private
   GamePanel gp;
   private BufferedImage image;
   private ZombieImages imageSetter = new ZombieImages();
@@ -64,8 +65,7 @@ public class Zombie extends Entity {
     }
   }
 
-  // I have no idea why I need this, but the programm won't work without it
-  // Zombie has 2 draw() methods???
+
 
   public void setImage(BufferedImage image) {
     this.image = image;

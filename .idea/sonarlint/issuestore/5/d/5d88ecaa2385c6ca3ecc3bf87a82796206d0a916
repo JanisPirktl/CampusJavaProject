@@ -1,6 +1,6 @@
 
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(°€Òşÿÿÿÿ8ğÀÛ«Î1
 ‰
-java:S1130	"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(œû¿Ø8Åª¾ØÎ1
+java:S1130	"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(œû¿Ø8×¦•Ï1
 k
 java:S3252"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(ÁŞÃôüÿÿÿÿ8€ÁÛ«Î1

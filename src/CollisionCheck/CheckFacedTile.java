@@ -4,28 +4,22 @@ import Entity.Entity;
 
 public class CheckFacedTile {
 
-  private static int entityLeftWorldX;
-  private static int entityRightWorldX;
-  private static int entityTopWorldY;
-  private static int entityBottomWorldY;
-  private static int entityLeftCol;
-  private static int entityRightCol;
-  private static int entityTopRow;
-  private static int entityBottomRow;
-  private static int tileNum1;
-  private static int tileNum2;
 
-  public static void checkFacedTile(Entity entity) {
 
-    entityLeftWorldX = entity.getWorldX() + entity.solidArea.x;
-    entityRightWorldX = entity.getWorldX() + entity.solidArea.x + entity.solidArea.width;
-    entityTopWorldY = entity.getWorldY() + entity.solidArea.y;
-    entityBottomWorldY = entity.getWorldY() + entity.solidArea.y + entity.solidArea.height;
+  public void checkFacedTile(Entity entity) {
 
-    entityLeftCol = entityLeftWorldX/CollisionChecker.getGp().tileSize;
-    entityRightCol = entityRightWorldX/CollisionChecker.getGp().tileSize;
-    entityTopRow = entityTopWorldY/CollisionChecker.getGp().tileSize;
-    entityBottomRow = entityBottomWorldY/CollisionChecker.getGp().tileSize;
+    int entityLeftWorldX = entity.getWorldX() + entity.solidArea.x;
+    int entityRightWorldX = entity.getWorldX() + entity.solidArea.x + entity.solidArea.width;
+    int entityTopWorldY = entity.getWorldY() + entity.solidArea.y;
+    int entityBottomWorldY = entity.getWorldY() + entity.solidArea.y + entity.solidArea.height;
+
+    int entityLeftCol = entityLeftWorldX/CollisionChecker.getGp().tileSize;
+    int entityRightCol = entityRightWorldX/CollisionChecker.getGp().tileSize;
+    int entityTopRow = entityTopWorldY/CollisionChecker.getGp().tileSize;
+    int entityBottomRow = entityBottomWorldY/CollisionChecker.getGp().tileSize;
+
+    int tileNum1;
+    int tileNum2;
 
     switch(entity.getDirection()) {
       case "up":
