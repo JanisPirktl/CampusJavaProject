@@ -1,0 +1,44 @@
+
+j
+java:S2184A"HCast one of the operands of this multiplication operation to a "double".(š…Ù¿ÿÿÿÿÿ8şğÎ1
+j
+java:S2184B"HCast one of the operands of this multiplication operation to a "double".(Ì»„ıÿÿÿÿ8ÿğÎ1
+j
+java:S2184I"HCast one of the operands of this multiplication operation to a "double".(š…Ù¿ÿÿÿÿÿ8ÿğÎ1
+e
+java:S2184J"HCast one of the operands of this multiplication operation to a "double".(ÜË½Í8ÿğÎ1
+j
+java:S2184Q"HCast one of the operands of this multiplication operation to a "double".(´é¹õÿÿÿÿÿ8ÿğÎ1
+j
+java:S2184R"HCast one of the operands of this multiplication operation to a "double".(Ì»„ıÿÿÿÿ8ÿğÎ1
+j
+java:S2184Y"HCast one of the operands of this multiplication operation to a "double".(´é¹õÿÿÿÿÿ8ÿğÎ1
+e
+java:S2184Z"HCast one of the operands of this multiplication operation to a "double".(ÜË½Í8ÿğÎ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Æª¤çüÿÿÿÿ8ÿğÎ1
+{
+java:S1450"^Remove the "entityBottomRow" field and declare it as a local variable in the relevant methods.(Õæ©Ÿ8€ŸğÎ1
+ƒ
+java:S1450
+"aRemove the "entityBottomWorldY" field and declare it as a local variable in the relevant methods.(Û„éûÿÿÿÿ8€ŸğÎ1
+~
+java:S1450"\Remove the "entityLeftCol" field and declare it as a local variable in the relevant methods.(ıŠ’Şüÿÿÿÿ8€ŸğÎ1
+
+java:S1450"_Remove the "entityLeftWorldX" field and declare it as a local variable in the relevant methods.(¾ãÃ©øÿÿÿÿ8ŸğÎ1
+z
+java:S1450"]Remove the "entityRightCol" field and declare it as a local variable in the relevant methods.(ˆ…8ŸğÎ1
+‚
+java:S1450"`Remove the "entityRightWorldX" field and declare it as a local variable in the relevant methods.(ä¹¿êüÿÿÿÿ8ŸğÎ1
+x
+java:S1450"[Remove the "entityTopRow" field and declare it as a local variable in the relevant methods.(ñÎë¿8ŸğÎ1
+{
+java:S1450	"^Remove the "entityTopWorldY" field and declare it as a local variable in the relevant methods.(ºöÙ™8ŸğÎ1
+y
+java:S1450"WRemove the "tileNum1" field and declare it as a local variable in the relevant methods.(‰ôÑØøÿÿÿÿ8ŸğÎ1
+s
+java:S1450"WRemove the "tileNum2" field and declare it as a local variable in the relevant methods.(ÔÒÿ8ŸğÎ1
+\
+java:S1118":Add a private constructor to hide the implicit public one.(™²Š„ûÿÿÿÿ8í˜ğÎ1
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(çŒ«Íüÿÿÿÿ8‚ŸğÎ1
+>	java:S131""Add a default case to this switch.(è²«’8ƒŸğÎ1

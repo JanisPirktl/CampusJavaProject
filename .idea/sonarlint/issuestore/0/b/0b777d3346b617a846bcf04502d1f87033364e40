@@ -1,0 +1,45 @@
+
+’
+java:S1319>"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(–Ê²Ùùÿÿÿÿ8¥‹ÀïÎ1
+v
+java:S1104("TMake cChecker a static final constant or non-public and provide accessors if needed.(ğãÇ™ùÿÿÿÿ8¦‹ÀïÎ1
+u
+java:S1104)"XMake monsterSpawn a static final constant or non-public and provide accessors if needed.(ú¬í£8¦‹ÀïÎ1
+t
+java:S1104*"RMake player a static final constant or non-public and provide accessors if needed.(²­Âåÿÿÿÿÿ8¦‹ÀïÎ1
+d
+java:S2184O"BCast one of the operands of this division operation to a "double".(¿ºÂ‡ûÿÿÿÿ8¦‹ÀïÎ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(°€Òşÿÿÿÿ8¦‹ÀïÎ1
+j	java:S116#"NRename this field "FPS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷³¼º8³‹ÀïÎ1
+>
+java:S1170"!Make this final field static too.(Äüç8µ‹ÀïÎ1
+C
+java:S1170"!Make this final field static too.(èÒ½Ùúÿÿÿÿ8µ‹ÀïÎ1
+C
+java:S1170"!Make this final field static too.(Ô‘•åıÿÿÿÿ8µ‹ÀïÎ1
+C
+java:S1170"!Make this final field static too.(ÌüÉ¾ÿÿÿÿÿ8µ‹ÀïÎ1
+>
+java:S1170"!Make this final field static too.(„èÔª8µ‹ÀïÎ1
+>
+java:S1170"!Make this final field static too.(—¼§‰8µ‹ÀïÎ1
+>
+java:S1170"!Make this final field static too.(Ó–üÆ8µ‹ÀïÎ1
+>
+java:S1170"!Make this final field static too.(µ÷ ¶8µ‹ÀïÎ1
+C
+java:S1170"!Make this final field static too.(ã˜¼„üÿÿÿÿ8µ‹ÀïÎ1
+D
+java:S1948%"'Make "tileM" transient or serializable.(Ùı•”8¶‹ÀïÎ1
+H
+java:S1948&"&Make "keyH" transient or serializable.(•ˆøÓøÿÿÿÿ8¶‹ÀïÎ1
+I
+java:S1948'",Make "gameThread" transient or serializable.(¡ç®ş8¶‹ÀïÎ1
+L
+java:S1948("*Make "cChecker" transient or serializable.(ğãÇ™ùÿÿÿÿ8¶‹ÀïÎ1
+K
+java:S1948)".Make "monsterSpawn" transient or serializable.(ú¬í£8¶‹ÀïÎ1
+J
+java:S1948*"(Make "player" transient or serializable.(²­Âåÿÿÿÿÿ8¶‹ÀïÎ1
+L
+java:S1948+"*Make "monsters" transient or serializable.(ùİ‘ˆûÿÿÿÿ8¶‹ÀïÎ1
