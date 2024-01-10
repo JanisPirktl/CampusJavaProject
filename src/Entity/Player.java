@@ -2,6 +2,7 @@ package Entity;
 
 
 import ImageSetter.SetPlayerImages;
+import Draw.Draw;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -20,7 +21,7 @@ public class Player extends Entity {
 
   private final int screenX;
   private final int screenY;
-  private SetPlayerImages imageSetter = new SetPlayerImages();
+  private Draw draw = new Draw();
 
 
   public Player(GamePanel gp, KeyHandler keyH) {
@@ -40,6 +41,7 @@ public class Player extends Entity {
     solidArea.height = 32;
 
     setDefaultValues();
+    SetPlayerImages imageSetter = new SetPlayerImages();
     imageSetter.setPlayerImages(this);
   }
 
@@ -92,79 +94,8 @@ public class Player extends Entity {
     }
   }
 
-  public void draw(Graphics2D g2) {
-
-    BufferedImage image = null;
-
-    switch (getDirection()) {
-      case "up":
-        if (getSpriteNum() == 1) {
-          image = getUp1();
-        }
-        if (getSpriteNum() == 2) {
-          image = getUp2();
-        }
-        break;
-      case "down":
-        if (getSpriteNum() == 1) {
-          image = getDown1();
-        }
-        if (getSpriteNum() == 2) {
-          image = getDown2();
-        }
-        break;
-      case "left":
-        if (getSpriteNum() == 1) {
-          image = getLeft1();
-        }
-        if (getSpriteNum() == 2) {
-          image = getLeft2();
-        }
-        break;
-      case "right":
-        if (getSpriteNum() == 1) {
-          image = getRight1();
-        }
-        if (getSpriteNum() == 2) {
-          image = getRight2();
-        }
-        break;
-      case "right_up":
-        if (getSpriteNum() == 1) {
-          image = getRightUp1();
-        }
-        if (getSpriteNum() == 2) {
-          image = getRightUp2();
-        }
-        break;
-      case "right_down":
-        if (getSpriteNum() == 1) {
-          image = getRightDown1();
-        }
-        if (getSpriteNum() == 2) {
-          image = getRightDown2();
-        }
-        break;
-      case "left_up":
-        if (getSpriteNum() == 1) {
-          image = getLeftUp1();
-        }
-        if (getSpriteNum() == 2) {
-          image = getLeftUp2();
-        }
-        break;
-      case "left_down":
-        if (getSpriteNum() == 1) {
-          image = getLeftDown1();
-        }
-        if (getSpriteNum() == 2) {
-          image = getLeftDown2();
-        }
-        break;
-    }
-    g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
-
-
+  public void paint(Graphics2D g2) {
+    draw.draw(this, g2, gp.tileSize, screenX, screenY);
   }
 
 

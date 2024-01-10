@@ -127,10 +127,10 @@ public class GamePanel extends JPanel implements Runnable {
     tileM.draw(g2);
 
     for(Zombie monster : monsters) {
-      monster.draw(g2, this);
+      monster.paint(g2, this);
     }
 
-    player.draw(g2);
+    player.paint(g2);
 
 
 

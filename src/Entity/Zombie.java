@@ -1,6 +1,7 @@
 package Entity;
 
 import ImageSetter.SetZombieImages;
+import Draw.Draw;
 import Main.GamePanel;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -11,8 +12,7 @@ public class Zombie extends Entity {
   //TODO set private
   GamePanel gp;
   private BufferedImage image;
-  private SetZombieImages imageSetter = new SetZombieImages();
-
+  private Draw draw = new Draw();
 
 
   public Zombie(GamePanel gp, int worldX, int worldY) {
@@ -25,6 +25,7 @@ public class Zombie extends Entity {
     setSolidAreaDefaultY(0);
     setCollisionOn(true);
     setDirection("down");
+    SetZombieImages imageSetter = new SetZombieImages();
     imageSetter.setZombieImages(this);
   }
 
@@ -49,17 +50,16 @@ public class Zombie extends Entity {
 
   }
 
-  public void draw(Graphics2D g2, GamePanel gp) {
+  public void paint (Graphics2D g2, GamePanel gp) {
     int screenX = getWorldX() - gp.player.getWorldX() + gp.player.getScreenX();
     int screenY = getWorldY() - gp.player.getWorldY() + gp.player.getScreenY();
-    SetMonsterImage.setImage(this);
 
     //only draws the zombie, if it's located inside screen area
     if (getWorldX() + gp.tileSize > gp.player.getWorldX() - gp.player.getScreenX() &&
         getWorldX() - gp.tileSize < gp.player.getWorldX() + gp.player.getScreenX() &&
         getWorldY() + gp.tileSize > gp.player.getWorldY() - gp.player.getScreenY() &&
         getWorldY() - gp.tileSize < gp.player.getWorldY() + gp.player.getScreenY()) {
-      g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+      draw.draw(this,g2, gp.tileSize, screenX, screenY);
     }
   }
 
