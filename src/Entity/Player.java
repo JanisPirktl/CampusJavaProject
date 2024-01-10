@@ -32,13 +32,9 @@ public class Player extends Entity {
     screenX = gamePanel.screenWidth / 2 - (gamePanel.tileSize / 2);
     screenY = gamePanel.screenHeight / 2 - (gamePanel.tileSize / 2);
 
-    solidArea = new Rectangle();
-    solidArea.x = 15;
-    solidArea.y = 16;
-    setSolidAreaDefaultX(solidArea.x);
-    setSolidAreaDefaultY(solidArea.y);
-    solidArea.width = 18;
-    solidArea.height = 32;
+    setSolidArea(new Rectangle(15, 16, 18, 32));
+    setSolidAreaDefaultX(getSolidArea().x);
+    setSolidAreaDefaultY(getSolidArea().y);
     setDefaultValues();
     SetPlayerImages imageSetter = new SetPlayerImages();
     imageSetter.setPlayerImages(this);
@@ -79,7 +75,7 @@ public class Player extends Entity {
       }
 
       //CHeck TILE COLLISION
-      setCollisionOn(false);
+
       checkFacedTile.checkFacedTile(this);
 
       //CHeck Monster COllision

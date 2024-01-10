@@ -2,7 +2,7 @@ package Entity;
 
 public class ZombieSetDirection {
 
-  public static void zombieSetDirection(Zombie zombie) {
+  public void zombieSetDirection(Zombie zombie) {
 
     if (Math.abs(Math.abs(zombie.getWorldX() - zombie.getGamePanel().player.getWorldX()) - Math.abs(
         zombie.getWorldY() - zombie.getGamePanel().player.getWorldY())) < 50) {

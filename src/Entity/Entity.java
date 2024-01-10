@@ -15,7 +15,7 @@ public abstract class Entity {
   private int spriteCounter = 0;
   private int spriteNum = 1;
 
-  public Rectangle solidArea;
+  private Rectangle solidArea;
   private int solidAreaDefaultX;
   private int solidAreaDefaultY;
   private boolean collisionOn;
@@ -350,6 +350,12 @@ public abstract class Entity {
 
   public void setAttackUpRight2(BufferedImage attackUpRight2) {
     this.attackUpRight2 = attackUpRight2;
+  }
+  public Rectangle getSolidArea() {
+    return solidArea;
+  }
+  public void setSolidArea(Rectangle solidArea) {
+    this.solidArea = solidArea;
   }
 
   public abstract void update();

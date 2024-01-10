@@ -10,18 +10,21 @@ public class CheckFacedTile {
 
   public void checkFacedTile(Entity entity) {
 
-    int entityLeftWorldX = entity.getWorldX() + entity.solidArea.x;
-    int entityRightWorldX = entity.getWorldX() + entity.solidArea.x + entity.solidArea.width;
-    int entityTopWorldY = entity.getWorldY() + entity.solidArea.y;
-    int entityBottomWorldY = entity.getWorldY() + entity.solidArea.y + entity.solidArea.height;
+    int entityLeftWorldX = entity.getWorldX() + entity.getSolidArea().x;
+    int entityRightWorldX = entity.getWorldX() + entity.getSolidArea().x + entity.getSolidArea().width;
+    int entityTopWorldY = entity.getWorldY() + entity.getSolidArea().y;
+    int entityBottomWorldY = entity.getWorldY() + entity.getSolidArea().y + entity.getSolidArea().height;
 
     int entityLeftCol = entityLeftWorldX/ 48;
     int entityRightCol = entityRightWorldX/ 48;
+    
     int entityTopRow = entityTopWorldY/48;
     int entityBottomRow = entityBottomWorldY/48;
 
     int tileNum1;
     int tileNum2;
+
+    entity.setCollisionOn(false);
 
     switch(entity.getDirection()) {
       case "up":
