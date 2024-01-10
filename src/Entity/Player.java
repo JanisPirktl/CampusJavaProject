@@ -14,14 +14,15 @@ import Main.KeyHandler;
 
 public class Player extends Entity {
 
-  private GamePanel gamePanel;
-  KeyHandler keyHandler;
+  private final GamePanel gamePanel;
+  private final KeyHandler keyHandler;
 
   private final int screenX;
   private final int screenY;
   private final Draw draw = new Draw();
-  private CheckMonsterIntersection checkMonsterIntersection = new CheckMonsterIntersection();
-  private CheckFacedTile checkFacedTile = new CheckFacedTile();
+  private final CheckMonsterIntersection checkMonsterIntersection = new CheckMonsterIntersection();
+  private final CheckFacedTile checkFacedTile = new CheckFacedTile();
+  private final Move move = new Move();
 
 
   public Player(GamePanel gamePanel, KeyHandler keyH) {
@@ -29,8 +30,8 @@ public class Player extends Entity {
     this.gamePanel = gamePanel;
     this.keyHandler = keyH;
 
-    screenX = gamePanel.screenWidth / 2 - (gamePanel.tileSize / 2);
-    screenY = gamePanel.screenHeight / 2 - (gamePanel.tileSize / 2);
+    screenX = gamePanel.getScreenWidth() / 2 - (gamePanel.getTileSize() / 2);
+    screenY = gamePanel.getScreenHeight() / 2 - (gamePanel.getTileSize() / 2);
 
     setSolidArea(new Rectangle(15, 16, 18, 32));
     setSolidAreaDefaultX(getSolidArea().x);
@@ -42,8 +43,8 @@ public class Player extends Entity {
 
   private void setDefaultValues() {
 
-    setWorldX(gamePanel.tileSize * 23);
-    setWorldY(gamePanel.tileSize * 21);
+    setWorldX(gamePanel.getTileSize() * 23);
+    setWorldY(gamePanel.getTileSize() * 21);
     setDirection("down");
   }
 
@@ -51,26 +52,26 @@ public class Player extends Entity {
 
   public void update() {
 
-    if (keyHandler.upPressed || keyHandler.downPressed ||
-        keyHandler.leftPressed || keyHandler.rightPressed || (keyHandler.leftPressed && keyHandler.downPressed) || (
-        keyHandler.leftPressed && keyHandler.upPressed) || (keyHandler.rightPressed && keyHandler.downPressed) || (
-        keyHandler.rightPressed && keyHandler.upPressed)) {
+    if (keyHandler.isUpPressed() || keyHandler.isDownPressed() ||
+        keyHandler.isLeftPressed() || keyHandler.isRightPressed() || (keyHandler.isLeftPressed() && keyHandler.isDownPressed()) || (
+        keyHandler.isLeftPressed() && keyHandler.isUpPressed()) || (keyHandler.isRightPressed() && keyHandler.isDownPressed()) || (
+        keyHandler.isRightPressed() && keyHandler.isUpPressed())) {
 
-      if (keyHandler.upPressed && !keyHandler.leftPressed && !keyHandler.rightPressed) {
+      if (keyHandler.isUpPressed() && !keyHandler.isLeftPressed() && !keyHandler.isRightPressed()) {
         setDirection("up");
-      } else if (keyHandler.downPressed && !keyHandler.leftPressed && !keyHandler.rightPressed) {
+      } else if (keyHandler.isDownPressed() && !keyHandler.isLeftPressed() && !keyHandler.isRightPressed()) {
         setDirection("down");
-      } else if (keyHandler.leftPressed && !keyHandler.upPressed && !keyHandler.downPressed) {
+      } else if (keyHandler.isLeftPressed() && !keyHandler.isUpPressed() && !keyHandler.isDownPressed()) {
         setDirection("left");
-      } else if (keyHandler.rightPressed && !keyHandler.upPressed && !keyHandler.downPressed) {
+      } else if (keyHandler.isRightPressed() && !keyHandler.isUpPressed() && !keyHandler.isDownPressed()) {
         setDirection("right");
-      } else if (keyHandler.upPressed && keyHandler.rightPressed) {
+      } else if (keyHandler.isUpPressed() && keyHandler.isRightPressed()) {
         setDirection("right_up");
-      } else if (keyHandler.upPressed && keyHandler.leftPressed) {
+      } else if (keyHandler.isUpPressed() && keyHandler.isLeftPressed()) {
         setDirection("left_up");
-      } else if (keyHandler.downPressed && keyHandler.leftPressed) {
+      } else if (keyHandler.isDownPressed() && keyHandler.isLeftPressed()) {
         setDirection("left_down");
-      } else if (keyHandler.downPressed && keyHandler.rightPressed) {
+      } else if (keyHandler.isDownPressed() && keyHandler.isRightPressed()) {
         setDirection("right_down");
       }
 
@@ -83,14 +84,14 @@ public class Player extends Entity {
 
       //IF COLLISION IS FALSE, PLAYER CAN MOVE
       if (!isCollisionOn()) {
-        EntityMove.move(this);
+        move.move(this);
       }
       EntitySpriteCounter.countSprite(this, 10);
     }
   }
 
   public void paint(Graphics2D g2) {
-    draw.draw(this, g2, gamePanel.tileSize, screenX, screenY);
+    draw.draw(this, g2, gamePanel.getTileSize(), screenX, screenY);
   }
 
 

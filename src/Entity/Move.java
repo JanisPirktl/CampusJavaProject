@@ -1,8 +1,8 @@
 package Entity;
 
-public class EntityMove {
+public class Move {
 
-  public static void move(Entity entity) {
+  public void move(Entity entity) {
 
       int speed = entity.getSPEED();
 

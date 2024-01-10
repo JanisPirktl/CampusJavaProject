@@ -15,30 +15,26 @@ import Tile.TileManager;
 public class GamePanel extends JPanel implements Runnable {
 
   //Screen Settings
-  final int originalTileSize = 16;
-  final int scale = 3;
+  private final int originalTileSize = 16;
+  private final int scale = 3;
+  private final int tileSize = originalTileSize * scale;
 
-  public final int tileSize = originalTileSize * scale;
-  public final int maxScreenCol = 24;
-  public final int maxScreenRow = 20;
-  public final int screenWidth = tileSize * maxScreenCol;
-  public final int screenHeight = tileSize * maxScreenRow;
-
-  //World settings
-  public final int maxWorldCol = 70;
-  public final int maxWorldRow = 70;
+  private final int maxScreenCol = 24;
+  private final int maxScreenRow = 20;
+  private final int screenWidth = tileSize * maxScreenCol;
+  private final int screenHeight = tileSize * maxScreenRow;
 
 
+  private final int maxWorldCol = 70;
+  private final int maxWorldRow = 70;
+  private final int fps = 60;
 
-  //FPS
-  int fps = 60;
-
-  private TileManager tileM = new TileManager(this);
-  KeyHandler keyHandler = new KeyHandler();
-  Thread gameThread;
-  public MonsterSpawn monsterSpawn = new MonsterSpawn(this);
-  public Player player = new Player(this, keyHandler);
-  private ArrayList<Zombie> monsters = new ArrayList<>();
+  private final TileManager tileM = new TileManager(this);
+  private final KeyHandler keyHandler = new KeyHandler();
+  private Thread gameThread;
+  private final MonsterSpawn monsterSpawn = new MonsterSpawn(this);
+  private final Player player = new Player(this, keyHandler);
+  private final ArrayList<Zombie> monsters = new ArrayList<>();
 
 
 
@@ -48,21 +44,6 @@ public class GamePanel extends JPanel implements Runnable {
     this.setDoubleBuffered(true);
     this.addKeyListener(keyHandler);
     this.setFocusable(true);
-  }
-
-  public void addMonster(Zombie monster) {
-    monsters.add(monster);
-  }
-  public void removeMonster(Zombie monster) {
-    monsters.remove(monster);
-  }
-
-  public ArrayList<Zombie> getMonsters() {
-    return monsters;
-  }
-
-  public void setupMonsters() {
-    monsterSpawn.setMonster();
   }
 
   public void startGameThread() {
@@ -90,7 +71,7 @@ public class GamePanel extends JPanel implements Runnable {
       lastTime = currentTime;
 
       if(delta >= 1) {
-        update(this);
+        update();
         repaint();
         delta--;
         drawCount++;
@@ -105,7 +86,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
   }
 
-  public void update(GamePanel gamePanel) {
+  public void update() {
 
     player.update();
 
@@ -141,5 +122,38 @@ public class GamePanel extends JPanel implements Runnable {
   public TileManager getTileM() {
     return tileM;
   }
+  public int getScreenWidth() {
+    return screenWidth;
+  }
+  public int getScreenHeight() {
+    return screenHeight;
+  }
+  public int getMaxWorldCol() {
+    return maxWorldCol;
+  }
+  public int getMaxWorldRow() {
+    return maxWorldRow;
+  }
+  public Player getPlayer() {
+    return player;
+  }
+
+  public void addMonster(Zombie monster) {
+    monsters.add(monster);
+  }
+  public void removeMonster(Zombie monster) {
+    monsters.remove(monster);
+  }
+
+  public ArrayList<Zombie> getMonsters() {
+    return monsters;
+  }
+
+  public void setupMonsters() {
+    monsterSpawn.setMonster();
+  }
+
+
+
 }
 

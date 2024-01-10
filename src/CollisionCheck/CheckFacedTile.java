@@ -1,7 +1,6 @@
 package CollisionCheck;
 
 import Entity.Entity;
-import Main.GamePanel;
 
 public class CheckFacedTile {
 
@@ -12,7 +11,7 @@ public class CheckFacedTile {
     int entityTopWorldY = entity.getWorldY() + entity.getSolidArea().y;
     int entityBottomWorldY = entity.getWorldY() + entity.getSolidArea().y + entity.getSolidArea().height;
 
-    int tileSize = entity.getGamePanel().tileSize;
+    int tileSize = entity.getGamePanel().getTileSize();
 
     int entityLeftCol = entityLeftWorldX/ tileSize;
     int entityRightCol = entityRightWorldX/ tileSize;
@@ -34,7 +33,7 @@ public class CheckFacedTile {
         entityTopRow = (entityTopWorldY - speed)/ tileSize;
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityTopRow];
         tileNum2 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityTopRow];
-        if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision || entity.getGamePanel().getTileM().getTile()[tileNum2].collision) {
+        if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision() || entity.getGamePanel().getTileM().getTile()[tileNum2].isCollision()) {
           entity.setCollisionOn(true);
         }
         break;
@@ -42,7 +41,7 @@ public class CheckFacedTile {
         entityBottomRow = (entityBottomWorldY + speed)/ tileSize;
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityBottomRow];
         tileNum2 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityBottomRow];
-        if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision || entity.getGamePanel().getTileM().getTile()[tileNum2].collision) {
+        if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision() || entity.getGamePanel().getTileM().getTile()[tileNum2].isCollision()) {
           entity.setCollisionOn(true);
         }
         break;
@@ -50,7 +49,7 @@ public class CheckFacedTile {
         entityLeftCol = (entityLeftWorldX - speed)/ tileSize;
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityTopRow];
         tileNum2 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityBottomRow];
-        if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision || entity.getGamePanel().getTileM().getTile()[tileNum2].collision) {
+        if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision() || entity.getGamePanel().getTileM().getTile()[tileNum2].isCollision()) {
           entity.setCollisionOn(true);
         }
         break;
@@ -58,7 +57,7 @@ public class CheckFacedTile {
         entityRightCol = (entityRightWorldX + speed)/ tileSize;
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityTopRow];
         tileNum2 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityBottomRow];
-        if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision || entity.getGamePanel().getTileM().getTile()[tileNum2].collision) {
+        if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision() || entity.getGamePanel().getTileM().getTile()[tileNum2].isCollision()) {
           entity.setCollisionOn(true);
         }
         break;
@@ -67,7 +66,7 @@ public class CheckFacedTile {
         entityRightCol = ((entityRightWorldX + speedNormed)/ tileSize);
         entityTopRow = ((entityTopWorldY - speedNormed)/ tileSize);
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityTopRow];
-        if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision) {
+        if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision()) {
           entity.setCollisionOn(true);
         }
         break;
@@ -75,7 +74,7 @@ public class CheckFacedTile {
         entityRightCol = ((entityRightWorldX + speedNormed)/ tileSize);
         entityBottomRow = ((entityBottomWorldY + speedNormed)/ tileSize);
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityBottomRow];
-        if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision) {
+        if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision()) {
           entity.setCollisionOn(true);
         }
         break;
@@ -83,7 +82,7 @@ public class CheckFacedTile {
         entityLeftCol = ((entityLeftWorldX - speedNormed)/ tileSize);
         entityTopRow = ((entityTopWorldY - speedNormed)/ tileSize);
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityTopRow];
-        if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision) {
+        if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision()) {
           entity.setCollisionOn(true);
         }
         break;
@@ -91,7 +90,7 @@ public class CheckFacedTile {
         entityLeftCol = ((entityLeftWorldX - speedNormed)/ tileSize);
         entityBottomRow = ((entityBottomWorldY + speedNormed)/ tileSize);
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityBottomRow];
-        if (entity.getGamePanel().getTileM().getTile()[tileNum1].collision) {
+        if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision()) {
           entity.setCollisionOn(true);
         }
         break;
