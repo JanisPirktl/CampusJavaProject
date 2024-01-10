@@ -4,13 +4,13 @@ public class ZombieCheckDistanceToPlayer {
 
   public static void checkDistance(Zombie zombie) {
 
-    if (Math.abs(zombie.getWorldX() - zombie.getGamePanel().player.getWorldX()) < Math.abs(
-        zombie.getWorldY() - zombie.getGamePanel().player.getWorldY())) {
-      if (Math.abs(zombie.getWorldY() - zombie.getGamePanel().player.getWorldY()) < 50) {
-        zombie.setCollisionOn(true);
-      }
-    } else if (Math.abs(zombie.getWorldX() - zombie.getGamePanel().player.getWorldX()) > Math.abs(
-        zombie.getWorldY() - zombie.getGamePanel().player.getWorldY()) && (Math.abs(zombie.getWorldX() - zombie.getGamePanel().player.getWorldX()) < 50)) {
+    double distanceX = Math.abs(zombie.getWorldX() - zombie.getGamePanel().player.getWorldX());
+    double distanceY = Math.abs(zombie.getWorldY() - zombie.getGamePanel().player.getWorldY());
+
+    //absolute distance between zombie and player calculated with pytagoras
+    double distance = Math.sqrt(distanceX*distanceX + distanceY*distanceY);
+
+    if (distance < 55) {
       zombie.setCollisionOn(true);
     }
   }
