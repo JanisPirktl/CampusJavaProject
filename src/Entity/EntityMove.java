@@ -2,38 +2,46 @@ package Entity;
 
 public class EntityMove {
 
-  public static void move(Entity entity, String direction) {
+  public static void move(Entity entity) {
+
       int speed = entity.getSPEED();
+
+      //speed for the diagonale axis
       int speedNormed = (int) (speed*speed / Math.sqrt(speed*speed * 2.0));
+
+      String direction = entity.getDirection();
+
+      int worldX = entity.getWorldX();
+      int worldY = entity.getWorldY();
 
       switch (direction) {
         case "up":
-          entity.setWorldY(entity.getWorldY() - entity.getSPEED());
+          entity.setWorldY(worldY - speed);
           break;
         case "down":
-          entity.setWorldY(entity.getWorldY() + entity.getSPEED());
+          entity.setWorldY(worldY + speed);
           break;
         case "left":
-          entity.setWorldX(entity.getWorldX() - entity.getSPEED());
+          entity.setWorldX(worldX - speed);
           break;
         case "right":
-          entity.setWorldX(entity.getWorldX() + entity.getSPEED());
+          entity.setWorldX(worldX + speed);
           break;
         case "right_down":
-          entity.setWorldX((int) (entity.getWorldX() + speedNormed));
-          entity.setWorldY((int) (entity.getWorldY() + speedNormed));
+          entity.setWorldX(worldX + speedNormed);
+          entity.setWorldY(worldY + speedNormed);
           break;
         case "right_up":
-          entity.setWorldX((int) (entity.getWorldX() + speedNormed));
-          entity.setWorldY((int) (entity.getWorldY() - speedNormed));
+          entity.setWorldX(worldX + speedNormed);
+          entity.setWorldY(worldY - speedNormed);
           break;
         case "left_down":
-          entity.setWorldX((int) (entity.getWorldX() - speedNormed));
-          entity.setWorldY((int) (entity.getWorldY() + speedNormed));
+          entity.setWorldX(worldX - speedNormed);
+          entity.setWorldY(worldY + speedNormed);
           break;
         case "left_up":
-          entity.setWorldX((int) (entity.getWorldX() - speedNormed));
-          entity.setWorldY((int) (entity.getWorldY() - speedNormed));
+          entity.setWorldX(worldX - speedNormed);
+          entity.setWorldY(worldY - speedNormed);
           break;
       }
   }

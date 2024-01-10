@@ -109,7 +109,7 @@ public class Player extends Entity {
 
       //IF COLLISION IS FALSE, PLAYER CAN MOVE
       if (!isCollisionOn()) {
-        EntityMove.move(this, getDirection());
+        EntityMove.move(this);
       }
       EntitySpriteCounter.countSprite(this, 10);
     }
