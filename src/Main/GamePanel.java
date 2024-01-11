@@ -1,5 +1,7 @@
 package Main;
 
+import Entity.Entity.Draw;
+import Entity.Entity.EntityImage;
 import Entity.Monster.IsMonsterOnScreen;
 import Entity.Entity.Entity;
 import Entity.Monster.Monster;
@@ -39,6 +41,8 @@ public class GamePanel extends JPanel implements Runnable {
   private final Player player = new Player(this, keyHandler);
   private final ArrayList<Monster> monsters = new ArrayList<>();
   private final IsMonsterOnScreen isMonsterOnScreen = new IsMonsterOnScreen();
+  private final EntityImage entityImage = new EntityImage();
+  private final Draw draw = new Draw();
 
 
   public GamePanel() {
@@ -105,14 +109,18 @@ public class GamePanel extends JPanel implements Runnable {
 
   @Override
   public void paintComponent(Graphics g) {
-
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D) g;
     tileM.draw(g2);
+
     for (Entity monster : monsters) {
-      isMonsterOnScreen.isMonsterOnScreen(this, monster, g2);
+      if (isMonsterOnScreen.isMonsterOnScreen(this, monster)) {
+        entityImage.setImage(monster);
+        draw.draw(monster, g2);
+      }
     }
-    player.paint(g2);
+    entityImage.setImage(player);
+    draw.draw(player, g2);
     g2.dispose();
   }
 

@@ -3,7 +3,7 @@ package Entity.Player;
 
 import Entity.Entity.Entity;
 import Entity.Entity.SpriteCounter;
-import Entity.Entity.ChooseImage;
+import Entity.Entity.EntityImage;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
@@ -18,7 +18,7 @@ public class Player extends Entity {
 
   private final int screenX;
   private final int screenY;
-  private final ChooseImage chooseImage = new ChooseImage();
+  private final EntityImage entityImage = new EntityImage();
   private final CheckMonsterIntersection checkMonsterIntersection = new CheckMonsterIntersection();
   private final SpriteCounter spriteCounter = new SpriteCounter();
 
@@ -85,12 +85,6 @@ public class Player extends Entity {
       spriteCounter.countSprite(this, 10);
     }
   }
-
-  public void paint(Graphics2D g2) {
-    chooseImage.draw(this, g2, gamePanel.getTileSize(), screenX, screenY);
-  }
-
-
 
   public int getScreenX() {
     return screenX;
