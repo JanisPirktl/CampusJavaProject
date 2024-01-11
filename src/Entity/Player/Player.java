@@ -24,7 +24,7 @@ public class Player extends Entity {
   private final ChooseImage chooseImage = new ChooseImage();
   private final CheckMonsterIntersection checkMonsterIntersection = new CheckMonsterIntersection();
   private final CheckFacedTile checkFacedTile = new CheckFacedTile();
-  private final Move move = new Move();
+
 
 
   public Player(GamePanel gamePanel, KeyHandler keyH) {
@@ -85,9 +85,7 @@ public class Player extends Entity {
       checkMonsterIntersection.checkMonsterIntersection(this);
 
       //IF COLLISION IS FALSE, PLAYER CAN MOVE
-      if (!isCollisionOn()) {
-        move.move(this);
-      }
+      move();
       SpriteCounter.countSprite(this, 10);
     }
   }

@@ -19,6 +19,7 @@ public abstract class Entity {
   private int solidAreaDefaultX;
   private int solidAreaDefaultY;
   private boolean collisionOn;
+  private Move move = new Move();
 
   protected Entity(int SPEED) {
     this.SPEED = SPEED;
@@ -361,5 +362,11 @@ public abstract class Entity {
   public abstract void update();
 
   public abstract GamePanel getGamePanel();
+  public void move(){
+    if (!isCollisionOn()) {
+      move.move(this);
+    }
+  }
 
 }
+

@@ -2,16 +2,16 @@ package Entity.Monster;
 
 public class CheckDistanceToPlayer {
 
-  public void checkDistance(Zombie zombie) {
+  public void checkDistance(Monster monster) {
 
-    double distanceX = Math.abs(zombie.getWorldX() - zombie.getGamePanel().getPlayer().getWorldX());
-    double distanceY = Math.abs(zombie.getWorldY() - zombie.getGamePanel().getPlayer().getWorldY());
+    double distanceX = Math.abs(monster.getWorldX() - monster.getGamePanel().getPlayer().getWorldX());
+    double distanceY = Math.abs(monster.getWorldY() - monster.getGamePanel().getPlayer().getWorldY());
 
-    //absolute distance between zombie and player calculated with pytagoras
+    //absolute distance between monster and player calculated with pytagoras
     double distance = Math.sqrt(distanceX*distanceX + distanceY*distanceY);
 
     if (distance < 55) {
-      zombie.setCollisionOn(true);
+      monster.setCollisionOn(true);
     }
   }
 }

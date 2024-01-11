@@ -13,7 +13,7 @@ public class Zombie extends Monster {
   private final CheckFacedTile checkFacedTile = new CheckFacedTile();
   private final MonsterSetDirection monsterSetDirection = new MonsterSetDirection();
   private final CheckDistanceToPlayer checkDistanceToPlayer = new CheckDistanceToPlayer();
-  private final Move move = new Move();
+
 
   public Zombie(GamePanel gamePanel, int worldX, int worldY) {
     super(2);
@@ -39,9 +39,7 @@ public class Zombie extends Monster {
       //attack();
     } else {
 
-      if (!isCollisionOn()) {
-        move.move(this); //Make Zombie move
-      }
+      move();
       SpriteCounter.countSprite(this, 30);
     }
 
