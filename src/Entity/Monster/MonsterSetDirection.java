@@ -9,30 +9,43 @@ public class MonsterSetDirection {
     int monsterX = monster.getWorldX();
     int monsterY = monster.getWorldY();
 
-    if (Math.abs(Math.abs(monsterX - playerX) - Math.abs(
-        monsterY - playerY)) < 50) {
-      if (monsterY < playerY && monsterX< playerX) {
-        monster.setDirection("right_down");
-      } else if (monsterY < playerY && monsterX> playerX) {
-        monster.setDirection("left_down");
-      } else if (monsterY > playerY && monsterX < playerX) {
+
+    if (monsterX < playerX && monsterY > playerY){
+      if (Math.abs(monsterX - playerX) < 24){
+        monster.setDirection("up");
+      } else if (Math.abs(monsterY - playerY) < 24) {
+        monster.setDirection("right");
+      }
+      else{
         monster.setDirection("right_up");
-      } else if (monsterY > playerY && monsterX > playerX) {
+      }
+    } else if (monsterX > playerX && monsterY > playerY) {
+      if (Math.abs(monsterX - playerX) < 24) {
+        monster.setDirection("up");
+      } else if (Math.abs(monsterY - playerY) < 24) {
+        monster.setDirection("left");
+      } else {
         monster.setDirection("left_up");
       }
-    } else if (Math.abs(monsterX - playerX) < Math.abs(
-        monsterY - playerY)) {
-      if (monsterY < playerY) {
-        monster.setDirection("down");
-      } else {
-        monster.setDirection("up");
-      }
-    } else {
-      if (monsterX < playerX) {
-        monster.setDirection("right");
-      } else {
-        monster.setDirection("left");
-      }
+    } else if (monsterX > playerX && monsterY < playerY) {
+        if (Math.abs(monsterX - playerX) < 24){
+          monster.setDirection("down");
+        } else if (Math.abs(monsterY - playerY) < 24) {
+          monster.setDirection("left");
+        }
+        else{
+          monster.setDirection("left_down");
+        }
+    }else if (monsterX < playerX && monsterY < playerY) {
+        if (Math.abs(monsterX - playerX) < 24){
+          monster.setDirection("down");
+        } else if (Math.abs(monsterY - playerY) < 24) {
+          monster.setDirection("right");
+        }
+        else{
+          monster.setDirection("right_down");
+        }
+
     }
   }
 
