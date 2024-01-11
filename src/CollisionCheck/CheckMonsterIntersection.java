@@ -7,8 +7,8 @@ public class CheckMonsterIntersection {
   public void checkMonsterIntersection(Entity entity) {
 
     for (Entity monster : entity.getGamePanel().getMonsters()) {
-      entity.getSolidArea().x = entity.getWorldX() + entity.getSolidArea().x;
-      entity.getSolidArea().y = entity.getWorldY() + entity.getSolidArea().y;
+      entity.getSolidArea().x += entity.getWorldX();
+      entity.getSolidArea().y += entity.getWorldY();
 
       monster.getSolidArea().x = monster.getWorldX() + monster.getSolidArea().x;
       monster.getSolidArea().y = monster.getWorldY() + monster.getSolidArea().y;
