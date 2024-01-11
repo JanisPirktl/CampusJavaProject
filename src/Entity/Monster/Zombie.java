@@ -1,8 +1,5 @@
 package Entity.Monster;
 
-import CollisionCheck.CheckFacedTile;
-
-import Entity.SpriteCounter;
 import Main.GamePanel;
 import java.awt.Rectangle;
 
@@ -10,13 +7,9 @@ import java.awt.Rectangle;
 public class Zombie extends Monster {
 
   private final GamePanel gamePanel;
-  private final CheckFacedTile checkFacedTile = new CheckFacedTile();
-  private final MonsterSetDirection monsterSetDirection = new MonsterSetDirection();
-  private final CheckDistanceToPlayer checkDistanceToPlayer = new CheckDistanceToPlayer();
-
 
   public Zombie(GamePanel gamePanel, int worldX, int worldY) {
-    super(2);
+    super();
     this.gamePanel = gamePanel;
     this.setWorldX(worldX);
     this.setWorldY(worldY);
@@ -34,23 +27,6 @@ public class Zombie extends Monster {
   }
   public GamePanel getGamePanel() {
     return gamePanel;
-  }
-
-  public void run() {
-    {
-      monsterSetDirection.monsterSetDirection(this); //Make Zombie face Player
-      checkFacedTile.checkFacedTile(this); //Check Tile Collision
-      checkDistanceToPlayer.checkDistance(this); //Make Zombie stand still if close to player
-      if (isCollisionOn()) {
-        //attack()
-      } else {
-        move();
-        SpriteCounter.countSprite(this, 30);
-      }
-
-    }
-
-
   }
 }
 

@@ -1,11 +1,0 @@
-
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ª¯Õ¹øÿÿÿÿ8ÉÛ»ýÎ1
-O
-java:S1135"2Complete the task associated to this TODO comment.(Ü¯ÿ³8±­€–Ï1
-X	java:S125)"<This block of commented-out lines of code should be removed.(Ë¿Ó†8ÛÛ»ýÎ1
-F
-java:S1128")Remove this unused import 'java.io.File'.(†Ð¥Å8î¡•Ï1
-R
-java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úýÿÿÿÿ8î¡•Ï1
-O
-java:S1128	"2Remove this unused import 'javax.imageio.ImageIO'.(‘çÔû8î¡•Ï1

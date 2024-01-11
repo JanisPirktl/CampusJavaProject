@@ -4,6 +4,7 @@ public class MonsterSetDirection {
 
 
   public void monsterSetDirection(Monster monster) {
+
     int playerX = monster.getGamePanel().getPlayer().getWorldX();
     int playerY = monster.getGamePanel().getPlayer().getWorldY();
     int monsterX = monster.getWorldX();
@@ -16,7 +17,7 @@ public class MonsterSetDirection {
       } else if (Math.abs(monsterY - playerY) < 24) {
         monster.setDirection("right");
       }
-      else{
+      else {
         monster.setDirection("right_up");
       }
     } else if (monsterX > playerX && monsterY > playerY) {
@@ -33,16 +34,16 @@ public class MonsterSetDirection {
         } else if (Math.abs(monsterY - playerY) < 24) {
           monster.setDirection("left");
         }
-        else{
+        else {
           monster.setDirection("left_down");
         }
-    }else if (monsterX < playerX && monsterY < playerY) {
+    } else if (monsterX < playerX && monsterY < playerY) {
         if (Math.abs(monsterX - playerX) < 24){
           monster.setDirection("down");
         } else if (Math.abs(monsterY - playerY) < 24) {
           monster.setDirection("right");
         }
-        else{
+        else {
           monster.setDirection("right_down");
         }
 

@@ -1,7 +1,7 @@
 package Main;
 
-import Draw.IsMonsterOnScreen;
-import Entity.Entity;
+import Entity.Monster.IsMonsterOnScreen;
+import Entity.Entity.Entity;
 import Entity.Monster.Monster;
 import Entity.Monster.Zombie;
 import java.awt.Color;
@@ -35,7 +35,7 @@ public class GamePanel extends JPanel implements Runnable {
   private final TileManager tileM = new TileManager(this);
   private final KeyHandler keyHandler = new KeyHandler();
   private Thread gameThread;
-  private final MonsterSpawn monsterSpawn = new MonsterSpawn(this);
+  private final MonsterSpawner monsterSpawner = new MonsterSpawner(this);
   private final Player player = new Player(this, keyHandler);
   private final ArrayList<Monster> monsters = new ArrayList<>();
   private final IsMonsterOnScreen isMonsterOnScreen = new IsMonsterOnScreen();
@@ -73,11 +73,7 @@ public class GamePanel extends JPanel implements Runnable {
       lastTime = currentTime;
 
       if (delta >= 1) {
-        try {
-          update();
-        } catch (InterruptedException e) {
-          throw new RuntimeException(e);
-        }
+        update();
         repaint();
         delta--;
         drawCount++;
@@ -91,22 +87,19 @@ public class GamePanel extends JPanel implements Runnable {
 
       if (spawnTimer == 5) {
         try {
-          monsterSpawn.spawnNewMonster();
+          monsterSpawner.spawnNewMonster();
         } catch (InterruptedException e) {
           throw new RuntimeException(e);
         }
         spawnTimer = 0;
       }
-
     }
   }
 
-  public void update() throws InterruptedException {
+  public void update() {
     player.update();
     for (Monster monster : monsters) {
       monster.run();
-
-
     }
   }
 
