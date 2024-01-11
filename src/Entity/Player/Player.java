@@ -41,7 +41,6 @@ public class Player extends Entity {
   }
 
   private void setDefaultValues() {
-
     setWorldX(gamePanel.getTileSize() * 23);
     setWorldY(gamePanel.getTileSize() * 21);
     setDirection("down");
