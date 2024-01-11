@@ -4,7 +4,6 @@ package Entity.Player;
 import Entity.Entity.Entity;
 import Entity.Entity.SpriteCounter;
 import Entity.Entity.EntityImage;
-import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 

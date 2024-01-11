@@ -1,9 +1,8 @@
 package Entity.Monster;
 
-public class MonsterSetDirection {
+public class FacePlayer {
 
-
-  public void monsterSetDirection(Monster monster) {
+  public void facePlayer(Monster monster) {
 
     int playerX = monster.getGamePanel().getPlayer().getWorldX();
     int playerY = monster.getGamePanel().getPlayer().getWorldY();
