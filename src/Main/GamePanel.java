@@ -3,7 +3,7 @@ package Main;
 import Entity.Monster.IsMonsterOnScreen;
 import Entity.Entity.Entity;
 import Entity.Monster.Monster;
-import Entity.Monster.Zombie;
+import Entity.Monster.Zombie.Zombie;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;

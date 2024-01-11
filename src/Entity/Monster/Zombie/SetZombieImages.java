@@ -1,4 +1,4 @@
-package Entity.Monster;
+package Entity.Monster.Zombie;
 
 
 import java.io.File;

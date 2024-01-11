@@ -1,5 +1,6 @@
-package Entity.Monster;
+package Entity.Monster.Zombie;
 
+import Entity.Monster.Monster;
 import Main.GamePanel;
 import java.awt.Rectangle;
 
