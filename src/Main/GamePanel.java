@@ -91,7 +91,7 @@ public class GamePanel extends JPanel implements Runnable {
 
       if (spawnTimer == 5) {
         try {
-          monsterSpawner.spawnNewMonster();
+          monsterSpawner.spawnNewMonster(player);
         } catch (InterruptedException e) {
           throw new RuntimeException(e);
         }
@@ -104,6 +104,9 @@ public class GamePanel extends JPanel implements Runnable {
     player.update();
     for (Monster monster : monsters) {
       monster.run();
+      if (monster.isCollisionOn()) {
+        System.out.println("Help i am stuck");
+      }
     }
   }
 
