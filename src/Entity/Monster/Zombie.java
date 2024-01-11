@@ -1,8 +1,7 @@
 package Entity.Monster;
 
 import CollisionCheck.CheckFacedTile;
-import Entity.Entity;
-import Entity.Move;
+
 import Entity.SpriteCounter;
 import Main.GamePanel;
 import java.awt.Rectangle;
