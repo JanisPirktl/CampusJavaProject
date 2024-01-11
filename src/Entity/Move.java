@@ -4,7 +4,7 @@ public class Move {
 
   public void move(Entity entity) {
 
-      int speed = entity.getSPEED();
+      int speed = entity.getSpeed();
 
       //speed for the diagonale axis
       int speedNormed = (int) (speed*speed / Math.sqrt(speed*speed * 2.0));

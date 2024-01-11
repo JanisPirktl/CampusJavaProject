@@ -19,7 +19,7 @@ public class CheckFacedTile {
     int entityTopRow = entityTopWorldY / tileSize;
     int entityBottomRow = entityBottomWorldY / tileSize;
 
-    int speed = entity.getSPEED();
+    int speed = entity.getSpeed();
     //speed for the diagonale axis
     int speedNormed = (int) (speed*speed / Math.sqrt(speed*speed * 2.0));
 

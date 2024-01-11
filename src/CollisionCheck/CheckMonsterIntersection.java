@@ -15,60 +15,60 @@ public class CheckMonsterIntersection {
 
       switch(entity.getDirection()) {
         case "up":
-          entity.getSolidArea().y -= entity.getSPEED();
+          entity.getSolidArea().y -= entity.getSpeed();
           if (entity.getSolidArea().intersects(monster.getSolidArea()) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
           break;
         case "down":
-          entity.getSolidArea().y += entity.getSPEED();
+          entity.getSolidArea().y += entity.getSpeed();
           if (entity.getSolidArea().intersects(monster.getSolidArea()) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
           break;
         case "left":
-          entity.getSolidArea().x -= entity.getSPEED();
+          entity.getSolidArea().x -= entity.getSpeed();
           if (entity.getSolidArea().intersects(monster.getSolidArea()) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
           break;
         case "right":
-          entity.getSolidArea().x += entity.getSPEED();
+          entity.getSolidArea().x += entity.getSpeed();
           if (entity.getSolidArea().intersects(monster.getSolidArea()) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
           break;
         case "left_up":
-          entity.getSolidArea().x -= (int) Math.sqrt(entity.getSPEED() * (double)2);
-          entity.getSolidArea().y -= (int) Math.sqrt(entity.getSPEED() * (double)2);
+          entity.getSolidArea().x -= (int) Math.sqrt(entity.getSpeed() * (double)2);
+          entity.getSolidArea().y -= (int) Math.sqrt(entity.getSpeed() * (double)2);
           if (entity.getSolidArea().intersects(monster.getSolidArea()) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
           break;
         case "left_down":
-          entity.getSolidArea().x -= (int) Math.sqrt(entity.getSPEED() * (double)2);
-          entity.getSolidArea().y += (int) Math.sqrt(entity.getSPEED() * (double)2);
+          entity.getSolidArea().x -= (int) Math.sqrt(entity.getSpeed() * (double)2);
+          entity.getSolidArea().y += (int) Math.sqrt(entity.getSpeed() * (double)2);
           if (entity.getSolidArea().intersects(monster.getSolidArea()) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
           break;
         case "right_up":
-          entity.getSolidArea().x += (int) Math.sqrt(entity.getSPEED() * (double)2);
-          entity.getSolidArea().y -= (int) Math.sqrt(entity.getSPEED() * (double)2);
+          entity.getSolidArea().x += (int) Math.sqrt(entity.getSpeed() * (double)2);
+          entity.getSolidArea().y -= (int) Math.sqrt(entity.getSpeed() * (double)2);
           if (entity.getSolidArea().intersects(monster.getSolidArea()) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 
           }
           break;
         case "right_down":
-          entity.getSolidArea().x += (int) Math.sqrt(entity.getSPEED() * (double)2);
-          entity.getSolidArea().y += (int) Math.sqrt(entity.getSPEED() * (double)2);
+          entity.getSolidArea().x += (int) Math.sqrt(entity.getSpeed() * (double)2);
+          entity.getSolidArea().y += (int) Math.sqrt(entity.getSpeed() * (double)2);
           if (entity.getSolidArea().intersects(monster.getSolidArea()) && (monster.isCollisionOn())) {
             entity.setCollisionOn(true);
 

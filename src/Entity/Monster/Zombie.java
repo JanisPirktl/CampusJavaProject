@@ -8,6 +8,7 @@ import java.awt.Rectangle;
 
 
 public class Zombie extends Monster {
+
   private final GamePanel gamePanel;
   private final CheckFacedTile checkFacedTile = new CheckFacedTile();
   private final MonsterSetDirection monsterSetDirection = new MonsterSetDirection();
@@ -19,7 +20,7 @@ public class Zombie extends Monster {
     this.gamePanel = gamePanel;
     this.setWorldX(worldX);
     this.setWorldY(worldY);
-    setSolidArea(new Rectangle(0,0,48,48));
+    setSolidArea(new Rectangle(0, 0, 48, 48));
     setSolidAreaDefaultX(0);
     setSolidAreaDefaultY(0);
     setCollisionOn(true);
@@ -29,25 +30,27 @@ public class Zombie extends Monster {
   }
 
   public void update() {
-
-    monsterSetDirection.monsterSetDirection(this); //Make Zombie face Player
-    checkFacedTile.checkFacedTile(this); //Check Tile Collision
-    checkDistanceToPlayer.checkDistance(this); //Make Zombie stand still if close to player
-
-    if (isCollisionOn()) {
-      //attack();
-    } else {
-
-      move();
-      SpriteCounter.countSprite(this, 30);
-    }
-
+    //mach nix
   }
-
-
-
   public GamePanel getGamePanel() {
     return gamePanel;
+  }
+
+  public void run() {
+    {
+      monsterSetDirection.monsterSetDirection(this); //Make Zombie face Player
+      checkFacedTile.checkFacedTile(this); //Check Tile Collision
+      checkDistanceToPlayer.checkDistance(this); //Make Zombie stand still if close to player
+      if (isCollisionOn()) {
+        //attack()
+      } else {
+        move();
+        SpriteCounter.countSprite(this, 30);
+      }
+
+    }
+
+
   }
 }
 

@@ -41,8 +41,6 @@ public class GamePanel extends JPanel implements Runnable {
   private final IsMonsterOnScreen isMonsterOnScreen = new IsMonsterOnScreen();
 
 
-
-
   public GamePanel() {
     this.setPreferredSize(new Dimension(screenWidth, screenHeight));
     this.setBackground(Color.black);
@@ -52,7 +50,6 @@ public class GamePanel extends JPanel implements Runnable {
   }
 
   public void startGameThread() {
-
     gameThread = new Thread(this);
     gameThread.start();
   }
@@ -60,41 +57,56 @@ public class GamePanel extends JPanel implements Runnable {
 
   public void run() {
 
-    double drawInterval = 1000000000/fps;
+    double drawInterval = 1000000000 / fps;
     double delta = 0;
     long lastTime = System.nanoTime();
     long currentTime;
     long timer = 0;
     int drawCount = 0;
+    int spawnTimer = 0;
 
-    while(gameThread != null) {
+    while (gameThread != null) {
 
       currentTime = System.nanoTime();
-
       delta += (currentTime - lastTime) / drawInterval;
       timer += (currentTime - lastTime);
       lastTime = currentTime;
 
-      if(delta >= 1) {
-        update();
+      if (delta >= 1) {
+        try {
+          update();
+        } catch (InterruptedException e) {
+          throw new RuntimeException(e);
+        }
         repaint();
         delta--;
         drawCount++;
       }
 
-      if(timer >= 1000000000) {
-        System.out.println("FPS:" + drawCount);
+      if (timer >= 1000000000) {
+        spawnTimer++;
         drawCount = 0;
         timer = 0;
+      }
+
+      if (spawnTimer == 5) {
+        try {
+          monsterSpawn.spawnNewMonster();
+        } catch (InterruptedException e) {
+          throw new RuntimeException(e);
+        }
+        spawnTimer = 0;
       }
 
     }
   }
 
-  public void update() {
+  public void update() throws InterruptedException {
     player.update();
     for (Monster monster : monsters) {
-      monster.update();
+      monster.run();
+
+
     }
   }
 
@@ -102,40 +114,39 @@ public class GamePanel extends JPanel implements Runnable {
   public void paintComponent(Graphics g) {
 
     super.paintComponent(g);
-
-    Graphics2D g2 = (Graphics2D)g;
-
+    Graphics2D g2 = (Graphics2D) g;
     tileM.draw(g2);
-
-    for(Entity monster : monsters) {
+    for (Entity monster : monsters) {
       isMonsterOnScreen.isMonsterOnScreen(this, monster, g2);
     }
-
     player.paint(g2);
-
-
-
     g2.dispose();
   }
 
   public int getTileSize() {
     return tileSize;
   }
+
   public TileManager getTileM() {
     return tileM;
   }
+
   public int getScreenWidth() {
     return screenWidth;
   }
+
   public int getScreenHeight() {
     return screenHeight;
   }
+
   public int getMaxWorldCol() {
     return maxWorldCol;
   }
+
   public int getMaxWorldRow() {
     return maxWorldRow;
   }
+
   public Player getPlayer() {
     return player;
   }
@@ -143,6 +154,7 @@ public class GamePanel extends JPanel implements Runnable {
   public void addMonster(Zombie monster) {
     monsters.add(monster);
   }
+
   public void removeMonster(Zombie monster) {
     monsters.remove(monster);
   }
@@ -150,11 +162,6 @@ public class GamePanel extends JPanel implements Runnable {
   public ArrayList<Monster> getMonsters() {
     return monsters;
   }
-
-  public void setupMonsters() {
-    monsterSpawn.setMonster();
-  }
-
 
 
 }

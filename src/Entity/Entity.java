@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 public abstract class Entity {
 
   private int worldX, worldY;
-  private final int SPEED;
+  private final int speed;
 
   private BufferedImage up1, up2, down1, down2, left1, left2, right1, right2, leftUp1, leftUp2, rightUp1, rightUp2, leftDown1, leftDown2, rightDown1, rightDown2, attackLeft1, attackLeft2, attackRight1, attackRight2, attackUp1, attackUp2, attackDown1, attackDown2, attackDownLeft1, attackDownLeft2, attackDownRight1, attackDownRight2, attackUpLeft1, attackUpLeft2, attackUpRight1, attackUpRight2;
   private String direction;
@@ -21,8 +21,8 @@ public abstract class Entity {
   private boolean collisionOn;
   private Move move = new Move();
 
-  protected Entity(int SPEED) {
-    this.SPEED = SPEED;
+  protected Entity(int speed) {
+    this.speed = speed;
   }
 
 
@@ -91,8 +91,8 @@ public abstract class Entity {
     this.rightDown1 = rightDown1;
   }
 
-  public int getSPEED() {
-    return SPEED;
+  public int getSpeed() {
+    return speed;
   }
 
   public void setUp2(BufferedImage up2) {
