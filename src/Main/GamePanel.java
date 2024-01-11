@@ -1,7 +1,7 @@
 package Main;
 
 import Draw.IsMonsterOnScreen;
-import Entity.Zombie;
+import Entity.Monster.Zombie;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -10,7 +10,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
-import Entity.Player;
+import Entity.Player.Player;
 import Tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable {
@@ -28,7 +28,7 @@ public class GamePanel extends JPanel implements Runnable {
 
   private final int maxWorldCol = 70;
   private final int maxWorldRow = 70;
-  private final int fps = 60;
+  private final double fps = 60;
 
   private final TileManager tileM = new TileManager(this);
   private final KeyHandler keyHandler = new KeyHandler();

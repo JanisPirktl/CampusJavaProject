@@ -1,6 +1,6 @@
-package ImageSetter;
+package Entity.Monster;
 
-import Entity.Zombie;
+import Entity.Monster.Zombie;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;

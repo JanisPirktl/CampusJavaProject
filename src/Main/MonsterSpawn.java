@@ -1,6 +1,6 @@
 package Main;
 
-import Entity.Zombie;
+import Entity.Monster.Zombie;
 
 public class MonsterSpawn {
 

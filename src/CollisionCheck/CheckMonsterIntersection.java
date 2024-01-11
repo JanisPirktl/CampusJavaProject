@@ -1,7 +1,6 @@
 package CollisionCheck;
 
 import Entity.Entity;
-import Entity.Zombie;
 
 public class CheckMonsterIntersection {
 

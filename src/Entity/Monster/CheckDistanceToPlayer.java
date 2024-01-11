@@ -1,4 +1,4 @@
-package Entity;
+package Entity.Monster;
 
 public class CheckDistanceToPlayer {
 

@@ -13,11 +13,11 @@ public class CheckFacedTile {
 
     int tileSize = entity.getGamePanel().getTileSize();
 
-    int entityLeftCol = entityLeftWorldX/ tileSize;
-    int entityRightCol = entityRightWorldX/ tileSize;
+    int entityLeftCol = entityLeftWorldX / tileSize;
+    int entityRightCol = entityRightWorldX / tileSize;
     
-    int entityTopRow = entityTopWorldY/ tileSize;
-    int entityBottomRow = entityBottomWorldY/ tileSize;
+    int entityTopRow = entityTopWorldY / tileSize;
+    int entityBottomRow = entityBottomWorldY / tileSize;
 
     int speed = entity.getSPEED();
     //speed for the diagonale axis

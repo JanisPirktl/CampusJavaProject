@@ -1,8 +1,8 @@
-package Entity;
+package Entity.Monster;
 
-public class ZombieSetDirection {
+public class MonsterSetDirection {
 
-  public void zombieSetDirection(Zombie zombie) {
+  public void monsterSetDirection(Zombie zombie) {
 
     if (Math.abs(Math.abs(zombie.getWorldX() - zombie.getGamePanel().getPlayer().getWorldX()) - Math.abs(
         zombie.getWorldY() - zombie.getGamePanel().getPlayer().getWorldY())) < 50) {

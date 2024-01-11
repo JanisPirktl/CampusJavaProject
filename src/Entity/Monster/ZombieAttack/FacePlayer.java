@@ -1,6 +1,6 @@
-package ZombieAttack;
+package Entity.Monster.ZombieAttack;
 
-import Entity.Zombie;
+import Entity.Monster.Zombie;
 
 public class FacePlayer {
 

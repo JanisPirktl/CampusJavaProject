@@ -19,24 +19,14 @@ J
 src/Main/MonsterSpawn.java,9\7\97d4ec4935a58551fd0d57e124dede5545a0f7f3
 F
 src/Entity/Zombie.java,b\0\b0ffadb9691a93799729ee75ccb8733bb9ca7858
-J
-src/Entity/EntityMove.java,c\9\c9be90e97b6d07d417b865b907bd0949fa215a59
 S
 #src/Entity/EntitySpriteCounter.java,a\e\ae19d890215e487b86d55f4d41e0f9ffe90467fd
-[
-+src/Entity/ZombieCheckDistanceToPlayer.java,7\e\7e722db31b6af2a2dbe4bd1187bef36555cb3ad4
 R
 "src/Entity/ZombieSetDirection.java,9\8\98776e36472d126b2e2d0eb7650b9b30fc146cc7
-O
-src/Entity/SetMonsterImage.java,7\d\7d1bdba1a02c3e8e8767792b04f0fb1d72097416
 V
 &src/CollisionCheck/CheckFacedTile.java,0\d\0d983d7c09e8fa5bfa392256688a6bb0c5201e7f
 `
 0src/CollisionCheck/CheckMonsterIntersection.java,1\6\16dd4170e8c1755e5231bc2d4c867b2ef275d3d2
-X
-(src/CollisionCheck/CollisionChecker.java,6\6\663c01d84f632c33e7a07aac56b78f701f74d78a
-L
-src/Entity/ZombieImages.java,f\2\f2dd3446a44bcc9dabc36c803b188bd8975e3bd5
 P
  src/ZombieAttack/FacePlayer.java,5\8\589fcdd8a382cf08c404b33406ec081f2a15c4b7
 Å

@@ -1,6 +1,6 @@
 package Entity;
 
-public class EntitySpriteCounter {
+public class SpriteCounter {
 
   public static void countSprite(Entity entity, int maxSpriteCounter) {
 

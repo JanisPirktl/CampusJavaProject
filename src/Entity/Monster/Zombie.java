@@ -1,7 +1,9 @@
-package Entity;
+package Entity.Monster;
 
 import CollisionCheck.CheckFacedTile;
-import ImageSetter.SetZombieImages;
+import Entity.Entity;
+import Entity.Move;
+import Entity.SpriteCounter;
 import Main.GamePanel;
 import java.awt.Rectangle;
 
@@ -29,7 +31,7 @@ public class Zombie extends Entity {
 
   public void update() {
 
-    setDirection(monsterSetDirection.monsterSetDirection(this)); //Make Zombie face Player
+    monsterSetDirection.monsterSetDirection(this); //Make Zombie face Player
     checkFacedTile.checkFacedTile(this); //Check Tile Collision
     checkDistanceToPlayer.checkDistance(this); //Make Zombie stand still if close to player
 
@@ -40,7 +42,7 @@ public class Zombie extends Entity {
       if (!isCollisionOn()) {
         move.move(this); //Make Zombie move
       }
-      EntitySpriteCounter.countSprite(this, 30);
+      SpriteCounter.countSprite(this, 30);
     }
 
   }
