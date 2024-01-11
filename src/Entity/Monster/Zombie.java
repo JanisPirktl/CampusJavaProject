@@ -8,7 +8,7 @@ import Main.GamePanel;
 import java.awt.Rectangle;
 
 
-public class Zombie extends Entity {
+public class Zombie extends Monster {
   private final GamePanel gamePanel;
   private final CheckFacedTile checkFacedTile = new CheckFacedTile();
   private final MonsterSetDirection monsterSetDirection = new MonsterSetDirection();

@@ -1,6 +1,8 @@
 package Main;
 
 import Draw.IsMonsterOnScreen;
+import Entity.Entity;
+import Entity.Monster.Monster;
 import Entity.Monster.Zombie;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -35,7 +37,7 @@ public class GamePanel extends JPanel implements Runnable {
   private Thread gameThread;
   private final MonsterSpawn monsterSpawn = new MonsterSpawn(this);
   private final Player player = new Player(this, keyHandler);
-  private final ArrayList<Zombie> monsters = new ArrayList<>();
+  private final ArrayList<Monster> monsters = new ArrayList<>();
   private final IsMonsterOnScreen isMonsterOnScreen = new IsMonsterOnScreen();
 
 
@@ -91,8 +93,8 @@ public class GamePanel extends JPanel implements Runnable {
 
   public void update() {
     player.update();
-    for (Zombie entity : monsters) {
-      entity.update();
+    for (Monster monster : monsters) {
+      monster.update();
     }
   }
 
@@ -105,7 +107,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     tileM.draw(g2);
 
-    for(Zombie monster : monsters) {
+    for(Entity monster : monsters) {
       isMonsterOnScreen.isMonsterOnScreen(this, monster, g2);
     }
 
@@ -145,7 +147,7 @@ public class GamePanel extends JPanel implements Runnable {
     monsters.remove(monster);
   }
 
-  public ArrayList<Zombie> getMonsters() {
+  public ArrayList<Monster> getMonsters() {
     return monsters;
   }
 

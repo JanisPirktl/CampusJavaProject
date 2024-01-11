@@ -8,6 +8,7 @@ public class IsMonsterOnScreen {
 
   private final ChooseImage chooseImage = new ChooseImage();
   public void isMonsterOnScreen (GamePanel gamePanel, Entity entity, Graphics2D g2) {
+
     int tileSize = gamePanel.getTileSize();
     int monsterX = entity.getWorldX();
     int monsterY = entity.getWorldY();
