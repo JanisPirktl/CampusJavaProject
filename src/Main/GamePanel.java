@@ -66,7 +66,6 @@ public class GamePanel extends JPanel implements Runnable {
     long lastTime = System.nanoTime();
     long currentTime;
     long timer = 0;
-    int drawCount = 0;
     int spawnTimer = 0;
 
     while (gameThread != null) {
@@ -80,21 +79,15 @@ public class GamePanel extends JPanel implements Runnable {
         update();
         repaint();
         delta--;
-        drawCount++;
       }
 
       if (timer >= 1000000000) {
         spawnTimer++;
-        drawCount = 0;
         timer = 0;
       }
 
       if (spawnTimer == 5) {
-        try {
-          monsterSpawner.spawnNewMonster(player);
-        } catch (InterruptedException e) {
-          throw new RuntimeException(e);
-        }
+        monsterSpawner.spawnNewMonster(player);
         spawnTimer = 0;
       }
     }

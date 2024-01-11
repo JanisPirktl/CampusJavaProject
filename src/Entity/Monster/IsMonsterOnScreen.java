@@ -26,6 +26,7 @@ public class IsMonsterOnScreen {
       //calculate zombie's position on the screen
       entity.setScreenX(monsterX - playerX + playerScreenX);
       entity.setScreenY(monsterY - playerY + playerScreenY);
+
       return true;
     } else {
       return false;

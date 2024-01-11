@@ -13,7 +13,7 @@ public class MonsterSpawner {
     this.gp = gp;
   }
 
-  public void spawnNewMonster(Player player) throws InterruptedException {
+  public void spawnNewMonster(Player player) {
 
     int playerX = player.getWorldX();
     int playerY = player.getWorldY();
@@ -62,7 +62,6 @@ public class MonsterSpawner {
 
       }
     }
-
     //create new zombie as thread
     System.out.println("a new zombie has spawned");
     Zombie zombie = new Zombie(gp, monsterX, monsterY);

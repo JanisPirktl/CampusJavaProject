@@ -3,7 +3,6 @@ package Entity.Player;
 
 import Entity.Entity.Entity;
 import Entity.Entity.SpriteCounter;
-import Entity.Entity.EntityImage;
 import java.awt.Rectangle;
 
 
@@ -17,7 +16,6 @@ public class Player extends Entity {
 
   private final int screenX;
   private final int screenY;
-  private final EntityImage entityImage = new EntityImage();
   private final CheckMonsterIntersection checkMonsterIntersection = new CheckMonsterIntersection();
   private final SpriteCounter spriteCounter = new SpriteCounter();
 
