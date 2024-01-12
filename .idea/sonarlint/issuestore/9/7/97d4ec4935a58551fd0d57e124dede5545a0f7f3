@@ -1,2 +1,4 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(°€Òşÿÿÿÿ8‘™¶ÔÎ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(°€Òşÿÿÿÿ8ë¿ƒÈÏ1
+™
+java:S1130"wRemove the declaration of thrown exception 'java.lang.InterruptedException', as it cannot be thrown from method's body.(ßŞ‘ıÿÿÿÿ8ù¥±ÈÏ1

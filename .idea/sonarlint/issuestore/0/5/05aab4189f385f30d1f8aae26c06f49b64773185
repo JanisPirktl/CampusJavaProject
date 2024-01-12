@@ -1,0 +1,6 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Úù£“ûÿÿÿÿ8ÒËÅ½Ï1
+o
+java:S37767"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(Ö×õÄ8Í¨äÄÏ1
+J
+java:S1128"(Remove this unused import 'Entity.Move'.(î·ä¡şÿÿÿÿ8ú¤°ÅÏ1
