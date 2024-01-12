@@ -1,4 +1,4 @@
-package Entity.Monster;
+package Main;
 
 import Entity.Entity.Draw;
 import Entity.Entity.EntityAttackImage1;
@@ -6,7 +6,6 @@ import Entity.Entity.EntityAttackImage2;
 import Entity.Entity.EntityImage;
 import Entity.Monster.IsMonsterOnScreen;
 import Entity.Monster.Monster;
-import Main.GamePanel;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
@@ -17,7 +16,6 @@ public class MonsterBehaviour {
   private final EntityAttackImage2 entityAttackImage2 = new EntityAttackImage2();
   private final EntityImage entityImage = new EntityImage();
   private final Draw draw = new Draw();
-  private boolean hasAttacked = false;
 
   public void monsterBehaviour(Graphics2D g2, ArrayList<Monster> monsters, GamePanel gamePanel) {
 
@@ -37,14 +35,8 @@ public class MonsterBehaviour {
           } else if (monster.getCurrentTime() + 1000000000 > System.nanoTime()) {
             entityAttackImage2.setAttackImage2(monster);
             draw.draw(monster, g2);
-            if (!hasAttacked) {
-              //attacks
-              System.out.println("attacks 1 time");
-              hasAttacked = true;
-            }
           } else {
             monster.setAttackingPlayer(false);
-            hasAttacked = false;
           }
         }
       }
