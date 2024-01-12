@@ -1,18 +1,13 @@
 package Main;
 
-import Entity.Entity.Draw;
-import Entity.Entity.EntityImage;
 import Entity.Monster.Monster;
 import Entity.Monster.Zombie.Zombie;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-
 import java.util.ArrayList;
 import javax.swing.JPanel;
-
-import Entity.Player.DrawHeart;
 import Entity.Player.Player;
 import Tile.TileManager;
 
@@ -43,12 +38,8 @@ public class GamePanel extends JPanel implements Runnable {
   private final ArrayList<Monster> monsters = new ArrayList<>();
 
 
-  private final EntityImage entityImage = new EntityImage();
   private final MonsterBehaviour monsterBehaviour = new MonsterBehaviour();
-private final PlayerBehaviour playerBehaviour = new PlayerBehaviour();
-  private final Draw draw = new Draw();
-  private final DrawHeart drawHeart = new DrawHeart();
-
+  private final PlayerBehaviour playerBehaviour = new PlayerBehaviour();
 
 
   public GamePanel() {
@@ -138,6 +129,7 @@ private final PlayerBehaviour playerBehaviour = new PlayerBehaviour();
   public int getMaxWorldRow() {
     return maxWorldRow;
   }
+
   public int getGameCounter() {
     return gameCounter;
   }
