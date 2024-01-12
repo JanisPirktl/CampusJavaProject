@@ -1,10 +1,7 @@
 package Main;
 
 import Entity.Entity.Draw;
-import Entity.Entity.EntityAttackImage1;
-import Entity.Entity.EntityAttackImage2;
 import Entity.Entity.EntityImage;
-import Entity.Monster.IsMonsterOnScreen;
 import Entity.Monster.Monster;
 import Entity.Monster.Zombie.Zombie;
 import java.awt.Color;
@@ -45,13 +42,13 @@ public class GamePanel extends JPanel implements Runnable {
 
   private final ArrayList<Monster> monsters = new ArrayList<>();
 
-  private final IsMonsterOnScreen isMonsterOnScreen = new IsMonsterOnScreen();
-  private final EntityImage entityImage = new EntityImage();
 
+  private final EntityImage entityImage = new EntityImage();
+  private final MonsterBehaviour monsterBehaviour = new MonsterBehaviour();
+private final PlayerBehaviour playerBehaviour = new PlayerBehaviour();
   private final Draw draw = new Draw();
   private final DrawHeart drawHeart = new DrawHeart();
-  private final EntityAttackImage1 entityAttackImage1 = new EntityAttackImage1();
-  private final EntityAttackImage2 entityAttackImage2 = new EntityAttackImage2();
+
 
 
   public GamePanel() {
@@ -113,43 +110,8 @@ public class GamePanel extends JPanel implements Runnable {
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D) g;
     tileM.draw(g2);
-
-    if (player.getHealth() > 0) {
-      player.update();
-    }
-
-    for (Monster monster : monsters) {
-      if (!monster.isAttackingPlayer()) {
-        monster.run();
-      }
-      if (isMonsterOnScreen.isMonsterOnScreen(this, monster)) {
-        if (!monster.isAttackingPlayer()) {
-          entityImage.setImage(monster);
-          draw.draw(monster, g2);
-        } else {
-
-
-
-          if (monster.getCurrentTime() + 500000000 > System.nanoTime()) {
-            entityAttackImage1.setAttackImage1(monster);
-            draw.draw(monster, g2);
-          } else if (monster.getCurrentTime() + 1000000000 > System.nanoTime()){
-            entityAttackImage2.setAttackImage2(monster);
-            draw.draw(monster, g2);
-          } else {
-            monster.setAttackingPlayer(false);
-          }
-        }
-      }
-    }
-    if (player.getHealth() <= 0) {
-      player.setImage(player.getDead());
-      player.setCollisionOn(true);
-    } else {
-      entityImage.setImage(player);
-    }
-    draw.draw(player, g2);
-    drawHeart.draw(player, g2);
+    monsterBehaviour.monsterBehaviour(g2, monsters, this);
+    playerBehaviour.playerBehaviour(g2, this, player);
     g2.dispose();
   }
 
