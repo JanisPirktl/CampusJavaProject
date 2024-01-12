@@ -14,6 +14,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
+import Entity.Player.DrawHeart;
 import Entity.Player.Player;
 import Tile.TileManager;
 
@@ -43,6 +44,7 @@ public class GamePanel extends JPanel implements Runnable {
   private final IsMonsterOnScreen isMonsterOnScreen = new IsMonsterOnScreen();
   private final EntityImage entityImage = new EntityImage();
   private final Draw draw = new Draw();
+  private final DrawHeart drawHeart = new DrawHeart();
 
 
   public GamePanel() {
@@ -95,6 +97,7 @@ public class GamePanel extends JPanel implements Runnable {
 
   public void update() {
     player.update();
+
     for (Monster monster : monsters) {
       monster.run();
       if (monster.isCollisionOn()) {
@@ -117,6 +120,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
     entityImage.setImage(player);
     draw.draw(player, g2);
+    drawHeart.draw(player,g2);
     g2.dispose();
   }
 

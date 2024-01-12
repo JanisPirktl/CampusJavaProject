@@ -18,8 +18,22 @@ public class Player extends Entity {
   private final int screenY;
   private final CheckMonsterIntersection checkMonsterIntersection = new CheckMonsterIntersection();
   private final SpriteCounter spriteCounter = new SpriteCounter();
+  private int health = 5;
+  private int maxHealth = 5;
 
+  public int getHealth() {
+    return health;
+  }
 
+  public void setHealth(int health) {
+    this.health = health;
+  }
+  public void damage(int amount){
+    this.health -= amount;
+  }
+  public int heal(int amount){
+      return Math.min(health + amount, maxHealth);
+  }
 
   public Player(GamePanel gamePanel, KeyHandler keyH) {
     super(5);
@@ -84,6 +98,14 @@ public class Player extends Entity {
 
   public int getScreenX() {
     return screenX;
+  }
+
+  public int getMaxHealth() {
+    return maxHealth;
+  }
+
+  public void setMaxHealth(int maxHealth) {
+    this.maxHealth = maxHealth;
   }
 
   public int getScreenY() {
