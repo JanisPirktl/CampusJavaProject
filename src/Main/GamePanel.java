@@ -1,6 +1,7 @@
 package Main;
 
 import Entity.Entity.Draw;
+import Entity.Entity.EntityAttackImage1;
 import Entity.Entity.EntityImage;
 import Entity.Monster.IsMonsterOnScreen;
 import Entity.Entity.Entity;
@@ -43,6 +44,7 @@ public class GamePanel extends JPanel implements Runnable {
   private final ArrayList<Monster> monsters = new ArrayList<>();
   private final IsMonsterOnScreen isMonsterOnScreen = new IsMonsterOnScreen();
   private final EntityImage entityImage = new EntityImage();
+  private final EntityAttackImage1 entityAttackImage1 = new EntityAttackImage1();
   private final Draw draw = new Draw();
   private final DrawHeart drawHeart = new DrawHeart();
 
@@ -117,9 +119,14 @@ public class GamePanel extends JPanel implements Runnable {
     Graphics2D g2 = (Graphics2D) g;
     tileM.draw(g2);
 
-    for (Entity monster : monsters) {
+    for (Monster monster : monsters) {
       if (isMonsterOnScreen.isMonsterOnScreen(this, monster)) {
-        entityImage.setImage(monster);
+        if (!monster.isAttackingPlayer()) {
+          entityImage.setImage(monster);
+        } else {
+          entityAttackImage1.setAttackImage1(monster);
+        }
+
         draw.draw(monster, g2);
       }
     }
