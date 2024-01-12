@@ -10,7 +10,7 @@ public abstract class Entity {
   private final int speed;
 
   private final CheckFacedTile checkFacedTile = new CheckFacedTile();
-  private BufferedImage up1, up2, down1, down2, left1, left2, right1, right2, leftUp1, leftUp2, rightUp1, rightUp2, leftDown1, leftDown2, rightDown1, rightDown2, attackLeft1, attackLeft2, attackRight1, attackRight2, attackUp1, attackUp2, attackDown1, attackDown2, attackDownLeft1, attackDownLeft2, attackDownRight1, attackDownRight2, attackUpLeft1, attackUpLeft2, attackUpRight1, attackUpRight2;
+  private BufferedImage up1, up2, down1, down2, left1, left2, right1, right2, leftUp1, leftUp2, rightUp1, rightUp2, leftDown1, leftDown2, rightDown1, rightDown2, attackLeft1, attackLeft2, attackRight1, attackRight2, attackUp1, attackUp2, attackDown1, attackDown2, attackDownLeft1, attackDownLeft2, attackDownRight1, attackDownRight2, attackUpLeft1, attackUpLeft2, attackUpRight1, attackUpRight2, dead;
   private String direction;
 
   private int spriteCounter = 0;
@@ -24,6 +24,7 @@ public abstract class Entity {
   private BufferedImage image;
   private int screenX;
   private int screenY;
+  private int health = 1;
 
   protected Entity(int speed) {
     this.speed = speed;
@@ -382,6 +383,15 @@ public abstract class Entity {
   public void setAttackUpRight2(BufferedImage attackUpRight2) {
     this.attackUpRight2 = attackUpRight2;
   }
+
+  public BufferedImage getDead() {
+    return dead;
+  }
+
+  public void setDead(BufferedImage dead) {
+    this.dead = dead;
+  }
+
   public Rectangle getSolidArea() {
     return solidArea;
   }
@@ -398,5 +408,12 @@ public abstract class Entity {
     }
   }
 
+  public int getHealth() {
+    return health;
+  }
+
+  public void setHealth(int health) {
+    this.health = health;
+  }
 }
 

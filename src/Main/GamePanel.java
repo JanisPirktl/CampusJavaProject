@@ -96,7 +96,12 @@ public class GamePanel extends JPanel implements Runnable {
   }
 
   public void update() {
-    player.update();
+
+    if (player.getHealth() > 0) {
+      player.update();
+    }
+
+
 
     for (Monster monster : monsters) {
       monster.run();
@@ -118,7 +123,14 @@ public class GamePanel extends JPanel implements Runnable {
         draw.draw(monster, g2);
       }
     }
-    entityImage.setImage(player);
+
+    if(player.getHealth() <= 0){
+      player.setImage(player.getDead());
+      player.setCollisionOn(true);
+    } else {
+      entityImage.setImage(player);
+    }
+
     draw.draw(player, g2);
     drawHeart.draw(player,g2);
     g2.dispose();

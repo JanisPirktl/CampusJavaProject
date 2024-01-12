@@ -25,6 +25,7 @@ public class SetPlayerImages {
       player.setRightDown2(ImageIO.read(new File("res/player/boy_down_right2.png")));
       player.setRightUp1(ImageIO.read(new File("res/player/boy_up_right1.png")));
       player.setRightUp2(ImageIO.read(new File("res/player/boy_up_right2.png")));
+      player.setDead(ImageIO.read(new File("res/player/dead.png")));
 
 
     } catch (IOException e) {

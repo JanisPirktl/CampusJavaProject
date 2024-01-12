@@ -23,10 +23,10 @@ public class DrawHeart {
     }
 
     public void draw(Player player, Graphics2D graphics2D) {
-        int x = 1000;
+        int x = 970;
         for(int i = 0; i < player.getHealth();i++) {
-            graphics2D.drawImage(heart, x, 50, 50,50,null);
-            x += 25;
+            graphics2D.drawImage(heart, x, 20, 50,50,null);
+            x += 30;
         }
     }
 }
