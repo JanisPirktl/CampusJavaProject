@@ -6,7 +6,6 @@ import Entity.Entity.EntityAttackImage2;
 import Entity.Entity.EntityImage;
 import Entity.Monster.IsMonsterOnScreen;
 import Entity.Monster.Monster;
-import Entity.Monster.MonsterAttack;
 import Entity.Monster.Zombie.Zombie;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -129,15 +128,16 @@ public class GamePanel extends JPanel implements Runnable {
           draw.draw(monster, g2);
         } else {
 
-          if (monster.getGameCounter() == gameCounter - 1 ) {
+
+
+          if (monster.getCurrentTime() + 500000000 > System.nanoTime()) {
             entityAttackImage1.setAttackImage1(monster);
             draw.draw(monster, g2);
-          } else if (monster.getGameCounter() == gameCounter - 1) {
+          } else if (monster.getCurrentTime() + 1000000000 > System.nanoTime()){
             entityAttackImage2.setAttackImage2(monster);
             draw.draw(monster, g2);
-            if (monster.getGameCounter() < gameCounter) {
-              monster.setAttackingPlayer(false);
-            }
+          } else {
+            monster.setAttackingPlayer(false);
           }
         }
       }

@@ -12,7 +12,7 @@ public abstract class Monster extends Entity implements Runnable {
   FacePlayer facePlayer = new FacePlayer();
   CheckDistanceToPlayer checkDistanceToPlayer = new CheckDistanceToPlayer();
   SpriteCounter spriteCounter = new SpriteCounter();
-  private int gameCounter;
+  private long currentTime;
 
 
 
@@ -27,7 +27,7 @@ public abstract class Monster extends Entity implements Runnable {
     if (checkDistanceToPlayer.checkDistance(this)) {
       setCollisionOn(true);//Check distance to player
       setAttackingPlayer(true);
-      setGameCounter(getGamePanel().getGameCounter());
+      currentTime = System.nanoTime();
     } else {
       move();
       spriteCounter.countSprite(this, 30);
@@ -55,11 +55,8 @@ public abstract class Monster extends Entity implements Runnable {
 
 
 
-  public int getGameCounter() {
-    return gameCounter;
+  public long getCurrentTime() {
+    return currentTime;
   }
 
-  public void setGameCounter(int gameCounter) {
-    this.gameCounter = gameCounter;
-  }
 }
