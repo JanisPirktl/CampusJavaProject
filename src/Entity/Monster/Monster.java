@@ -7,14 +7,16 @@ import Entity.Entity.SpriteCounter;
 public abstract class Monster extends Entity implements Runnable {
 
   private boolean attackingPlayer = false;
+
   Thread thread;
   FacePlayer facePlayer = new FacePlayer();
   CheckDistanceToPlayer checkDistanceToPlayer = new CheckDistanceToPlayer();
   SpriteCounter spriteCounter = new SpriteCounter();
-  MonsterAttack monsterAttack = new MonsterAttack();
+  private int gameCounter;
 
 
-  protected Monster () {
+
+  protected Monster() {
     super(2);
   }
 
@@ -22,18 +24,21 @@ public abstract class Monster extends Entity implements Runnable {
   public void run() {
     facePlayer.facePlayer(this);                //Make Monster face player
     getCheckFacedTile().checkFacedTile(this);                    //Check tile collision
-    if (checkDistanceToPlayer.checkDistance(this)) {      //Check distance to player
-      setCollisionOn(true);
+    if (checkDistanceToPlayer.checkDistance(this)) {
+      setCollisionOn(true);//Check distance to player
       setAttackingPlayer(true);
-      //monsterAttack.monsterAttack(this);
+      setGameCounter(getGamePanel().getGameCounter());
     } else {
       move();
       spriteCounter.countSprite(this, 30);
     }
   }
-  public void addThread(Thread thread)  {
+
+
+  public void addThread(Thread thread) {
     this.thread = thread;
   }
+
   public Thread getThread() {
     return thread;
   }
@@ -44,5 +49,17 @@ public abstract class Monster extends Entity implements Runnable {
 
   public void setAttackingPlayer(boolean attackingPlayer) {
     this.attackingPlayer = attackingPlayer;
+  }
+
+
+
+
+
+  public int getGameCounter() {
+    return gameCounter;
+  }
+
+  public void setGameCounter(int gameCounter) {
+    this.gameCounter = gameCounter;
   }
 }

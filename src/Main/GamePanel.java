@@ -2,10 +2,11 @@ package Main;
 
 import Entity.Entity.Draw;
 import Entity.Entity.EntityAttackImage1;
+import Entity.Entity.EntityAttackImage2;
 import Entity.Entity.EntityImage;
 import Entity.Monster.IsMonsterOnScreen;
-import Entity.Entity.Entity;
 import Entity.Monster.Monster;
+import Entity.Monster.MonsterAttack;
 import Entity.Monster.Zombie.Zombie;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -35,18 +36,23 @@ public class GamePanel extends JPanel implements Runnable {
   private final int maxWorldCol = 70;
   private final int maxWorldRow = 70;
   private final double fps = 60;
+  private int gameCounter = 0;
 
   private final TileManager tileM = new TileManager(this);
   private final KeyHandler keyHandler = new KeyHandler();
   private Thread gameThread;
   private final MonsterSpawner monsterSpawner = new MonsterSpawner(this);
   private final Player player = new Player(this, keyHandler);
+
   private final ArrayList<Monster> monsters = new ArrayList<>();
+
   private final IsMonsterOnScreen isMonsterOnScreen = new IsMonsterOnScreen();
   private final EntityImage entityImage = new EntityImage();
-  private final EntityAttackImage1 entityAttackImage1 = new EntityAttackImage1();
+
   private final Draw draw = new Draw();
   private final DrawHeart drawHeart = new DrawHeart();
+  private final EntityAttackImage1 entityAttackImage1 = new EntityAttackImage1();
+  private final EntityAttackImage2 entityAttackImage2 = new EntityAttackImage2();
 
 
   public GamePanel() {
@@ -55,6 +61,8 @@ public class GamePanel extends JPanel implements Runnable {
     this.setDoubleBuffered(true);
     this.addKeyListener(keyHandler);
     this.setFocusable(true);
+    Zombie zombie = new Zombie(this, 800, 800);
+    monsters.add(zombie);
   }
 
   public void startGameThread() {
@@ -80,9 +88,12 @@ public class GamePanel extends JPanel implements Runnable {
       lastTime = currentTime;
 
       if (delta >= 1) {
-        update();
         repaint();
         delta--;
+      }
+
+      if (timer >= 500000000) {
+        gameCounter++;
       }
 
       if (timer >= 1000000000) {
@@ -97,21 +108,6 @@ public class GamePanel extends JPanel implements Runnable {
     }
   }
 
-  public void update() {
-
-    if (player.getHealth() > 0) {
-      player.update();
-    }
-
-
-
-    for (Monster monster : monsters) {
-      monster.run();
-      if (monster.isCollisionOn()) {
-        System.out.println("Help i am stuck");
-      }
-    }
-  }
 
   @Override
   public void paintComponent(Graphics g) {
@@ -119,27 +115,41 @@ public class GamePanel extends JPanel implements Runnable {
     Graphics2D g2 = (Graphics2D) g;
     tileM.draw(g2);
 
+    if (player.getHealth() > 0) {
+      player.update();
+    }
+
     for (Monster monster : monsters) {
+      if (!monster.isAttackingPlayer()) {
+        monster.run();
+      }
       if (isMonsterOnScreen.isMonsterOnScreen(this, monster)) {
         if (!monster.isAttackingPlayer()) {
           entityImage.setImage(monster);
+          draw.draw(monster, g2);
         } else {
-          entityAttackImage1.setAttackImage1(monster);
-        }
 
-        draw.draw(monster, g2);
+          if (monster.getGameCounter() == gameCounter - 1 ) {
+            entityAttackImage1.setAttackImage1(monster);
+            draw.draw(monster, g2);
+          } else if (monster.getGameCounter() == gameCounter - 1) {
+            entityAttackImage2.setAttackImage2(monster);
+            draw.draw(monster, g2);
+            if (monster.getGameCounter() < gameCounter) {
+              monster.setAttackingPlayer(false);
+            }
+          }
+        }
       }
     }
-
-    if(player.getHealth() <= 0){
+    if (player.getHealth() <= 0) {
       player.setImage(player.getDead());
       player.setCollisionOn(true);
     } else {
       entityImage.setImage(player);
     }
-
     draw.draw(player, g2);
-    drawHeart.draw(player,g2);
+    drawHeart.draw(player, g2);
     g2.dispose();
   }
 
@@ -165,6 +175,9 @@ public class GamePanel extends JPanel implements Runnable {
 
   public int getMaxWorldRow() {
     return maxWorldRow;
+  }
+  public int getGameCounter() {
+    return gameCounter;
   }
 
   public Player getPlayer() {

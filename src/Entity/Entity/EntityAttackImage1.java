@@ -33,5 +33,4 @@ public class EntityAttackImage1 {
         break;
     }
   }
-
 }
