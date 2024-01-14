@@ -1,6 +1,6 @@
 package Entity.Entity;
 
-import Entity.Entity.Entity;
+
 import Entity.Monster.Monster;
 public class CheckMonsterIntersection {
 

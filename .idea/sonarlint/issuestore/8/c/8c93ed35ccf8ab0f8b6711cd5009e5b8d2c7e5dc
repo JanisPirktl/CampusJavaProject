@@ -1,0 +1,10 @@
+
+…
+java:S1319"hThe type of "monsters" should be an interface such as "List" rather than the implementation "ArrayList".(Β•όζ8­σίΖΠ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(£ΗΘωÿÿÿÿ8­σίΖΠ1
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(Β•όζ8ύσίΖΠ1
+q
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(’¥Β8ώσίΖΠ1
+q
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(ύφ†ƒ8ώσίΖΠ1

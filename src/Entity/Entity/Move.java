@@ -30,18 +30,22 @@ public class Move {
         case "right_down":
           entity.setWorldX(worldX + speedNormed);
           entity.setWorldY(worldY + speedNormed);
+
           break;
         case "right_up":
           entity.setWorldX(worldX + speedNormed);
           entity.setWorldY(worldY - speedNormed);
+
           break;
         case "left_down":
           entity.setWorldX(worldX - speedNormed);
           entity.setWorldY(worldY + speedNormed);
+
           break;
         case "left_up":
           entity.setWorldX(worldX - speedNormed);
           entity.setWorldY(worldY - speedNormed);
+
           break;
       }
   }
