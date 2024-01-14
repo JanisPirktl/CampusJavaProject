@@ -1,6 +1,7 @@
 package Entity.Monster;
 
 
+import Entity.Entity.CheckMonsterIntersection;
 import Entity.Entity.Entity;
 import Entity.Entity.SpriteCounter;
 
@@ -8,10 +9,11 @@ public abstract class Monster extends Entity implements Runnable {
 
   private boolean attackingPlayer = false;
 
-  Thread thread;
-  FacePlayer facePlayer = new FacePlayer();
-  CheckDistanceToPlayer checkDistanceToPlayer = new CheckDistanceToPlayer();
-  SpriteCounter spriteCounter = new SpriteCounter();
+  private Thread thread;
+  private final FacePlayer facePlayer = new FacePlayer();
+  private final CheckDistanceToPlayer checkDistanceToPlayer = new CheckDistanceToPlayer();
+  private final SpriteCounter spriteCounter = new SpriteCounter();
+  private final CheckMonsterIntersection checkMonsterIntersection = new CheckMonsterIntersection();
   private long currentTime;
 
 
@@ -30,6 +32,12 @@ public abstract class Monster extends Entity implements Runnable {
     if (getCheckFacedTile().checkFacedTile(this)) {
       setCollisionOn(true);
     }
+
+    //Check collision with other monsters
+    if (checkMonsterIntersection.checkMonsterIntersection(this)) {
+      setCollisionOn(true);
+    }
+
     if (checkDistanceToPlayer.checkDistance(this)) {
       setCollisionOn(true);//Check distance to player
       setAttackingPlayer(true);

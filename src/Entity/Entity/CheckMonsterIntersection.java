@@ -7,6 +7,10 @@ public class CheckMonsterIntersection {
   public boolean checkMonsterIntersection(Entity target) {
 
     for (Monster monster : target.getGamePanel().getMonsters()) {
+
+      if (target.equals(monster)) {
+        break;
+      }
       target.getSolidArea().x += target.getWorldX();
       target.getSolidArea().y += target.getWorldY();
 
