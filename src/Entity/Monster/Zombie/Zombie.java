@@ -15,8 +15,8 @@ public class Zombie extends Monster {
     this.setWorldX(worldX);
     this.setWorldY(worldY);
     setSolidArea(new Rectangle(0, 0, 48, 48));
-    setSolidAreaDefaultX(0);
-    setSolidAreaDefaultY(0);
+    setSolidAreaDefaultX(getSolidArea().x);
+    setSolidAreaDefaultY(getSolidArea().y);
     setCollisionOn(true);
     setDirection("down");
     SetZombieImages imageSetter = new SetZombieImages();

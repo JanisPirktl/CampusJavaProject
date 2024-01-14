@@ -99,8 +99,10 @@ public class Player extends Entity {
 
 
       //IF COLLISION IS FALSE, PLAYER CAN MOVE
-      move();
-      spriteCounter.countSprite(this, 10);
+      if (!isCollisionOn()) {
+        move();
+        spriteCounter.countSprite(this, 10);
+      }
     }
   }
 

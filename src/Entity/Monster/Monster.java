@@ -17,7 +17,6 @@ public abstract class Monster extends Entity implements Runnable {
   private long currentTime;
 
 
-
   protected Monster() {
     super(2);
   }
@@ -42,7 +41,8 @@ public abstract class Monster extends Entity implements Runnable {
       setCollisionOn(true);//Check distance to player
       setAttackingPlayer(true);
       currentTime = System.nanoTime();
-    } else {
+    }
+    if (!isCollisionOn()) {
       move();
       spriteCounter.countSprite(this, 30);
     }
@@ -64,9 +64,6 @@ public abstract class Monster extends Entity implements Runnable {
   public void setAttackingPlayer(boolean attackingPlayer) {
     this.attackingPlayer = attackingPlayer;
   }
-
-
-
 
 
   public long getCurrentTime() {
