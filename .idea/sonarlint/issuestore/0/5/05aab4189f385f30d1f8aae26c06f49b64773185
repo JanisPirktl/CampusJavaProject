@@ -1,6 +1,12 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Úù£“ûÿÿÿÿ8ÒËÅ½Ï1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Úù£“ûÿÿÿÿ8îõµÅĞ1
+W
+java:S1161":Add the "@Override" annotation above this method signature(€±ªª8ÄöµÅĞ1
+W
+java:S1161":Add the "@Override" annotation above this method signature(´‚ò8ÄöµÅĞ1
 o
-java:S37767"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(Ö×õÄ8Í¨äÄÏ1
-J
-java:S1128"(Remove this unused import 'Entity.Move'.(î·ä¡şÿÿÿÿ8ú¤°ÅÏ1
+java:S3776@"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(Ö×õÄ8ÆöµÅĞ1
+W
+java:S1161r":Add the "@Override" annotation above this method signature(ÉÊÅ¶8ÊöµÅĞ1
+W
+java:S1161~":Add the "@Override" annotation above this method signature(˜×³¹8ÊöµÅĞ1
