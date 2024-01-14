@@ -1,6 +1,7 @@
 package Entity.Player;
 
 
+import Entity.Entity.CheckMonsterIntersection;
 import Entity.Entity.Entity;
 import Entity.Entity.SpriteCounter;
 import java.awt.Rectangle;
@@ -88,7 +89,10 @@ public class Player extends Entity {
       getCheckFacedTile().checkFacedTile(this);
 
       //CHeck Monster COllision
-      checkMonsterIntersection.checkMonsterIntersection(this);
+      if (checkMonsterIntersection.checkMonsterIntersection(this)) {
+        setCollisionOn(true);
+      }
+
 
       //IF COLLISION IS FALSE, PLAYER CAN MOVE
       move();
