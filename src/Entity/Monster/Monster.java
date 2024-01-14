@@ -42,10 +42,10 @@ public abstract class Monster extends Entity implements Runnable {
       setAttackingPlayer(true);
       currentTime = System.nanoTime();
     }
-    if (!isCollisionOn()) {
-      move();
-      spriteCounter.countSprite(this, 30);
-    }
+
+    move();
+    spriteCounter.countSprite(this, 30);
+
   }
 
 

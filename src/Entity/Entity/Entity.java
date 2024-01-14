@@ -25,6 +25,7 @@ public abstract class Entity {
   private int screenX;
   private int screenY;
   private int health = 1;
+  private int range;
 
   protected Entity(int speed) {
     this.speed = speed;
@@ -108,6 +109,14 @@ public abstract class Entity {
 
   public BufferedImage getUp1() {
     return up1;
+  }
+
+  public int getRange() {
+    return range;
+  }
+
+  public void setRange(int range) {
+    this.range = range;
   }
 
   public void setUp1(BufferedImage up1) {

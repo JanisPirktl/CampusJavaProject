@@ -29,11 +29,13 @@ public class Player extends Entity {
   public void setHealth(int health) {
     this.health = health;
   }
-  public void damage(int amount){
+
+  public void damage(int amount) {
     this.health -= amount;
   }
-  public int heal(int amount){
-      return Math.min(health + amount, maxHealth);
+
+  public int heal(int amount) {
+    return Math.min(health + amount, maxHealth);
   }
 
   public Player(GamePanel gamePanel, KeyHandler keyH) {
@@ -59,21 +61,25 @@ public class Player extends Entity {
   }
 
 
-
   public void update() {
 
     if (keyHandler.isUpPressed() || keyHandler.isDownPressed() ||
-        keyHandler.isLeftPressed() || keyHandler.isRightPressed() || (keyHandler.isLeftPressed() && keyHandler.isDownPressed()) || (
-        keyHandler.isLeftPressed() && keyHandler.isUpPressed()) || (keyHandler.isRightPressed() && keyHandler.isDownPressed()) || (
+        keyHandler.isLeftPressed() || keyHandler.isRightPressed() || (keyHandler.isLeftPressed()
+        && keyHandler.isDownPressed()) || (
+        keyHandler.isLeftPressed() && keyHandler.isUpPressed()) || (keyHandler.isRightPressed()
+        && keyHandler.isDownPressed()) || (
         keyHandler.isRightPressed() && keyHandler.isUpPressed())) {
 
       if (keyHandler.isUpPressed() && !keyHandler.isLeftPressed() && !keyHandler.isRightPressed()) {
         setDirection("up");
-      } else if (keyHandler.isDownPressed() && !keyHandler.isLeftPressed() && !keyHandler.isRightPressed()) {
+      } else if (keyHandler.isDownPressed() && !keyHandler.isLeftPressed()
+          && !keyHandler.isRightPressed()) {
         setDirection("down");
-      } else if (keyHandler.isLeftPressed() && !keyHandler.isUpPressed() && !keyHandler.isDownPressed()) {
+      } else if (keyHandler.isLeftPressed() && !keyHandler.isUpPressed()
+          && !keyHandler.isDownPressed()) {
         setDirection("left");
-      } else if (keyHandler.isRightPressed() && !keyHandler.isUpPressed() && !keyHandler.isDownPressed()) {
+      } else if (keyHandler.isRightPressed() && !keyHandler.isUpPressed()
+          && !keyHandler.isDownPressed()) {
         setDirection("right");
       } else if (keyHandler.isUpPressed() && keyHandler.isRightPressed()) {
         setDirection("right_up");
@@ -97,12 +103,11 @@ public class Player extends Entity {
         setCollisionOn(true);
       }
 
-
       //IF COLLISION IS FALSE, PLAYER CAN MOVE
-      if (!isCollisionOn()) {
-        move();
-        spriteCounter.countSprite(this, 10);
-      }
+
+      move();
+      spriteCounter.countSprite(this, 10);
+
     }
   }
 
@@ -121,6 +126,7 @@ public class Player extends Entity {
   public int getScreenY() {
     return screenY;
   }
+
   public GamePanel getGamePanel() {
     return gamePanel;
   }
