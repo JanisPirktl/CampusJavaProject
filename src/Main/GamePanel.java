@@ -1,7 +1,9 @@
 package Main;
 
 import Entity.Monster.Monster;
+import Entity.Monster.MonsterBehaviour;
 import Entity.Monster.Zombie.Zombie;
+import Entity.Player.PlayerBehaviour;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;

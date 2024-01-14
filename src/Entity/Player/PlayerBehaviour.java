@@ -1,6 +1,7 @@
-package Main;
+package Entity.Player;
 
 import Entity.Player.DrawHeart;
+import Main.GamePanel;
 import java.awt.Graphics2D;
 import Entity.Player.Player;
 import Entity.Entity.EntityImage;
