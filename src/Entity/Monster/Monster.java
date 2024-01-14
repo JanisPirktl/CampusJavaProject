@@ -22,8 +22,14 @@ public abstract class Monster extends Entity implements Runnable {
 
 
   public void run() {
+
+    setCollisionOn(false);
     facePlayer.facePlayer(this);                //Make Monster face player
-    getCheckFacedTile().checkFacedTile(this);                    //Check tile collision
+
+    //Check tile collision
+    if (getCheckFacedTile().checkFacedTile(this)) {
+      setCollisionOn(true);
+    }
     if (checkDistanceToPlayer.checkDistance(this)) {
       setCollisionOn(true);//Check distance to player
       setAttackingPlayer(true);

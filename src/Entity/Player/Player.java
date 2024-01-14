@@ -85,8 +85,12 @@ public class Player extends Entity {
         setDirection("right_down");
       }
 
+      setCollisionOn(false);
+
       //CHeck TILE COLLISION
-      getCheckFacedTile().checkFacedTile(this);
+      if (getCheckFacedTile().checkFacedTile(this)) {
+        setCollisionOn(true);
+      }
 
       //CHeck Monster COllision
       if (checkMonsterIntersection.checkMonsterIntersection(this)) {

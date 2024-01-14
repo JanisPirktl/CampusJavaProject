@@ -2,7 +2,7 @@ package Entity.Entity;
 
 public class CheckFacedTile {
 
-  public void checkFacedTile(Entity entity) {
+  public boolean checkFacedTile(Entity entity) {
 
     int entityLeftWorldX = entity.getWorldX() + entity.getSolidArea().x;
     int entityRightWorldX = entity.getWorldX() + entity.getSolidArea().x + entity.getSolidArea().width;
@@ -24,7 +24,6 @@ public class CheckFacedTile {
     int tileNum1;
     int tileNum2;
 
-    entity.setCollisionOn(false);
 
     switch(entity.getDirection()) {
       case "up":
@@ -32,7 +31,7 @@ public class CheckFacedTile {
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityTopRow];
         tileNum2 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityTopRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision() || entity.getGamePanel().getTileM().getTile()[tileNum2].isCollision()) {
-          entity.setCollisionOn(true);
+          return true;
         }
         break;
       case "down":
@@ -40,7 +39,7 @@ public class CheckFacedTile {
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityBottomRow];
         tileNum2 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityBottomRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision() || entity.getGamePanel().getTileM().getTile()[tileNum2].isCollision()) {
-          entity.setCollisionOn(true);
+          return true;
         }
         break;
       case "left":
@@ -48,7 +47,7 @@ public class CheckFacedTile {
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityTopRow];
         tileNum2 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityBottomRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision() || entity.getGamePanel().getTileM().getTile()[tileNum2].isCollision()) {
-          entity.setCollisionOn(true);
+          return true;
         }
         break;
       case "right":
@@ -56,7 +55,7 @@ public class CheckFacedTile {
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityTopRow];
         tileNum2 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityBottomRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision() || entity.getGamePanel().getTileM().getTile()[tileNum2].isCollision()) {
-          entity.setCollisionOn(true);
+          return true;
         }
         break;
 
@@ -65,7 +64,7 @@ public class CheckFacedTile {
         entityTopRow = ((entityTopWorldY - speedNormed)/ tileSize);
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityTopRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision()) {
-          entity.setCollisionOn(true);
+          return true;
         }
         break;
       case "right_down":
@@ -73,7 +72,7 @@ public class CheckFacedTile {
         entityBottomRow = ((entityBottomWorldY + speedNormed)/ tileSize);
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityRightCol][entityBottomRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision()) {
-          entity.setCollisionOn(true);
+          return true;
         }
         break;
       case "left_up":
@@ -81,7 +80,7 @@ public class CheckFacedTile {
         entityTopRow = ((entityTopWorldY - speedNormed)/ tileSize);
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityTopRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision()) {
-          entity.setCollisionOn(true);
+          return true;
         }
         break;
       case "left_down":
@@ -89,9 +88,10 @@ public class CheckFacedTile {
         entityBottomRow = ((entityBottomWorldY + speedNormed)/ tileSize);
         tileNum1 = entity.getGamePanel().getTileM().getMapTileNum()[entityLeftCol][entityBottomRow];
         if (entity.getGamePanel().getTileM().getTile()[tileNum1].isCollision()) {
-          entity.setCollisionOn(true);
+          return true;
         }
         break;
     }
+    return false;
   }
 }
