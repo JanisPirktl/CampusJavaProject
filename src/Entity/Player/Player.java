@@ -21,6 +21,7 @@ public class Player extends Entity {
   private final SpriteCounter spriteCounter = new SpriteCounter();
   private int health = 5;
   private int maxHealth = 5;
+  private boolean isAttacking = false;
 
   public int getHealth() {
     return health;
@@ -104,9 +105,10 @@ public class Player extends Entity {
       }
 
       //IF COLLISION IS FALSE, PLAYER CAN MOVE
-
+      if(!isAttacking){
       move();
       spriteCounter.countSprite(this, 10);
+      }
 
     }
   }
