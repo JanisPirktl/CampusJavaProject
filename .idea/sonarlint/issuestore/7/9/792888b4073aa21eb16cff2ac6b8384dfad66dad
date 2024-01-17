@@ -3,5 +3,3 @@ v	java:S120"ZRename this package name to match the regular expression '^[a-z_
 t
 java:S3776"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(–şìóøÿÿÿÿ8Ü¸ÛÅĞ1
 C	java:S131""Add a default case to this switch.(ğ€ğèûÿÿÿÿ8Ş¸ÛÅĞ1
-v
-java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(µûúÆùÿÿÿÿ8¯¯¹ÆĞ1
