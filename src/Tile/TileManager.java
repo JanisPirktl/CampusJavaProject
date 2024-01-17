@@ -24,7 +24,7 @@ public class TileManager {
     collisionMapTileNum = new int[gamePanel.getMaxWorldCol()][gamePanel.getMaxWorldRow()];
     getTileImage();
     loadMap("/maps/map.txt");
-    loadCollisionMap("/maps/collision_map.txt");
+    //loadCollisionMap("/maps/collision_map.txt");
   }
   public void getTileImage() {
     try {
