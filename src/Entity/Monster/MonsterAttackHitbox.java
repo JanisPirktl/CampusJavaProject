@@ -12,6 +12,10 @@ public class MonsterAttackHitbox {
   private int monsterPosY;
   private int playerPosX;
   private int playerPosY;
+  private int distanceX;
+  private int distanceY;
+  private double trueDistance;
+  private boolean impacted = false;
   public void monsterAttackHitbox(Monster monster, Player player) {
 
     direction = monster.getDirection();
@@ -19,6 +23,10 @@ public class MonsterAttackHitbox {
     monsterPosY = monster.getWorldY();
     playerPosX = player.getWorldX();
     playerPosY = player.getWorldY();
+    distanceX = Math.abs(playerPosX - monsterPosX);
+    distanceY = Math.abs(playerPosY - monsterPosY);
+    trueDistance = Math.sqrt(Math.pow(distanceX,2) + Math.pow(distanceY,2));
+
 
     switch (direction) {
       case "up":
@@ -54,8 +62,25 @@ public class MonsterAttackHitbox {
         impactY = monsterPosY - rangeNormed;
         break;
     }
+    if(!impacted) {
+      if (trueDistance <= 55) {
+        player.damage(1);
+        System.out.println("I hit");
+      } else {
+        System.out.println("I miss");
+      }
+        this.impacted = true;
+    }
 
     //TODO get something like pythagoras here...
 
+  }
+
+  public boolean isImpacted() {
+    return impacted;
+  }
+
+  public void setImpacted(boolean impacted) {
+    this.impacted = impacted;
   }
 }

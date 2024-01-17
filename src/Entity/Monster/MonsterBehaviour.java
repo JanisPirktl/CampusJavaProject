@@ -16,10 +16,12 @@ public class MonsterBehaviour {
   private final EntityAttackImage2 entityAttackImage2 = new EntityAttackImage2();
   private final EntityImage entityImage = new EntityImage();
   private final Draw draw = new Draw();
+  private final MonsterAttackHitbox monsterAttackHitbox = new MonsterAttackHitbox();
 
   public void monsterBehaviour(Graphics2D g2, ArrayList<Monster> monsters, Main.GamePanel gamePanel) {
 
     for (Monster monster : monsters) {
+
       if (!monster.isAttackingPlayer()) {
         monster.run();
       }
@@ -35,8 +37,10 @@ public class MonsterBehaviour {
           } else if (monster.getCurrentTime() + 1000000000 > System.nanoTime()) {
             entityAttackImage2.setAttackImage2(monster);
             draw.draw(monster, g2);
+            monsterAttackHitbox.monsterAttackHitbox(monster, gamePanel.getPlayer());
           } else {
             monster.setAttackingPlayer(false);
+            monsterAttackHitbox.setImpacted(false);
           }
         }
       }
