@@ -8,6 +8,8 @@ public abstract class Entity {
 
   private int worldX, worldY;
   private final int speed;
+  private int tileCol;
+  private int tileRow;
 
   private final CheckFacedTile checkFacedTile = new CheckFacedTile();
   private BufferedImage up1, up2, down1, down2, left1, left2, right1, right2, leftUp1, leftUp2, rightUp1, rightUp2, leftDown1, leftDown2, rightDown1, rightDown2, attackLeft1, attackLeft2, attackRight1, attackRight2, attackUp1, attackUp2, attackDown1, attackDown2, attackDownLeft1, attackDownLeft2, attackDownRight1, attackDownRight2, attackUpLeft1, attackUpLeft2, attackUpRight1, attackUpRight2, dead;
@@ -417,6 +419,22 @@ public abstract class Entity {
     }
   }
 
+  public int getTileCol() {
+    return tileCol;
+  }
+
+  public void setTileCol(int tileCol) {
+    this.tileCol = tileCol;
+  }
+
+  public int getTileRow() {
+    return tileRow;
+  }
+
+  public void setTileRow(int tileRow) {
+    this.tileRow = tileRow;
+  }
+
   public int getHealth() {
     return health;
   }
@@ -425,4 +443,3 @@ public abstract class Entity {
     this.health = health;
   }
 }
-

@@ -4,6 +4,7 @@ package Entity.Player;
 import Entity.Entity.CheckMonsterIntersection;
 import Entity.Entity.Entity;
 import Entity.Entity.SpriteCounter;
+import Entity.Monster.Pathfinder;
 import java.awt.Rectangle;
 
 
@@ -14,11 +15,13 @@ public class Player extends Entity {
 
   private final GamePanel gamePanel;
   private final KeyHandler keyHandler;
+  private final Pathfinder pathfinder = new Pathfinder();
 
   private final int screenX;
   private final int screenY;
   private final CheckMonsterIntersection checkMonsterIntersection = new CheckMonsterIntersection();
   private final SpriteCounter spriteCounter = new SpriteCounter();
+
   private int health = 5;
   private int maxHealth = 5;
   private boolean isAttacking = false;
@@ -92,6 +95,7 @@ public class Player extends Entity {
         setDirection("right_down");
       }
 
+      pathfinder.determineTile(this);
       setCollisionOn(false);
 
       //CHeck TILE COLLISION
@@ -103,6 +107,8 @@ public class Player extends Entity {
       if (checkMonsterIntersection.checkMonsterIntersection(this)) {
         setCollisionOn(true);
       }
+
+
 
       //IF COLLISION IS FALSE, PLAYER CAN MOVE
       if(!isAttacking){

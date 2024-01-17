@@ -16,12 +16,15 @@ public class TileManager {
   private final GamePanel gamePanel;
   private final Tile[] tile;
   private final int[][] mapTileNum;
+  private final int[][] collisionMapTileNum;
   public TileManager(GamePanel gamePanel) {
     this.gamePanel = gamePanel;
     tile = new Tile[10];
     mapTileNum = new int[gamePanel.getMaxWorldCol()][gamePanel.getMaxWorldRow()];
+    collisionMapTileNum = new int[gamePanel.getMaxWorldCol()][gamePanel.getMaxWorldRow()];
     getTileImage();
     loadMap("/maps/map.txt");
+    loadCollisionMap("/maps/collision_map.txt");
   }
   public void getTileImage() {
     try {
@@ -63,6 +66,33 @@ public class TileManager {
           String[] numbers = line.split(" ");
           int num = Integer.parseInt(numbers[col]);
           mapTileNum[col][row] = num;
+          col++;
+        }
+        if(col == gamePanel.getMaxWorldCol()) {
+          col = 0;
+          row++;
+        }
+      }
+      br.close();
+    }catch(Exception e) {
+      System.out.println(e.getMessage());
+    }
+
+  }
+
+  public void loadCollisionMap(String filePath) {
+    try {
+      InputStream is = getClass().getResourceAsStream(filePath);
+      assert is != null;
+      BufferedReader br = new BufferedReader(new InputStreamReader(is));
+      int col  = 0;
+      int row = 0;
+      while(col < gamePanel.getMaxWorldCol() && row < gamePanel.getMaxWorldRow()) {
+        String line = br.readLine();
+        while(col < gamePanel.getMaxWorldCol()) {
+          String[] numbers = line.split(" ");
+          int num = Integer.parseInt(numbers[col]);
+          collisionMapTileNum[col][row] = num;
           col++;
         }
         if(col == gamePanel.getMaxWorldCol()) {
