@@ -103,7 +103,7 @@ public class GamePanel extends JPanel implements Runnable {
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D) g;
     tileM.draw(g2);
-    monsterBehaviour.monsterBehaviour(g2, monsters, this, player);
+    monsterBehaviour.monsterBehaviour(g2, monsters, this);
     playerBehaviour.playerBehaviour(g2, this, player);
     g2.dispose();
   }

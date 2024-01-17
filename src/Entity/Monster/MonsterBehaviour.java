@@ -1,4 +1,4 @@
-package Main;
+package Entity.Monster;
 
 import Entity.Entity.Draw;
 import Entity.Entity.EntityAttackImage1;
@@ -17,7 +17,7 @@ public class MonsterBehaviour {
   private final EntityImage entityImage = new EntityImage();
   private final Draw draw = new Draw();
 
-  public void monsterBehaviour(Graphics2D g2, ArrayList<Monster> monsters, GamePanel gamePanel) {
+  public void monsterBehaviour(Graphics2D g2, ArrayList<Monster> monsters, Main.GamePanel gamePanel) {
 
     for (Monster monster : monsters) {
       if (!monster.isAttackingPlayer()) {
