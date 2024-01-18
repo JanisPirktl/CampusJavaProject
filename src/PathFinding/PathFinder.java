@@ -114,8 +114,69 @@ public class PathFinder {
   public boolean search() {
     while(!goalReached && step < 500) {
 
+      int col = currentNode.col;
+      int row = currentNode.row;
+
+      currentNode.checked = true;
+      openList.remove(currentNode);
+
+      if (row-1 >= 0) {
+        openNode(node[col][row-1]);
+      }
+      if (col - 1 >= 0) {
+        openNode(node[col-1][row]);
+      }
+      if (row + 1 < gamePanel.getMaxWorldRow()) {
+        openNode(node[col][row+1]);
+      }
+      if (col + 1 < gamePanel.getMaxWorldCol()) {
+        openNode(node[col+1][row]);
+      }
+
+      int bestNodeIndex = 0;
+      int bestNodefCost = Integer.MAX_VALUE;
+
+      for (int i = 0; i < openList.size(); i++) {
+        if (openList.get(i).fCost < bestNodefCost) {
+          bestNodeIndex = i;
+          bestNodefCost = openList.get(i).fCost;
+        } else if (openList.get(i).fCost == bestNodefCost) {
+          if (openList.get(i).gCost < openList.get(bestNodeIndex).gCost) {
+            bestNodeIndex = i;
+          }
+        }
+      }
+
+      if (openList.size() == 0) {
+        break;
+      }
+
+      currentNode = openList.get(bestNodeIndex);
+
+      if (currentNode == goalNode) {
+        goalReached = true;
+        trackThePath();
+      }
+      step++;
     }
-    //remove return
-    return false;
+    return goalReached;
+  }
+  public void openNode(Node node) {
+
+    if(!node.open && !node.checked && !node.solid) {
+
+      node.open = true;
+      node.parent = currentNode;
+      openList.add(node);
+    }
+  }
+  public void trackThePath() {
+
+    Node current = goalNode;
+
+    while (current != startNode) {
+      pathList.add(0, current);
+      current = current.parent;
+    }
   }
 }
