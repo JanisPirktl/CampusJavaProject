@@ -63,7 +63,6 @@ public class MonsterSpawner {
       }
     }
     //create new zombie as thread
-    System.out.println("a new zombie has spawned");
     Zombie zombie = new Zombie(gp, monsterX, monsterY);
     Thread thread = new Thread(zombie);
     zombie.addThread(thread);
