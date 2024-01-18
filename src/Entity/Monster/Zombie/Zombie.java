@@ -10,7 +10,7 @@ public class Zombie extends Monster {
   private final GamePanel gamePanel;
 
   public Zombie(GamePanel gamePanel, int worldX, int worldY) {
-    super();
+    super(gamePanel);
     this.gamePanel = gamePanel;
     this.setWorldX(worldX);
     this.setWorldY(worldY);

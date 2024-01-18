@@ -4,6 +4,7 @@ package Entity.Monster;
 import Entity.Entity.CheckMonsterIntersection;
 import Entity.Entity.Entity;
 import Entity.Entity.SpriteCounter;
+import Main.GamePanel;
 import PathFinding.PathFinder;
 
 public abstract class Monster extends Entity implements Runnable {
@@ -21,15 +22,18 @@ public abstract class Monster extends Entity implements Runnable {
   private long currentTime;
 
 
-  protected Monster() {
+  protected Monster(GamePanel gamePanel) {
     super(2);
+    pathFinder = new PathFinder(gamePanel);
   }
 
 
   public void run() {
 
     setCollisionOn(false);
-    facePlayer.facePlayer(this);    //Make Monster face player
+    //facePlayer.facePlayer(this);    //Make Monster face player
+    int goalCol =
+    searchPath();
 
     //Check tile collision
     if (getCheckFacedTile().checkFacedTile(this)) {
@@ -54,7 +58,6 @@ public abstract class Monster extends Entity implements Runnable {
 
   private void searchPath(int goalCol, int goalRow) {
 
-    pathFinder = new PathFinder(getGamePanel());
     int startCol = (getWorldX() + getSolidArea().x) / 48;
     int startRow = (getWorldY() + getSolidArea().y) / 48;
 
