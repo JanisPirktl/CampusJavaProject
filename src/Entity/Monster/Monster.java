@@ -63,6 +63,7 @@ public abstract class Monster extends Entity implements Runnable {
 
     int startCol = (getWorldX() + getSolidArea().x) / 48;
     int startRow = (getWorldY() + getSolidArea().y) / 48;
+    startCol++;
 
     pathFinder.setNodes(startCol, startRow, goalCol, goalRow);
 
@@ -75,6 +76,8 @@ public abstract class Monster extends Entity implements Runnable {
       int entityTopY = getWorldY() + getSolidArea().y;
       int entityBottomY = getWorldY() + getSolidArea().y + getSolidArea().height;
 
+
+
       if (entityTopY > nextY && entityLeftX >= nextX && entityRightX < nextX + 48) {
         setDirection("up");
       } else if (entityTopY < nextY && entityLeftX >= nextX && entityRightX < nextX + 48) {
@@ -86,7 +89,7 @@ public abstract class Monster extends Entity implements Runnable {
         if (entityLeftX < nextX) {
           setDirection("right");
         }
-      } else if (entityTopY > nextY && entityLeftX < nextX) {
+      } else if (entityTopY > nextY && entityLeftX > nextX) {
         setDirection("up");
         if (getCheckFacedTile().checkFacedTile(this)) {
           setDirection("left");

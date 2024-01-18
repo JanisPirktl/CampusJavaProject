@@ -75,14 +75,10 @@ R
 "src/Entity/Entity/EntityImage.java,d\4\d44623dbeb3c896b986a3d0b9b24a676ba7fb45d
 Y
 )src/Entity/Entity/EntityAttackImage2.java,5\e\5e422f5728f30ef67d1b3c3de82795a0c5dc3a8f
-[
-+src/Entity/Monster/MonsterAttackHitbox.java,6\d\6d262a49a2ee1c321b007db373f6cdb14ad6df34
 ]
 -src/Entity/Monster/CheckDistanceToPlayer.java,0\c\0c818f7859bfea69e9ae9835fbe54c18b9fb6421
 B
 src/Tile/Tile.java,a\7\a7e5c7580b94a7c29374e69abc45a6fc8cb3fbe3
-R
-"src/Entity/Monster/Pathfinder.java,d\c\dc63a8c6e7d524e978110c4d61132c9529647382
 I
 src/Tile/TileManager.java,c\1\c1df0364b0597ab827d3e26b621c8cc6b276b0a2
 Å
@@ -165,5 +161,3 @@ w
 G.idea/sonarlint/issuestore/2/5/259548b9a848a28824d5d03c9fe0a3062f6b8519,9\f\9f3f08a2173138d9a809a8ab2363179dbb2d5dee
 Å
 Q.idea/sonarlint/securityhotspotstore/4/4/4458c08fe8627b3502ca70f1cd44aedc0825b90f,8\a\8ab1f3e6f87c522fd4dd3096c1770f5fd99e4b1f
-Z
-*src/Testing/TestCheckDIstanceToPlayer.java,b\a\ba0eabbb4c164b2e0d647fc639cf77b5db23acc7

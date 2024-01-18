@@ -147,7 +147,7 @@ public class PathFinder {
         }
       }
 
-      if (openList.size() == 0) {
+      if (openList.isEmpty()) {
         break;
       }
 
