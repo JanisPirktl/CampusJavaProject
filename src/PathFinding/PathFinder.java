@@ -179,4 +179,8 @@ public class PathFinder {
       current = current.parent;
     }
   }
+
+  public ArrayList<Node> getPathList() {
+    return pathList;
+  }
 }
