@@ -11,7 +11,8 @@ public abstract class Monster extends Entity implements Runnable {
 
   private boolean attackingPlayer = false;
 
-  private PathFinder pathFinder;
+  private final PathFinder pathFinder;
+  private final GamePanel gamePanel;
 
   private Thread thread;
   private final FacePlayer facePlayer = new FacePlayer();
@@ -25,15 +26,17 @@ public abstract class Monster extends Entity implements Runnable {
   protected Monster(GamePanel gamePanel) {
     super(2);
     pathFinder = new PathFinder(gamePanel);
+    this.gamePanel = gamePanel;
   }
 
 
   public void run() {
 
     setCollisionOn(false);
-    facePlayer.facePlayer(this);    //Make Monster face player
-    //int goalCol =
-    //searchPath();
+    //facePlayer.facePlayer(this);    //Make Monster face player
+    int goalCol = (gamePanel.getPlayer().getWorldX() + gamePanel.getPlayer().getSolidArea().x) / 48;
+    int goalRow = (gamePanel.getPlayer().getWorldY() + gamePanel.getPlayer().getSolidArea().y) / 48;
+    searchPath(goalCol, goalRow);
 
     //Check tile collision
     if (getCheckFacedTile().checkFacedTile(this)) {
@@ -61,7 +64,7 @@ public abstract class Monster extends Entity implements Runnable {
     int startCol = (getWorldX() + getSolidArea().x) / 48;
     int startRow = (getWorldY() + getSolidArea().y) / 48;
 
-    pathFinder.setNodes(startCol, startRow, goalCol, goalRow, this);
+    pathFinder.setNodes(startCol, startRow, goalCol, goalRow);
 
     if (pathFinder.search()) {
       int nextX = pathFinder.getPathList().get(0).getCol() * 48;
@@ -104,8 +107,7 @@ public abstract class Monster extends Entity implements Runnable {
           setDirection("right");
         }
       }
-      int nextCol = pathFinder.getPathList().get(0).getCol();
-      int nextRow = pathFinder.getPathList().get(0).getRow();
+
 
 
     }
@@ -133,4 +135,12 @@ public abstract class Monster extends Entity implements Runnable {
     return currentTime;
   }
 
+  @Override
+  public GamePanel getGamePanel() {
+    return gamePanel;
+  }
+
+  public PathFinder getPathFinder() {
+    return pathFinder;
+  }
 }

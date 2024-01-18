@@ -1,10 +1,13 @@
 package Tile;
 
+import Entity.Monster.Monster;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import javax.imageio.ImageIO;
 
@@ -125,6 +128,17 @@ public class TileManager {
       if(worldCol == gamePanel.getMaxWorldCol()) {
         worldCol = 0;
         worldRow++;
+      }
+    }
+    ArrayList<Monster> monsters = gamePanel.getMonsters();
+    for (Monster monster : monsters) {
+      g2.setColor(new Color(255, 0,0, 70));
+      for (int i = 0; i < monster.getPathFinder().getPathList().size(); i++) {
+        int worldX = monster.getPathFinder().getPathList().get(i).getCol() * 48;
+        int worldY = monster.getPathFinder().getPathList().get(i).getRow() * 48;
+        int screenX = worldX - gamePanel.getPlayer().getWorldX() + gamePanel.getPlayer().getScreenX();
+        int screenY = worldY - gamePanel.getPlayer().getWorldY() + gamePanel.getPlayer().getScreenY();
+        g2.fillRect(screenX, screenY, 48, 48);
       }
     }
   }
