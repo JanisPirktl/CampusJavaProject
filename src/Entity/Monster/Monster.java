@@ -104,9 +104,7 @@ public abstract class Monster extends Entity implements Runnable {
       int nextCol = pathFinder.getPathList().get(0).getCol();
       int nextRow = pathFinder.getPathList().get(0).getRow();
 
-      if (nextCol == goalCol && nextRow == goalRow) {
 
-      }
     }
   }
 
