@@ -1,10 +1,7 @@
 package Entity.Player;
 
 
-import Entity.Entity.CheckMonsterIntersection;
-import Entity.Entity.Entity;
-import Entity.Entity.SpriteCounter;
-
+import Entity.Entity.*;
 import java.awt.Rectangle;
 
 
@@ -21,28 +18,21 @@ public class Player extends Entity {
   private final int screenY;
   private final CheckMonsterIntersection checkMonsterIntersection = new CheckMonsterIntersection();
   private final SpriteCounter spriteCounter = new SpriteCounter();
+  private long currentTime;
+  private final Attack attack = new Attack();
 
-  private int health = 5;
-  private int maxHealth = 5;
+
+
+
   private boolean isAttacking = false;
 
-  public int getHealth() {
-    return health;
-  }
 
-  public void setHealth(int health) {
-    this.health = health;
-  }
 
-  public void damage(int amount) {
-    this.health -= amount;
-  }
 
-  public int heal(int amount) {
-    return Math.min(health + amount, maxHealth);
-  }
+
 
   public Player(GamePanel gamePanel, KeyHandler keyH) {
+
     super(5);
     this.gamePanel = gamePanel;
     this.keyHandler = keyH;
@@ -66,6 +56,7 @@ public class Player extends Entity {
 
 
   public void update() {
+
 
     if (keyHandler.isUpPressed() || keyHandler.isDownPressed() ||
         keyHandler.isLeftPressed() || keyHandler.isRightPressed() || (keyHandler.isLeftPressed()
@@ -96,6 +87,7 @@ public class Player extends Entity {
       }
 
 
+
       setCollisionOn(false);
 
       //CHeck TILE COLLISION
@@ -110,27 +102,32 @@ public class Player extends Entity {
 
 
 
+
       //IF COLLISION IS FALSE, PLAYER CAN MOVE
       if(!isAttacking){
-      move();
-      spriteCounter.countSprite(this, 10);
+        move();
+        spriteCounter.countSprite(this, 10);
       }
 
     }
+    if(keyHandler.isSpacePressed() && !isAttacking){
+      setCurrentTime(System.nanoTime());
+      setCollisionOn(true);
+      setAttacking(true);
+      //player.attack()
 
+    }
   }
+
 
   public int getScreenX() {
     return screenX;
   }
 
-  public int getMaxHealth() {
-    return maxHealth;
-  }
 
-  public void setMaxHealth(int maxHealth) {
-    this.maxHealth = maxHealth;
-  }
+
+
+
 
   public int getScreenY() {
     return screenY;
@@ -147,6 +144,15 @@ public class Player extends Entity {
   public void setAttacking(boolean attacking) {
     isAttacking = attacking;
   }
+
+  public long getCurrentTime() {
+    return currentTime;
+  }
+
+  public void setCurrentTime(long currentTime) {
+    this.currentTime = currentTime;
+  }
+
 
 }
 

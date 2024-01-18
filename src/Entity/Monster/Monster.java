@@ -10,7 +10,7 @@ public abstract class Monster extends Entity implements Runnable {
 
   private boolean attackingPlayer = false;
 
-  private final PathFinder pathFinder = new PathFinder(getGamePanel());
+  private PathFinder pathFinder;
 
   private Thread thread;
   private final FacePlayer facePlayer = new FacePlayer();
@@ -54,6 +54,7 @@ public abstract class Monster extends Entity implements Runnable {
 
   private void searchPath(int goalCol, int goalRow) {
 
+    pathFinder = new PathFinder(getGamePanel());
     int startCol = (getWorldX() + getSolidArea().x) / 48;
     int startRow = (getWorldY() + getSolidArea().y) / 48;
 
