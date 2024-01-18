@@ -26,6 +26,7 @@ public class SetZombieImages {
       zombie.setRightDown2(ImageIO.read(new File("res/zombie/zombie_down_right2.png")));
       zombie.setRightUp1(ImageIO.read(new File("res/zombie/zombie_up_right1.png")));
       zombie.setRightUp2(ImageIO.read(new File("res/zombie/zombie_up_right2.png")));
+      zombie.setDead(ImageIO.read(new File("res/zombie/dead.png")));
 
       zombie.setAttackLeft1(ImageIO.read(new File("res/zombie_attacking/zombie_attack_left1.png")));
       zombie.setAttackLeft2(ImageIO.read(new File("res/zombie_attacking/zombie_attack_left2.png")));

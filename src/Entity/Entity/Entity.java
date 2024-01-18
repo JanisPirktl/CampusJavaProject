@@ -27,13 +27,21 @@ public abstract class Entity {
   private int screenX;
   private int screenY;
   private int health = 1;
+
   private int range;
+  private int maxHealth = 5;
 
   protected Entity(int speed) {
     this.speed = speed;
   }
 
+  public void damage(int amount) {
+    this.health -= amount;
+  }
 
+  public int heal(int amount) {
+    return Math.min(health + amount, maxHealth);
+  }
 
   public CheckFacedTile getCheckFacedTile() {
     return checkFacedTile;

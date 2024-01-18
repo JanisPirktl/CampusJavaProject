@@ -27,22 +27,22 @@ public class SetPlayerImages {
       player.setRightUp2(ImageIO.read(new File("res/player/boy_up_right2.png")));
       player.setDead(ImageIO.read(new File("res/player/dead.png")));
 
-      player.setAttackUp1(ImageIO.read(new File("res/player/boy_attack_up_1")));
-      player.setAttackUp2(ImageIO.read(new File("res/player/boy_attack_up_2")));
-      player.setAttackDown1(ImageIO.read(new File("res/player/boy_attack_down_1")));
-      player.setAttackDown2(ImageIO.read(new File("res/player/boy_attack_down_2")));
-      player.setAttackLeft1(ImageIO.read(new File("res/player/boy_attack_left_1")));
-      player.setAttackLeft2(ImageIO.read(new File("res/player/boy_attack_left_2")));
-      player.setAttackRight1(ImageIO.read(new File("res/player/boy_attack_right_1")));
-      player.setAttackRight2(ImageIO.read(new File("res/player/boy_attack_right_2")));
-      player.setAttackUpRight1(ImageIO.read(new File("res/player/boy_attack_up_right_1")));
-      player.setAttackUpRight2(ImageIO.read(new File("res/player/boy_attack_up_right_2")));
-      player.setAttackUpLeft1(ImageIO.read(new File("res/player/boy_attack_up_left_1")));
-      player.setAttackUpLeft2(ImageIO.read(new File("res/player/boy_attack_up_left_2")));
-      player.setAttackDownLeft1(ImageIO.read(new File("res/player/boy_attack_down_left_1")));
-      player.setAttackDownLeft2(ImageIO.read(new File("res/player/boy_attack_down_left_2")));
-      player.setAttackDownRight1(ImageIO.read(new File("res/player/boy_attack_down_right_1")));
-      player.setAttackDownRight2(ImageIO.read(new File("res/player/boy_attack_down_right_2")));
+      player.setAttackUp1(ImageIO.read(new File("res/player_attacking/boy_attack_up_1.png")));
+      player.setAttackUp2(ImageIO.read(new File("res/player_attacking/boy_attack_up_2.png")));
+      player.setAttackDown1(ImageIO.read(new File("res/player_attacking/boy_attack_down_1.png")));
+      player.setAttackDown2(ImageIO.read(new File("res/player_attacking/boy_attack_down_2.png")));
+      player.setAttackLeft1(ImageIO.read(new File("res/player_attacking/boy_attack_left_1.png")));
+      player.setAttackLeft2(ImageIO.read(new File("res/player_attacking/boy_attack_left_2.png")));
+      player.setAttackRight1(ImageIO.read(new File("res/player_attacking/boy_attack_right_1.png")));
+      player.setAttackRight2(ImageIO.read(new File("res/player_attacking/boy_attack_right_2.png")));
+      player.setAttackUpRight1(ImageIO.read(new File("res/player_attacking/boy_attack_up_right_1.png")));
+      player.setAttackUpRight2(ImageIO.read(new File("res/player_attacking/boy_attack_up_right_2.png")));
+      player.setAttackUpLeft1(ImageIO.read(new File("res/player_attacking/boy_attack_up_left_1.png")));
+      player.setAttackUpLeft2(ImageIO.read(new File("res/player_attacking/boy_attack_up_left_2.png")));
+      player.setAttackDownLeft1(ImageIO.read(new File("res/player_attacking/boy_attack_down_left_1.png")));
+      player.setAttackDownLeft2(ImageIO.read(new File("res/player_attacking/boy_attack_down_left_2.png")));
+      player.setAttackDownRight1(ImageIO.read(new File("res/player_attacking/boy_attack_down_right_1.png")));
+      player.setAttackDownRight2(ImageIO.read(new File("res/player_attacking/boy_attack_down_right_2.png")));
 
 
 

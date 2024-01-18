@@ -1,11 +1,7 @@
 package Entity.Monster;
 
-import Entity.Entity.Draw;
-import Entity.Entity.EntityAttackImage1;
-import Entity.Entity.EntityAttackImage2;
-import Entity.Entity.EntityImage;
-import Entity.Monster.IsMonsterOnScreen;
-import Entity.Monster.Monster;
+import Entity.Entity.*;
+
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
@@ -16,13 +12,18 @@ public class MonsterBehaviour {
   private final EntityAttackImage2 entityAttackImage2 = new EntityAttackImage2();
   private final EntityImage entityImage = new EntityImage();
   private final Draw draw = new Draw();
-  private final MonsterAttackHitbox monsterAttackHitbox = new MonsterAttackHitbox();
+  private final EntityAttackHitbox entityAttackHitbox = new EntityAttackHitbox();
 
   public void monsterBehaviour(Graphics2D g2, ArrayList<Monster> monsters, Main.GamePanel gamePanel) {
 
     for (Monster monster : monsters) {
+      if(monster.getHealth()<=0){
+        monster.setImage(monster.getDead());
+        monster.setCollisionOn(true);
+        draw.draw(monster, g2);
+      }
 
-      if (!monster.isAttackingPlayer()) {
+      else if (!monster.isAttackingPlayer()) {
         monster.run();
       }
       if (isMonsterOnScreen.isMonsterOnScreen(gamePanel, monster)) {
@@ -37,10 +38,10 @@ public class MonsterBehaviour {
           } else if (monster.getCurrentTime() + 1000000000 > System.nanoTime()) {
             entityAttackImage2.setAttackImage2(monster);
             draw.draw(monster, g2);
-            monsterAttackHitbox.monsterAttackHitbox(monster, gamePanel.getPlayer());
+            entityAttackHitbox.entityAttackHitbox(monster, gamePanel.getPlayer());
           } else {
             monster.setAttackingPlayer(false);
-            monsterAttackHitbox.setImpacted(false);
+            entityAttackHitbox.setImpacted(false);
           }
         }
       }

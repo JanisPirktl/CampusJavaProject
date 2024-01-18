@@ -52,6 +52,7 @@ public class GamePanel extends JPanel implements Runnable {
     this.setFocusable(true);
     Zombie zombie = new Zombie(this, 800, 800);
     monsters.add(zombie);
+    player.setHealth(5);
   }
 
   public void startGameThread() {
