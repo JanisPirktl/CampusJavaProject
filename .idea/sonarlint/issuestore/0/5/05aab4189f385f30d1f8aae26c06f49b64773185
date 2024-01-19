@@ -1,12 +1,12 @@
 
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Úù£“ûÿÿÿÿ8£şç¾Ñ1
-W
-java:S1161":Add the "@Override" annotation above this method signature(€±ªª8£şç¾Ñ1
-W
-java:S1161!":Add the "@Override" annotation above this method signature(´‚ò8£şç¾Ñ1
 o
-java:S3776D"RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(Ö×õÄ8£şç¾Ñ1
+java:S3776:"RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(Ö×õÄ8Ëµ¹çÑ1
 W
-java:S1161z":Add the "@Override" annotation above this method signature(ÉÊÅ¶8±şç¾Ñ1
+java:S1161{":Add the "@Override" annotation above this method signature(ÉÊÅ¶8Üµ¹çÑ1
 X
-java:S1161†":Add the "@Override" annotation above this method signature(˜×³¹8±şç¾Ñ1
+java:S1161„":Add the "@Override" annotation above this method signature(˜×³¹8Üµ¹çÑ1
+]
+java:S1161ˆ":Add the "@Override" annotation above this method signature(¥¹À«ùÿÿÿÿ8Üµ¹çÑ1
+G
+java:S1068"*Remove this unused "attack" private field.(Ó½ºË8Üµ¹çÑ1

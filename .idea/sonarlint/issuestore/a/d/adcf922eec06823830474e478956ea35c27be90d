@@ -1,2 +1,12 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(£ÇÈùÿÿÿÿ8ğÇµ¼Ñ1
+c
+java:S1192W"FDefine a constant instead of duplicating this literal "right" 3 times.(Æè÷Ç8®íÒèÑ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(£ÇÈùÿÿÿÿ8®íÒèÑ1
+¢
+java:S1862^"„This branch can not be reached because the condition duplicates a previous condition in the same sequence of "if/else if" statements(Â¤¢Œ8®íÒèÑ1
+U
+java:S2589^"8Remove this expression which always evaluates to "false"(Â¤¢Œ8±ÜèÑ1
+o
+java:S3776>"RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(„‹¿è8ÁíÒèÑ1
+P
+java:S1068".Remove this unused "facePlayer" private field.(ºÙşâùÿÿÿÿ8ÃíÒèÑ1
