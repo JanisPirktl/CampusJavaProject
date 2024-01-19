@@ -27,9 +27,10 @@ public class MonsterBehaviour {
         Corpse corpse = new Corpse(gamePanel, monster.getWorldX(), monster.getWorldY());
         corpse.setImage(monster.getDead());
         corpse.setCollisionOn(false);
-        monsters.remove(monster);
         corpses.add(corpse);
         draw.draw(monster, g2);
+        gamePanel.removeMonster(monster);
+        break;
       }
 
       else if (!monster.isAttackingPlayer()) {

@@ -143,6 +143,9 @@ public class GamePanel extends JPanel implements Runnable {
   public void addMonster(Zombie monster) {
     monsters.add(monster);
   }
+  public void removeMonster(Monster monster) {
+    monsters.remove(monster);
+  }
 
 public void addCorpse(Corpse corpse) {
     corpses.add(corpse);
