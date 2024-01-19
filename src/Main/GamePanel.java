@@ -2,6 +2,7 @@ package Main;
 
 import Entity.Monster.Monster;
 import Entity.Monster.MonsterBehaviour;
+import Entity.Monster.Zombie.Corpse;
 import Entity.Monster.Zombie.Zombie;
 import Entity.Player.PlayerBehaviour;
 import java.awt.Color;
@@ -38,6 +39,7 @@ public class GamePanel extends JPanel implements Runnable {
   private final Player player = new Player(this, keyHandler);
 
   private final ArrayList<Monster> monsters = new ArrayList<>();
+  private final ArrayList<Corpse> corpses = new ArrayList<Corpse>();
 
 
   private final MonsterBehaviour monsterBehaviour = new MonsterBehaviour();
@@ -104,7 +106,7 @@ public class GamePanel extends JPanel implements Runnable {
     super.paintComponent(g);
     Graphics2D g2 = (Graphics2D) g;
     tileM.draw(g2);
-    monsterBehaviour.monsterBehaviour(g2, monsters, this);
+    monsterBehaviour.monsterBehaviour(g2, monsters, corpses, this);
     playerBehaviour.playerBehaviour(g2, this, player);
     g2.dispose();
   }
@@ -133,9 +135,6 @@ public class GamePanel extends JPanel implements Runnable {
     return maxWorldRow;
   }
 
-  public int getGameCounter() {
-    return gameCounter;
-  }
 
   public Player getPlayer() {
     return player;
@@ -145,9 +144,9 @@ public class GamePanel extends JPanel implements Runnable {
     monsters.add(monster);
   }
 
-  public void removeMonster(Zombie monster) {
-    monsters.remove(monster);
-  }
+public void addCorpse(Corpse corpse) {
+    corpses.add(corpse);
+}
 
   public ArrayList<Monster> getMonsters() {
     return monsters;
