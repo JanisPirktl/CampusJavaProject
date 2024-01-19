@@ -2,6 +2,7 @@ package Entity.Entity;
 
 public class SpriteCounter {
 
+//used to make it look like the entity is walking (set image accourding to sprite counter)
   public void countSprite(Entity entity, int maxSpriteCounter) {
 
     entity.setSpriteCounter(entity.getSpriteCounter() + 1);

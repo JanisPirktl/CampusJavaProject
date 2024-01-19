@@ -2,6 +2,8 @@ package Entity.Entity;
 
 public class Move {
 
+
+  //all Entities use this method move
   public void move(Entity entity) {
 
       int speed = entity.getSpeed();

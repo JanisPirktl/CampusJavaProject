@@ -2,6 +2,8 @@ package Entity.Entity;
 
 public class EntityAttackImage1 {
 
+
+  //sets the correct Image if Entity is attacking in it's first phase
   public void setAttackImage1(Entity entity) {
 
     String direction = entity.getDirection();

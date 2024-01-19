@@ -2,6 +2,8 @@ package Entity.Entity;
 
 public class EntityImage {
 
+
+  //sets the correct Image if Entity is moving, depending on its sprit counter
   public void setImage(Entity entity) {
 
 

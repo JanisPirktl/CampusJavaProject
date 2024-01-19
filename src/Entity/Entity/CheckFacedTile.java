@@ -2,7 +2,11 @@ package Entity.Entity;
 
 public class CheckFacedTile {
 
+  //this Method is used for every kind of entity
   public boolean checkFacedTile(Entity entity) {
+
+
+    //Set all current variables with the Getters here for easier calculations after
 
     int entityLeftWorldX = entity.getWorldX() + entity.getSolidArea().x;
     int entityRightWorldX = entity.getWorldX() + entity.getSolidArea().x + entity.getSolidArea().width;
@@ -25,6 +29,8 @@ public class CheckFacedTile {
     int tileNum2;
 
 
+
+    //Returns true if path is blocked / tile is solid
     switch(entity.getDirection()) {
       case "up":
         entityTopRow = (entityTopWorldY - speed) / tileSize;
@@ -92,6 +98,8 @@ public class CheckFacedTile {
         }
         break;
     }
+
+    //Return false if tile is not solid
     return false;
   }
 }

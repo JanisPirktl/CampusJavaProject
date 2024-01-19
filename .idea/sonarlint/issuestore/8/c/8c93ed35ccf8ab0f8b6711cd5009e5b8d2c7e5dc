@@ -1,6 +1,8 @@
 
 …
-java:S1319"hThe type of "monsters" should be an interface such as "List" rather than the implementation "ArrayList".(ñª‡Ô8îˆ˜æÑ1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(£ÇÈùÿÿÿÿ8­óßÆĞ1
+java:S1319"hThe type of "monsters" should be an interface such as "List" rather than the implementation "ArrayList".(úêØı8Èøˆ†Ò1
+„
+java:S1319"gThe type of "corpses" should be an interface such as "List" rather than the implementation "ArrayList".(úêØı8Êøˆ†Ò1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(£ÇÈùÿÿÿÿ8Êøˆ†Ò1
 o
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ñª‡Ô8ó‰˜æÑ1
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(úêØı8àùˆ†Ò1

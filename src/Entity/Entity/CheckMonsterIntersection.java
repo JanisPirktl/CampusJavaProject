@@ -4,13 +4,19 @@ package Entity.Entity;
 import Entity.Monster.Monster;
 public class CheckMonsterIntersection {
 
+  //this Method is used for every kind of entity
   public boolean checkMonsterIntersection(Entity target) {
 
+
+    //check for every Monster there is in the GamePanel
     for (Monster monster : target.getGamePanel().getMonsters()) {
 
+      //So that monster can't collide with itself
       if (target.equals(monster)) {
         break;
       }
+
+
       target.getSolidArea().x += target.getWorldX();
       target.getSolidArea().y += target.getWorldY();
 
@@ -22,6 +28,9 @@ public class CheckMonsterIntersection {
       //speed for the diagonale axis
       int speedNormed = (int) (speed*speed / Math.sqrt(speed*speed * 2.0));
 
+
+
+      //Returns true if the solid Areas from two Entitys would intersect
       switch(target.getDirection()) {
         case "up":
           target.getSolidArea().y -= speed;
@@ -94,6 +103,8 @@ public class CheckMonsterIntersection {
       }
       resetSolidAreaValues(target, monster);
     }
+
+    //return false if there is no Entity collision
     return false;
   }
 

@@ -29,18 +29,18 @@ public abstract class Entity {
   private int health = 1;
 
   private int range;
-  private int maxHealth = 5;
 
+
+
+  //protected constructor because class is abstract
   protected Entity(int speed) {
     this.speed = speed;
   }
 
+
+  //From here on only Getters and Setters
   public void damage(int amount) {
     this.health -= amount;
-  }
-
-  public int heal(int amount) {
-    return Math.min(health + amount, maxHealth);
   }
 
   public CheckFacedTile getCheckFacedTile() {

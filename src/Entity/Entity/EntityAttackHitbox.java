@@ -14,6 +14,9 @@ public class EntityAttackHitbox {
   private int distanceY;
   private double trueDistance;
   private boolean impacted = false;
+
+
+  //checks if an Entity gets hit by an attack
   public void entityAttackHitbox(Entity attacker, Entity target) {
 
     direction = attacker.getDirection();
@@ -70,12 +73,6 @@ public class EntityAttackHitbox {
         impacted = true;
     }
 
-    //TODO get something like pythagoras here...
-
-  }
-
-  public boolean isImpacted() {
-    return impacted;
   }
 
   public void setImpacted(boolean impacted) {
