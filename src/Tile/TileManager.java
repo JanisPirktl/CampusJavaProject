@@ -14,17 +14,22 @@ import javax.imageio.ImageIO;
 import Main.GamePanel;
 import java.io.BufferedReader;
 
+
+//this class reads the map from a textfile, which contains numbers. Each of those numbers represents
+//a certain tile-type like tree, water or grass. It then creates the map and checks for each tile, if
+//it has collision or not. it calls the draw() method for the tiles, but it only draws the tiles if they
+//are within the screen to make the program smoother. It also paints the monsters paths to the player, mostly
+//for presentation purposes.
 public class TileManager {
 
   private final GamePanel gamePanel;
   private final Tile[] tile;
   private final int[][] mapTileNum;
-  private final int[][] collisionMapTileNum;
+
   public TileManager(GamePanel gamePanel) {
     this.gamePanel = gamePanel;
     tile = new Tile[10];
     mapTileNum = new int[gamePanel.getMaxWorldCol()][gamePanel.getMaxWorldRow()];
-    collisionMapTileNum = new int[gamePanel.getMaxWorldCol()][gamePanel.getMaxWorldRow()];
     getTileImage();
     loadMap("/maps/map.txt");
   }
@@ -82,32 +87,6 @@ public class TileManager {
 
   }
 
-  public void loadCollisionMap(String filePath) {
-    try {
-      InputStream is = getClass().getResourceAsStream(filePath);
-      assert is != null;
-      BufferedReader br = new BufferedReader(new InputStreamReader(is));
-      int col  = 0;
-      int row = 0;
-      while(col < gamePanel.getMaxWorldCol() && row < gamePanel.getMaxWorldRow()) {
-        String line = br.readLine();
-        while(col < gamePanel.getMaxWorldCol()) {
-          String[] numbers = line.split(" ");
-          int num = Integer.parseInt(numbers[col]);
-          collisionMapTileNum[col][row] = num;
-          col++;
-        }
-        if(col == gamePanel.getMaxWorldCol()) {
-          col = 0;
-          row++;
-        }
-      }
-      br.close();
-    }catch(Exception e) {
-      System.out.println(e.getMessage());
-    }
-
-  }
   public void draw(Graphics2D g2) {
     int worldCol = 0;
     int worldRow = 0;
