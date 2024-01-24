@@ -7,7 +7,7 @@ import Main.GamePanel;
 import java.awt.Graphics2D;
 
 
-//This class draws the player, calls the players update() method and checks if the player is still alive
+//This class draws the player, calls the players update() method and checks if the player is still alive and if they are attacking
 
 public class PlayerBehaviour {
   private final Draw draw = new Draw();
@@ -38,6 +38,7 @@ public class PlayerBehaviour {
             g2.dispose();
         }
         else {
+            //gives the player an attack delay
             if (player.getCurrentTime() + 333333333 > System.nanoTime()) {
                 entityAttackImage1.setAttackImage1(player);
                 draw.draw(player, g2);
@@ -48,11 +49,12 @@ public class PlayerBehaviour {
                 draw.draw(player, g2);
                 drawHeart.draw(player, g2);
                 draw.write("Kill-Counter: " + killCounter, g2);
+                //checks which monsters that are currently spawned are hit by the players attack and counts up the kills
                 for (Monster monster : gp.getMonsters()) {
                     if(playerAttackHitbox.entityAttackHitbox(player, monster)){
                         killCounter ++;
-
                     }
+                    //after the last monster is checked, the attack ends
                     if (monster.equals(gp.getMonsters().get(gp.getMonsters().size() - 1))) {
                         playerAttackHitbox.setImpacted(true);
                     }
@@ -67,7 +69,5 @@ public class PlayerBehaviour {
 
   }
 
-    public int getKillCounter() {
-        return killCounter;
-    }
+
 }

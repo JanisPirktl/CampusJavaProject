@@ -9,7 +9,7 @@ public class EntityAttackHitbox {
   private boolean hit = false;
 
 
-  //checks if an Entity gets hit by an attack
+  //checks if an Entity gets hit by an attack, returns true or false for Zombie Kill Counter
   public boolean entityAttackHitbox(Entity attacker, Entity target) {
 
       String direction = attacker.getDirection();
@@ -18,7 +18,7 @@ public class EntityAttackHitbox {
       int targetPosX = target.getWorldX() + target.getSolidArea().x;
       int targetPosY = target.getWorldY() + target.getSolidArea().y;
 
-
+    //calculates point of impact based on direction
 
     switch (direction) {
       case "up":
@@ -56,7 +56,7 @@ public class EntityAttackHitbox {
     }
       int distanceX = Math.abs(targetPosX - impactX);
       int distanceY = Math.abs(targetPosY - impactY);
-      double trueDistance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
+      double trueDistance = Math.sqrt(distanceX*distanceX + distanceY*distanceY);
     if(!impacted) {
       if (trueDistance <= 55) {
         target.damage(1);
