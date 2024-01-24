@@ -1,8 +1,6 @@
 
 c
-java:S1192Z"FDefine a constant instead of duplicating this literal "right" 3 times.(Æè÷Ç8ŞÇÖ…Ò1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(£ÇÈùÿÿÿÿ8®íÒèÑ1
+java:S1192m"FDefine a constant instead of duplicating this literal "right" 3 times.(Æè÷Ç8›×ĞÔÓ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(£ÇÈùÿÿÿÿ8›×ĞÔÓ1
 o
-java:S3776>"RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(„‹¿è8ÁíÒèÑ1
-P
-java:S1068".Remove this unused "facePlayer" private field.(ºÙşâùÿÿÿÿ8ÃíÒèÑ1
+java:S3776O"RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(„‹¿è8¬×ĞÔÓ1

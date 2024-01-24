@@ -73,6 +73,7 @@ public class MonsterSpawner {
     thread.start();
     gp.addMonster(zombie);
     zombie.run();
+
   }
 }
 

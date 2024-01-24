@@ -1,10 +1,10 @@
 
 L
-java:S1066"/Merge this if statement with the enclosing one.(Èİ—28Ú•ÚãÑ1
+java:S1066š"/Merge this if statement with the enclosing one.(Èİ—28ü†€ØÓ1
 
-java:S1319·"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÓÃŞö8ÿ½üåÑ1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(î¡„¡üÿÿÿÿ8Ü•ÚãÑ1
+java:S1319Ë"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÓÃŞö8ü†€ØÓ1
+X
+java:S1141”"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8ü†€ØÓ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(î¡„¡üÿÿÿÿ8ü†€ØÓ1
 o
-java:S3776r"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ê…â8ğ–ÚãÑ1
-S
-java:S1128"1Remove this unused import 'Entity.Entity.Entity'.(µûúÆùÿÿÿÿ8“ËÚèÑ1
+java:S3776x"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(ê…â8ñ‡€ØÓ1

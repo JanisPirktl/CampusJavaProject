@@ -1,6 +1,6 @@
 
 v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(õìıÇ8ò›ã¾Ñ1
 A
-java:S1659	"$Declare "worldY" on a separate line.(Öò¾Û8÷›ã¾Ñ1
+java:S1659"$Declare "worldY" on a separate line.(Öò¾Û8÷›ã¾Ñ1
 b
-java:S1659"@Declare "up2" and all following declarations on a separate line.(ÒÇÈŞûÿÿÿÿ8¨³¹çÑ1
+java:S1659"@Declare "up2" and all following declarations on a separate line.(ÒÇÈŞûÿÿÿÿ8¨³¹çÑ1

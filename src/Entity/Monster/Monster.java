@@ -50,8 +50,6 @@ public abstract class Monster extends Entity implements Runnable {
       } else {
         facePlayer.facePlayer(this);
       }
-    } else {
-      facePlayer.facePlayer(this);
     }
 
 
@@ -69,6 +67,7 @@ public abstract class Monster extends Entity implements Runnable {
       setCollisionOn(true);//Check distance to player
       setAttackingPlayer(true);
       currentTime = System.nanoTime();
+      facePlayer.facePlayer(this);
     }
 
     move();
@@ -140,7 +139,9 @@ public abstract class Monster extends Entity implements Runnable {
     this.thread = thread;
   }
 
-
+  public Thread getThread() {
+    return thread;
+  }
 
   public boolean isAttackingPlayer() {
     return attackingPlayer;

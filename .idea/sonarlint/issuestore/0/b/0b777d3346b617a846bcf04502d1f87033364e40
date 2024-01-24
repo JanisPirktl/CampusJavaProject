@@ -1,40 +1,40 @@
 
 {
-java:S2293*"YReplace the type specification in this constructor call with the diamond operator ("<>").(×¢ÃÓşÿÿÿÿ8íÔñ…Ò1
+java:S2293."YReplace the type specification in this constructor call with the diamond operator ("<>").(×¢ÃÓşÿÿÿÿ8íÔñ…Ò1
 
-java:S1319š"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Š“€Ò8şÔñ…Ò1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Š“€Ò8şÔñ…Ò1
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(°€Òşÿÿÿÿ8şÔñ…Ò1
 >
-java:S1170"!Make this final field static too.(ÓÁÎ8‰Öñ…Ò1
+java:S1170"!Make this final field static too.(ÓÁÎ8‰Öñ…Ò1
 C
-java:S1170"!Make this final field static too.(õºá‚ùÿÿÿÿ8‰Öñ…Ò1
+java:S1170"!Make this final field static too.(õºá‚ùÿÿÿÿ8‰Öñ…Ò1
 >
-java:S1170"!Make this final field static too.(¤¾µ£8‰Öñ…Ò1
+java:S1170"!Make this final field static too.(¤¾µ£8‰Öñ…Ò1
 C
-java:S1170"!Make this final field static too.(•»²°ıÿÿÿÿ8‰Öñ…Ò1
+java:S1170"!Make this final field static too.(•»²°ıÿÿÿÿ8‰Öñ…Ò1
 C
-java:S1170"!Make this final field static too.(Ø£üªùÿÿÿÿ8‰Öñ…Ò1
+java:S1170"!Make this final field static too.(Ø£üªùÿÿÿÿ8‰Öñ…Ò1
 C
-java:S1170"!Make this final field static too.(Ü©Š‹øÿÿÿÿ8‰Öñ…Ò1
+java:S1170"!Make this final field static too.(Ü©Š‹øÿÿÿÿ8‰Öñ…Ò1
 >
-java:S1170"!Make this final field static too.(¢—Ùù8‰Öñ…Ò1
+java:S1170"!Make this final field static too.(¢—Ùù8‰Öñ…Ò1
 C
-java:S1170"!Make this final field static too.(‡ô…×øÿÿÿÿ8‰Öñ…Ò1
+java:S1170""!Make this final field static too.(‡ô…×øÿÿÿÿ8‰Öñ…Ò1
 C
-java:S1170"!Make this final field static too.(®ëĞÿÿÿÿÿ8‰Öñ…Ò1
+java:S1170#"!Make this final field static too.(®ëĞÿÿÿÿÿ8‰Öñ…Ò1
 C
-java:S1170 "!Make this final field static too.(†¿ˆüÿÿÿÿ8‰Öñ…Ò1
+java:S1170$"!Make this final field static too.(†¿ˆüÿÿÿÿ8‰Öñ…Ò1
 D
-java:S1948#"'Make "tileM" transient or serializable.(Û™Í„8‰Öñ…Ò1
+java:S1948'"'Make "tileM" transient or serializable.(Û™Í„8‰Öñ…Ò1
 N
-java:S1948$",Make "keyHandler" transient or serializable.(“» ¶ûÿÿÿÿ8‰Öñ…Ò1
+java:S1948(",Make "keyHandler" transient or serializable.(“» ¶ûÿÿÿÿ8‰Öñ…Ò1
 H
-java:S1948%",Make "gameThread" transient or serializable.(÷Şš8‰Öñ…Ò1
+java:S1948)",Make "gameThread" transient or serializable.(÷Şš8‰Öñ…Ò1
 R
-java:S1948&"0Make "monsterSpawner" transient or serializable.(ñ›İÿøÿÿÿÿ8‰Öñ…Ò1
+java:S1948*"0Make "monsterSpawner" transient or serializable.(ñ›İÿøÿÿÿÿ8‰Öñ…Ò1
 J
-java:S1948'"(Make "player" transient or serializable.(ÂĞ¤éùÿÿÿÿ8‰Öñ…Ò1
+java:S1948+"(Make "player" transient or serializable.(ÂĞ¤éùÿÿÿÿ8‰Öñ…Ò1
 T
-java:S1948-"2Make "monsterBehaviour" transient or serializable.(Å…Şàúÿÿÿÿ8‰Öñ…Ò1
+java:S19481"2Make "monsterBehaviour" transient or serializable.(Å…Şàúÿÿÿÿ8‰Öñ…Ò1
 S
-java:S1948."1Make "playerBehaviour" transient or serializable.(Úô¡¿ÿÿÿÿÿ8‰Öñ…Ò1
+java:S19482"1Make "playerBehaviour" transient or serializable.(Úô¡¿ÿÿÿÿÿ8‰Öñ…Ò1
