@@ -4,6 +4,12 @@ package PathFinding;
 import Main.GamePanel;
 import java.util.ArrayList;
 
+
+
+//the PathFindingAlgorithm is an A-Star-Algorithm, similar to a Dijkstra-Algorithm. Its method gets called with the
+//parameters currentLocation and goalLocation (or destination). It uses an openList for unchecked nodes and a pathList
+//for checked nodes. It searches through the unchecked nodes and if this newly found path is shorter or more optimal than
+//the previously found path, it updates the pathList. In the end, it returns the optimal path
 public class PathFinder {
 
   private GamePanel gamePanel;
