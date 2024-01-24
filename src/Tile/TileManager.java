@@ -118,8 +118,6 @@ public class TileManager {
         int screenY = worldY - gamePanel.getPlayer().getWorldY() + gamePanel.getPlayer().getScreenY();
         g2.fillRect(screenX, screenY, 48, 48);
       }
-      g2.setColor(new Color(255, 255, 0, 70));
-      g2.fillRect(monster.getScreenX(), monster.getScreenY(), 48, 48);
     }
   }
 
