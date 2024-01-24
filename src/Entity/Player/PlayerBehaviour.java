@@ -2,10 +2,10 @@ package Entity.Player;
 
 import Entity.Entity.*;
 import Entity.Monster.Monster;
-import Entity.Player.DrawHeart;
+
 import Main.GamePanel;
 import java.awt.Graphics2D;
-import Entity.Player.Player;
+
 
 //This class draws the player, calls the players update() method and checks if the player is still alive
 
@@ -14,8 +14,9 @@ public class PlayerBehaviour {
   private final DrawHeart drawHeart = new DrawHeart();
   private final EntityImage entityImage = new EntityImage();
   private final EntityAttackHitbox playerAttackHitbox = new EntityAttackHitbox();
-    private EntityAttackImage1 entityAttackImage1 = new EntityAttackImage1();
-    private EntityAttackImage2 entityAttackImage2 = new EntityAttackImage2();
+  private EntityAttackImage1 entityAttackImage1 = new EntityAttackImage1();
+  private EntityAttackImage2 entityAttackImage2 = new EntityAttackImage2();
+  private int killCounter = 0;
 
 
   public void playerBehaviour(Graphics2D g2, GamePanel gp, Player player) {
@@ -27,11 +28,13 @@ public class PlayerBehaviour {
       player.setImage(player.getDead());
       player.setCollisionOn(true);
       draw.draw(player, g2);
+      draw.write("Kill-Counter: " + killCounter, g2);
     } else {
         if (!player.isAttacking()){
             entityImage.setImage(player);
             draw.draw(player,g2);
             drawHeart.draw(player,g2);
+            draw.write("Kill-Counter: " + killCounter, g2);
             g2.dispose();
         }
         else {
@@ -39,16 +42,21 @@ public class PlayerBehaviour {
                 entityAttackImage1.setAttackImage1(player);
                 draw.draw(player, g2);
                 drawHeart.draw(player, g2);
+                draw.write("Kill-Counter: " + killCounter, g2);
             } else if (player.getCurrentTime() + 666666666 > System.nanoTime()) {
                 entityAttackImage2.setAttackImage2(player);
                 draw.draw(player, g2);
                 drawHeart.draw(player, g2);
+                draw.write("Kill-Counter: " + killCounter, g2);
                 for (Monster monster : gp.getMonsters()) {
-                    playerAttackHitbox.entityAttackHitbox(player, monster);
+                    if(playerAttackHitbox.entityAttackHitbox(player, monster)){
+                        killCounter ++;
 
+                    }
                     if (monster.equals(gp.getMonsters().get(gp.getMonsters().size() - 1))) {
                         playerAttackHitbox.setImpacted(true);
                     }
+
                 }
             } else {
                 player.setAttacking(false);
@@ -59,4 +67,7 @@ public class PlayerBehaviour {
 
   }
 
+    public int getKillCounter() {
+        return killCounter;
+    }
 }

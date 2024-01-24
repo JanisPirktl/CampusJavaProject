@@ -10,7 +10,7 @@ public class EntityAttackHitbox {
 
 
   //checks if an Entity gets hit by an attack
-  public void entityAttackHitbox(Entity attacker, Entity target) {
+  public boolean entityAttackHitbox(Entity attacker, Entity target) {
 
       String direction = attacker.getDirection();
       int attackerPosX = attacker.getWorldX() + attacker.getSolidArea().x;
@@ -60,14 +60,10 @@ public class EntityAttackHitbox {
     if(!impacted) {
       if (trueDistance <= 55) {
         target.damage(1);
-        System.out.println("I hit");
-        hit = true;
-      } else {
-        System.out.println("I miss");
+        return true;
       }
 
-    }
-
+    }return false;
   }
 
   public void setImpacted(boolean impacted) {
