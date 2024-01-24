@@ -1,5 +1,5 @@
 
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(õìýÇ
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(õìýÇ8‰«Ê‰Ò1
 t
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¨Ø¬«ûÿÿÿÿ8ÿ¶¾¶Ñ1
->	java:S131""Add a default case to this switch.(è²«’8€·¾¶Ñ1
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¨Ø¬«ûÿÿÿÿ8½«Ê‰Ò1
+>	java:S131"""Add a default case to this switch.(è²«’8Ç«Ê‰Ò1

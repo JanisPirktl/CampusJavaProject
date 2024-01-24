@@ -13,7 +13,7 @@ public class Zombie extends Monster {
     super(gamePanel);
     this.setWorldX(worldX);
     this.setWorldY(worldY);
-    setSolidArea(new Rectangle(0, 0, 48, 48));
+    setSolidArea(new Rectangle(15, 16, 18, 32));
     setSolidAreaDefaultX(getSolidArea().x);
     setSolidAreaDefaultY(getSolidArea().y);
     setCollisionOn(true);

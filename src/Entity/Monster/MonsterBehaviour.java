@@ -30,6 +30,7 @@ public class MonsterBehaviour {
         corpses.add(corpse);
         draw.draw(monster, g2);
         gamePanel.removeMonster(monster);
+
         break;
       }
 

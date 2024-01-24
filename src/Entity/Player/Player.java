@@ -21,6 +21,8 @@ public class Player extends Entity {
   private long currentTime;
   private final Attack attack = new Attack();
 
+  private boolean toggle = true;
+
 
 
 
@@ -57,6 +59,11 @@ public class Player extends Entity {
 
   public void update() {
 
+    if (keyHandler.isTooglePressed() && toggle) {
+      toggle = false;
+    } else if (keyHandler.isTooglePressed() && !toggle) {
+      toggle = true;
+    }
 
     if (keyHandler.isUpPressed() || keyHandler.isDownPressed() ||
         keyHandler.isLeftPressed() || keyHandler.isRightPressed() || (keyHandler.isLeftPressed()
@@ -85,6 +92,7 @@ public class Player extends Entity {
       } else if (keyHandler.isDownPressed() && keyHandler.isRightPressed()) {
         setDirection("right_down");
       }
+
 
 
 
@@ -153,6 +161,8 @@ public class Player extends Entity {
     this.currentTime = currentTime;
   }
 
-
+  public boolean isToggle() {
+    return toggle;
+  }
 }
 

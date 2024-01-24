@@ -33,10 +33,21 @@ public abstract class Monster extends Entity implements Runnable {
   public void run() {
 
     setCollisionOn(false);
-    //facePlayer.facePlayer(this);    //Make Monster face player
-    int goalCol = (gamePanel.getPlayer().getWorldX() + gamePanel.getPlayer().getSolidArea().x) / 48;
-    int goalRow = (gamePanel.getPlayer().getWorldY() + gamePanel.getPlayer().getSolidArea().y) / 48;
-    searchPath(goalCol, goalRow);
+
+
+    if (!attackingPlayer) {
+      int goalCol = (gamePanel.getPlayer().getWorldX() + gamePanel.getPlayer().getSolidArea().x) / 48;
+      int goalRow = (gamePanel.getPlayer().getWorldY() + gamePanel.getPlayer().getSolidArea().y) / 48;
+
+      if (gamePanel.getPlayer().isToggle()) {
+        searchPath(goalCol, goalRow);
+      } else {
+        facePlayer.facePlayer(this);
+      }
+    } else {
+      facePlayer.facePlayer(this);
+    }
+
 
     //Check tile collision
     if (getCheckFacedTile().checkFacedTile(this)) {
@@ -61,9 +72,12 @@ public abstract class Monster extends Entity implements Runnable {
 
   private void searchPath(int goalCol, int goalRow) {
 
-    int startCol = (getWorldX() + getSolidArea().x) / 48;
-    int startRow = (getWorldY() + getSolidArea().y) / 48;
-    startCol++;
+    int startCol = (getWorldX() + 24) / 48;
+    int startRow = (getWorldY() + 24) / 48;
+
+    System.out.println(getSolidArea().x + getSolidArea().width/2);
+
+
 
     pathFinder.setNodes(startCol, startRow, goalCol, goalRow);
 

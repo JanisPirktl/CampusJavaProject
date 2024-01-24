@@ -1,6 +1,6 @@
 package PathFinding;
 
-import Entity.Entity.Entity;
+
 import Main.GamePanel;
 import java.util.ArrayList;
 
@@ -137,14 +137,23 @@ public class PathFinder {
       int bestNodefCost = Integer.MAX_VALUE;
 
       for (int i = 0; i < openList.size(); i++) {
-        if (openList.get(i).fCost < bestNodefCost) {
-          bestNodeIndex = i;
-          bestNodefCost = openList.get(i).fCost;
-        } else if (openList.get(i).fCost == bestNodefCost) {
-          if (openList.get(i).gCost < openList.get(bestNodeIndex).gCost) {
+
+        try {
+          if (openList.get(i).fCost < bestNodefCost) {
             bestNodeIndex = i;
+            bestNodefCost = openList.get(i).fCost;
+          } else if (openList.get(i).fCost == bestNodefCost) {
+
+            if (openList.get(i).gCost < openList.get(bestNodeIndex).gCost) {
+              bestNodeIndex = i;
+            }
           }
+        } catch (NullPointerException e) {
+          System.out.println(e.getMessage());
         }
+
+
+
       }
 
       if (openList.isEmpty()) {

@@ -68,6 +68,7 @@ public class MonsterSpawner {
     zombie.addThread(thread);
     thread.start();
     gp.addMonster(zombie);
+    zombie.run();
   }
 }
 
