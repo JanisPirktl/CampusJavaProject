@@ -81,7 +81,6 @@ public abstract class Monster extends Entity implements Runnable {
     int startCol = (getWorldX() + 24) / 48;
     int startRow = (getWorldY() + 24) / 48;
 
-    System.out.println(getSolidArea().x + getSolidArea().width/2);
 
 
 
