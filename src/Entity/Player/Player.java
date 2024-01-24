@@ -51,9 +51,9 @@ public class Player extends Entity {
 
   public void update() {
 
-    if (keyHandler.isTooglePressed() && toggle) {
+    if (keyHandler.isTogglePressed() && toggle) {
       toggle = false;
-    } else if (keyHandler.isTooglePressed() && !toggle) {
+    } else if (keyHandler.isTogglePressed() && !toggle) {
       toggle = true;
     }
 

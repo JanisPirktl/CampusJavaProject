@@ -5,7 +5,8 @@ public class EntityAttackHitbox {
   private int impactY;
   private final int range = 40;
   private final int rangeNormed =  (int) (range*range / Math.sqrt(range*range * 2.0));
-    private boolean impacted = false;
+  private boolean impacted = false;
+  private boolean hit = false;
 
 
   //checks if an Entity gets hit by an attack
@@ -60,10 +61,11 @@ public class EntityAttackHitbox {
       if (trueDistance <= 55) {
         target.damage(1);
         System.out.println("I hit");
+        hit = true;
       } else {
         System.out.println("I miss");
       }
-        impacted = true;
+
     }
 
   }
@@ -71,4 +73,6 @@ public class EntityAttackHitbox {
   public void setImpacted(boolean impacted) {
     this.impacted = impacted;
   }
+
 }
+

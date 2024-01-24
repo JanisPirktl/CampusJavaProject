@@ -53,6 +53,7 @@ public class MonsterBehaviour {
             entityAttackImage2.setAttackImage2(monster);
             draw.draw(monster, g2);
             entityAttackHitbox.entityAttackHitbox(monster, gamePanel.getPlayer());
+            entityAttackHitbox.setImpacted(true);
           } else {
             monster.setAttackingPlayer(false);
             entityAttackHitbox.setImpacted(false);

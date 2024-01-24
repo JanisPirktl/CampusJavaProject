@@ -45,6 +45,10 @@ public class PlayerBehaviour {
                 drawHeart.draw(player, g2);
                 for (Monster monster : gp.getMonsters()) {
                     playerAttackHitbox.entityAttackHitbox(player, monster);
+
+                    if (monster.equals(gp.getMonsters().get(gp.getMonsters().size() - 1))) {
+                        playerAttackHitbox.setImpacted(true);
+                    }
                 }
             } else {
                 player.setAttacking(false);
