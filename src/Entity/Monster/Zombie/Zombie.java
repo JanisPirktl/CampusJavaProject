@@ -5,6 +5,8 @@ import Main.GamePanel;
 import java.awt.Rectangle;
 
 
+//this is the basic Zombie class, it contains only a few variables because most of them are
+// in the Monster Class or even the Entity Class
 public class Zombie extends Monster {
 
 

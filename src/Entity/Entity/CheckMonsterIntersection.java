@@ -4,7 +4,7 @@ package Entity.Entity;
 import Entity.Monster.Monster;
 public class CheckMonsterIntersection {
 
-  //this Method is used for every kind of entity
+  //this Method is used for every kind of entity, it checks if the solid Areas of 2 entities intersect
   public boolean checkMonsterIntersection(Entity target) {
 
 
@@ -30,7 +30,7 @@ public class CheckMonsterIntersection {
 
 
 
-      //Returns true if the solid Areas from two Entitys would intersect
+      //Returns true if the solid Areas from two Entitys would intersect, according to given direction
       switch(target.getDirection()) {
         case "up":
           target.getSolidArea().y -= speed;
@@ -101,6 +101,7 @@ public class CheckMonsterIntersection {
           }
           break;
       }
+      //solid Area Values need to be reseted after collision calculations are done
       resetSolidAreaValues(target, monster);
     }
 
@@ -108,6 +109,7 @@ public class CheckMonsterIntersection {
     return false;
   }
 
+  //method to reset the solid area values to its original state
   private void resetSolidAreaValues(Entity target, Monster monster) {
     target.getSolidArea().x = target.getSolidAreaDefaultX();
     target.getSolidArea().y = target.getSolidAreaDefaultY();

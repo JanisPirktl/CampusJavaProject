@@ -19,7 +19,7 @@ public class Player extends Entity {
   private final CheckMonsterIntersection checkMonsterIntersection = new CheckMonsterIntersection();
   private final SpriteCounter spriteCounter = new SpriteCounter();
   private long currentTime;
-  private final Attack attack = new Attack();
+
 
   private boolean toggle = true;
 

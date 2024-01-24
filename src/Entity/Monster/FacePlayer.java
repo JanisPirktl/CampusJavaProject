@@ -2,6 +2,8 @@ package Entity.Monster;
 
 public class FacePlayer {
 
+  //used when a monster is close to the player, calculates its direction according to
+  // its own and the players world coordinates
   public void facePlayer(Monster monster) {
 
     int playerX = monster.getGamePanel().getPlayer().getWorldX();

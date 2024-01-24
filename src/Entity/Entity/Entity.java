@@ -6,6 +6,10 @@ import java.awt.image.BufferedImage;
 
 public abstract class Entity {
 
+  //this abstract class entity is parent for all monsters and also the player, it contains all the images,
+  //the coordinates, its variables and has over 150 getters and setters. Almost every Method like move() or draw()
+  //is designed for all kind of entities.
+
   private int worldX, worldY;
   private final int speed;
   private int tileCol;

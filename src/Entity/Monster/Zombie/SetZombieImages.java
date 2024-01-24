@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+//this class contains all the paths for all the images for zombies and sets the bufferedImages accordingly
 public class SetZombieImages {
 
   public void setZombieImages(Zombie zombie) {

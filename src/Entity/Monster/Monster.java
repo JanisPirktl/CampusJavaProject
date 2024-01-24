@@ -7,6 +7,12 @@ import Entity.Entity.SpriteCounter;
 import Main.GamePanel;
 import PathFinding.PathFinder;
 
+
+//abstract class Monster contains instances of all methods only used by Monsters and not the
+//Player like checkDistanceToPlayer() or facePlayer(). It also contains the run() Method, which
+//is executed 60 times per second. This run() Method contains the monster logic for some parts of
+//its behaviour. It also has the searchPath() Method to calculate the optimal path and make
+//the monster walk around obstacles
 public abstract class Monster extends Entity implements Runnable {
 
   private boolean attackingPlayer = false;
@@ -135,9 +141,7 @@ public abstract class Monster extends Entity implements Runnable {
     this.thread = thread;
   }
 
-  public Thread getThread() {
-    return thread;
-  }
+
 
   public boolean isAttackingPlayer() {
     return attackingPlayer;

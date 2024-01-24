@@ -6,6 +6,9 @@ import Entity.Monster.Zombie.Corpse;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+
+//this Class contains the monsters behaviour for attacking and being dead. it also calls the draw() method
+//for monsters if they are within the screen
 public class MonsterBehaviour {
 
   private final IsMonsterOnScreen isMonsterOnScreen = new IsMonsterOnScreen();

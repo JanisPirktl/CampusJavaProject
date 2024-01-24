@@ -3,7 +3,7 @@ package Entity.Entity;
 public class Move {
 
 
-  //all Entities use this method move
+  //all Entities use this method move, it calculates the entities new World Coordinates with its speed according to its direction
   public void move(Entity entity) {
 
       int speed = entity.getSpeed();
