@@ -1,32 +1,22 @@
 package Entity.Entity;
 
 public class EntityAttackHitbox {
-  private String direction;
-  private int impactX;
+    private int impactX;
   private int impactY;
-  private int range = 40;
-  private int rangeNormed =  (int) (range*range / Math.sqrt(range*range * 2.0));
-  private int attackerPosX;
-  private int attackerPosY;
-  private int targetPosX;
-  private int targetPosY;
-  private int distanceX;
-  private int distanceY;
-  private double trueDistance;
-  private boolean impacted = false;
+  private final int range = 40;
+  private final int rangeNormed =  (int) (range*range / Math.sqrt(range*range * 2.0));
+    private boolean impacted = false;
 
 
   //checks if an Entity gets hit by an attack
   public void entityAttackHitbox(Entity attacker, Entity target) {
 
-    direction = attacker.getDirection();
-    attackerPosX = attacker.getWorldX();
-    attackerPosY = attacker.getWorldY();
-    targetPosX = target.getWorldX();
-    targetPosY = target.getWorldY();
-    distanceX = Math.abs(targetPosX - attackerPosX);
-    distanceY = Math.abs(targetPosY - attackerPosY);
-    trueDistance = Math.sqrt(Math.pow(distanceX,2) + Math.pow(distanceY,2));
+      String direction = attacker.getDirection();
+      int attackerPosX = attacker.getWorldX() + attacker.getSolidArea().x;
+      int attackerPosY = attacker.getWorldY() + attacker.getSolidArea().y;
+      int targetPosX = target.getWorldX() + target.getSolidArea().x;
+      int targetPosY = target.getWorldY() + target.getSolidArea().y;
+
 
 
     switch (direction) {
@@ -63,6 +53,9 @@ public class EntityAttackHitbox {
         impactY = attackerPosY - rangeNormed;
         break;
     }
+      int distanceX = Math.abs(targetPosX - impactX);
+      int distanceY = Math.abs(targetPosY - impactY);
+      double trueDistance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
     if(!impacted) {
       if (trueDistance <= 55) {
         target.damage(1);
