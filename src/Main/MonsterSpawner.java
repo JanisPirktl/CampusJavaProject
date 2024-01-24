@@ -4,6 +4,10 @@ import Entity.Monster.Zombie.Zombie;
 import Entity.Player.Player;
 
 
+//This class spawns new Zombies. It calculates a random position on the map and checks if there is
+//space there for a zombie to spawn. If the calculated random position is free space and outside
+//the screen, it creates the zombie. Otherwise, it tries again with a different random position.
+
 public class MonsterSpawner {
 
   private final GamePanel gp;

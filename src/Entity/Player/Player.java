@@ -8,29 +8,21 @@ import java.awt.Rectangle;
 import Main.GamePanel;
 import Main.KeyHandler;
 
+//this is the player class with its constructor, and it contains the keyHandler. It has the players
+//update() method which is executed 60 times per second. This update() method sets the players direction
+//according to the pressed key / KeyBoard Inputs and updates the players boolean for attacking if
+//attack key is pressed
 public class Player extends Entity {
 
   private final GamePanel gamePanel;
   private final KeyHandler keyHandler;
-
-
   private final int screenX;
   private final int screenY;
   private final CheckMonsterIntersection checkMonsterIntersection = new CheckMonsterIntersection();
   private final SpriteCounter spriteCounter = new SpriteCounter();
   private long currentTime;
-
-
   private boolean toggle = true;
-
-
-
-
   private boolean isAttacking = false;
-
-
-
-
 
 
   public Player(GamePanel gamePanel, KeyHandler keyH) {
@@ -92,25 +84,15 @@ public class Player extends Entity {
       } else if (keyHandler.isDownPressed() && keyHandler.isRightPressed()) {
         setDirection("right_down");
       }
-
-
-
-
       setCollisionOn(false);
-
       //CHeck TILE COLLISION
       if (getCheckFacedTile().checkFacedTile(this)) {
         setCollisionOn(true);
       }
-
       //CHeck Monster COllision
       if (checkMonsterIntersection.checkMonsterIntersection(this)) {
         setCollisionOn(true);
       }
-
-
-
-
       //IF COLLISION IS FALSE, PLAYER CAN MOVE
       if(!isAttacking){
         move();
@@ -122,7 +104,7 @@ public class Player extends Entity {
       setCurrentTime(System.nanoTime());
       setCollisionOn(true);
       setAttacking(true);
-      //player.attack()
+
 
     }
   }

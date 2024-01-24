@@ -3,6 +3,8 @@ package Main;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+
+//this is the keyHandler class which listens to KeyBoard Inputs and sets key booleans according to KeyBoard Inputs
 public class KeyHandler implements KeyListener{
 
   private boolean upPressed, downPressed, leftPressed, rightPressed, spacePressed, tooglePressed;

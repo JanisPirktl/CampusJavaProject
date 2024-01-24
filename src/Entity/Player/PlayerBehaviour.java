@@ -7,6 +7,8 @@ import Main.GamePanel;
 import java.awt.Graphics2D;
 import Entity.Player.Player;
 
+//This class draws the player, calls the players update() method and checks if the player is still alive
+
 public class PlayerBehaviour {
   private final Draw draw = new Draw();
   private final DrawHeart drawHeart = new DrawHeart();
@@ -32,9 +34,6 @@ public class PlayerBehaviour {
             drawHeart.draw(player,g2);
             g2.dispose();
         }
-        //draw.draw(player, g2);
-        //drawHeart.draw(player, g2);
-        //g2.dispose();
         else {
             if (player.getCurrentTime() + 333333333 > System.nanoTime()) {
                 entityAttackImage1.setAttackImage1(player);

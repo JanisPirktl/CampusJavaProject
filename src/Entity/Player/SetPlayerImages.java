@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+
+//this class contains all the BufferedImagePaths and sets the Images accordingly
+
 public class SetPlayerImages {
 
   public void setPlayerImages(Player player) {

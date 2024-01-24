@@ -14,6 +14,10 @@ import javax.swing.JPanel;
 import Entity.Player.Player;
 import Tile.TileManager;
 
+
+//The GamePanel is basically the Screen Panel, it calls the paint Method for the screen. It contains
+//the player and all the monsters. It has a timer, which calls all the update() and run() functions
+//of all the entities 60 times per second.
 public class GamePanel extends JPanel implements Runnable {
 
   //Screen Settings

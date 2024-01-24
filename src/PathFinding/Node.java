@@ -1,5 +1,7 @@
 package PathFinding;
 
+
+//this class represents a tile used to calculate the optimal path to the player around any unpassable terrain
 public class Node {
 
   protected Node parent;
