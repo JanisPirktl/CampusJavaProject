@@ -1,22 +1,22 @@
 package Entity.Entity;
 
 public class EntityAttackHitbox {
-    private int impactX;
+  private int impactX;
   private int impactY;
   private final int range = 40;
   private final int rangeNormed =  (int) (range*range / Math.sqrt(range*range * 2.0));
   private boolean impacted = false;
-  private boolean hit = false;
+
 
 
   //checks if an Entity gets hit by an attack, returns true or false for Zombie Kill Counter
   public boolean entityAttackHitbox(Entity attacker, Entity target) {
 
       String direction = attacker.getDirection();
-      int attackerPosX = attacker.getWorldX() + attacker.getSolidArea().x;
-      int attackerPosY = attacker.getWorldY() + attacker.getSolidArea().y;
-      int targetPosX = target.getWorldX() + target.getSolidArea().x;
-      int targetPosY = target.getWorldY() + target.getSolidArea().y;
+      int attackerPosX = attacker.getWorldX() + attacker.getSolidArea().x + 9;
+      int attackerPosY = attacker.getWorldY() + attacker.getSolidArea().y + 16;
+      int targetPosX = target.getWorldX() + target.getSolidArea().x + 9;
+      int targetPosY = target.getWorldY() + target.getSolidArea().y + 16;
 
     //calculates point of impact based on direction
 

@@ -422,7 +422,7 @@ public abstract class Entity {
     this.solidArea = solidArea;
   }
 
-  public abstract void update();
+
 
   public abstract GamePanel getGamePanel();
   public void move(){

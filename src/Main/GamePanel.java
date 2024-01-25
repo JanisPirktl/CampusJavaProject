@@ -34,7 +34,7 @@ public class GamePanel extends JPanel implements Runnable {
   private final int maxWorldCol = 70;
   private final int maxWorldRow = 70;
   private final double fps = 60;
-  private int gameCounter = 0;
+
 
   private final TileManager tileM = new TileManager(this);
   private final KeyHandler keyHandler = new KeyHandler();
@@ -88,9 +88,6 @@ public class GamePanel extends JPanel implements Runnable {
         delta--;
       }
 
-      if (timer >= 500000000) {
-        gameCounter++;
-      }
 
       if (timer >= 1000000000) {
         spawnTimer++;
@@ -151,9 +148,7 @@ public class GamePanel extends JPanel implements Runnable {
     monsters.remove(monster);
   }
 
-public void addCorpse(Corpse corpse) {
-    corpses.add(corpse);
-}
+
 
   public ArrayList<Monster> getMonsters() {
     return monsters;

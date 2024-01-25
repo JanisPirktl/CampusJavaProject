@@ -7,7 +7,7 @@ public class IsMonsterOnScreen {
 
 
   //Monsters only get painted if they are within the Screen. Not drawing the Monsters if they are
-  // outside saves a lot of work and makes the programm smoother
+  // outside saves a lot of work and makes the program smoother
   public boolean isMonsterOnScreen (GamePanel gamePanel, Entity entity) {
 
     int tileSize = gamePanel.getTileSize();

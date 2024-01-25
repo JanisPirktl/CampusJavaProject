@@ -139,9 +139,7 @@ public abstract class Monster extends Entity implements Runnable {
     this.thread = thread;
   }
 
-  public Thread getThread() {
-    return thread;
-  }
+
 
   public boolean isAttackingPlayer() {
     return attackingPlayer;

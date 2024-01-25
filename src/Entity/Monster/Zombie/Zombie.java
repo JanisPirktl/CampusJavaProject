@@ -24,9 +24,7 @@ public class Zombie extends Monster {
     imageSetter.setZombieImages(this);
   }
 
-  public void update() {
-    //mach nix
-  }
+
 
 }
 

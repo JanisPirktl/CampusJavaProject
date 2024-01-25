@@ -104,8 +104,6 @@ public class Player extends Entity {
       setCurrentTime(System.nanoTime());
       setCollisionOn(true);
       setAttacking(true);
-
-
     }
   }
 

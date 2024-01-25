@@ -7,7 +7,7 @@ import java.awt.event.KeyListener;
 //this is the keyHandler class which listens to KeyBoard Inputs and sets key booleans according to KeyBoard Inputs
 public class KeyHandler implements KeyListener{
 
-  private boolean upPressed, downPressed, leftPressed, rightPressed, spacePressed, tooglePressed;
+  private boolean upPressed, downPressed, leftPressed, rightPressed, spacePressed, togglePressed;
 
   @Override
   public void keyTyped(KeyEvent e) { }
@@ -32,7 +32,7 @@ public class KeyHandler implements KeyListener{
       spacePressed = true;
     }
     if(code == KeyEvent.VK_T) {
-      tooglePressed = true;
+      togglePressed = true;
     }
   }
 
@@ -56,7 +56,7 @@ public class KeyHandler implements KeyListener{
       spacePressed = false;
     }
     if(code == KeyEvent.VK_T){
-      tooglePressed = false;
+      togglePressed = false;
     }
   }
 
@@ -78,5 +78,5 @@ public class KeyHandler implements KeyListener{
   public boolean isSpacePressed(){
     return spacePressed;
   }
-  public boolean isTooglePressed() { return tooglePressed;}
+  public boolean isTogglePressed() { return togglePressed;}
 }
